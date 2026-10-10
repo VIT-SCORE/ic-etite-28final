@@ -51,8 +51,20 @@ export default function TechNextNavbar() {
           ))}
         </div>
 
-        {/* Right: Mobile Hamburger */}
-        <div className="flex items-center gap-3">
+        {/* Right: ic-ETITE'28 Logo & Mobile Hamburger */}
+        <div className="flex items-center gap-3 sm:gap-4">
+          <Link href="/" title="Back to ic-ETITE'28 Home" className="flex items-center group hover:opacity-80 transition-opacity">
+            <div className="relative h-7 sm:h-8 w-24 sm:w-28">
+              <Image
+                src="/logos/ic-etite28-cropped-transparent.png"
+                alt="ic-ETITE'28 Logo"
+                fill
+                sizes="(max-width: 640px) 96px, 112px"
+                className="object-contain object-right"
+                priority
+              />
+            </div>
+          </Link>
 
           {/* Mobile menu trigger */}
           <button

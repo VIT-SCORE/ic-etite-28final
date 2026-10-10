@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import PhotoGridModal from "@/components/PhotoGridModal";
+import MarqueeGallery from "@/components/MarqueeGallery";
 import { technext24Photos } from "@/data/photos";
 import {
   ArrowLeft,
@@ -16,6 +16,7 @@ import {
   Building,
   Clock,
   Mail,
+  Camera,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -200,12 +201,21 @@ export default function TechNextPage() {
       {/* ── PHOTO ARCHIVE (LIGHT THEME, UNDERLINED TITLE, ZERO CAPTIONS) ── */}
       <section id="gallery" className="py-16 sm:py-20 bg-[#FAFBFD] border-b border-slate-200">
         <div className="container-x">
-          <PhotoGridModal
-            photos={technext24Photos}
-            title="TechNext '24 Highlights"
-            subtitle="Moments from the 2024 industrial expo and project showcase at VIT Vellore."
-            theme="light"
-          />
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold mb-2 uppercase tracking-wider bg-[#004B87]/10 border border-[#004B87]/20 text-[#004B87]">
+              <Camera className="w-3.5 h-3.5" />
+              <span>Official Photo Archive</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#002147] mb-3">
+              TechNext &apos;24 Highlights
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base">
+              Moments from the 2024 industrial expo and project showcase at VIT Vellore.
+            </p>
+          </div>
+          <div className="max-w-6xl mx-auto">
+            <MarqueeGallery photos={technext24Photos} speed={70} />
+          </div>
         </div>
       </section>
 

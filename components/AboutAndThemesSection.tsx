@@ -271,8 +271,8 @@ export default function AboutAndThemesSection() {
             <div className="p-2.5 bg-white border-2 border-slate-200 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
               <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
                 <Image
-                  src="/images/ieee-its-workshop.webp"
-                  alt="IEEE Information Theory Society Technical Symposium Session"
+                  src="/images/ieee-its-group.jpg"
+                  alt="IEEE Information Theory Society Team"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover object-center hover:scale-105 transition-transform duration-700"

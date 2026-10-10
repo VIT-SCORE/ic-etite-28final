@@ -92,20 +92,20 @@ export default function Hero() {
 
 
             {/* Main Heading: Exactly as on the video left side */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.4rem] font-bold leading-[1.12] tracking-tight text-white mb-5 drop-shadow-md">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.4rem] font-bold leading-[1.12] tracking-tight text-white mb-8 drop-shadow-md">
               Welcome to <span className="text-white">ic-ETITE&apos;28!</span>
             </h1>
 
             {/* Sub-heading: Full conference title exactly as reference */}
-            <p className="text-base sm:text-lg md:text-[1.2rem] text-white/95 leading-snug font-normal max-w-xl mb-4 drop-shadow">
+            <p className="text-base sm:text-lg md:text-[1.2rem] text-white/95 leading-snug font-normal max-w-xl mb-8 drop-shadow">
               The Third IEEE International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE&apos;28)
             </p>
-            <p className="text-xs sm:text-sm text-[#FFB81C] font-semibold mb-7">
+            <p className="text-xs sm:text-sm text-[#FFB81C] font-semibold mb-10">
               Organized by School of Computer Science Engineering &amp; Information Systems (SCORE) · VIT Vellore
             </p>
 
             {/* Dates & Location Line */}
-            <div className="flex items-center gap-2 text-white/90 text-sm sm:text-base font-medium mb-9">
+            <div className="flex items-center gap-2 text-white/90 text-sm sm:text-base font-medium mb-12">
               <Calendar className="w-4 h-4 text-[#F5A623] shrink-0" />
               <span>February 10–11, 2028 at Vellore Institute of Technology (VIT), Vellore, India</span>
             </div>

@@ -66,35 +66,22 @@ export default function Navbar() {
       hasDropdown: false,
     },
     {
-      label: "About",
-      href: "/about",
-      hasDropdown: false,
-    },
-    {
       label: "Committees",
       href: "/committees",
       hasDropdown: false,
     },
     {
-      label: "Call for Papers",
+      label: "Conference",
       href: "/call-for-papers",
       hasDropdown: true,
       alignRight: false,
       dropdownItems: [
-        { label: "Submission Guidelines", href: "/call-for-papers" },
+        { label: "Call for Papers (Guidelines)", href: "/call-for-papers" },
         { label: "Conference Research Tracks", href: "/tracks" },
         { label: "Submit on EasyChair", href: "/call-for-papers#submit" },
+        { label: "Important Dates", href: "/important-dates" },
+        { label: "Registration", href: "/registration" },
       ],
-    },
-    {
-      label: "Dates",
-      href: "/important-dates",
-      hasDropdown: false,
-    },
-    {
-      label: "Registration",
-      href: "/registration",
-      hasDropdown: false,
     },
     {
       label: "Visa",
@@ -113,6 +100,17 @@ export default function Navbar() {
         { label: "TechNext '28 Expo", href: "/technext" },
         { label: "Keynote Speakers", href: "/keynote-speakers" },
         { label: "Paper Presentation Tracks", href: "/tracks" },
+      ],
+    },
+    {
+      label: "ic-ETITE",
+      href: "/about",
+      hasDropdown: true,
+      alignRight: true,
+      dropdownItems: [
+        { label: "ic-ETITE'28", href: "/about" },
+        { label: "ic-ETITE'24", href: "/ic-ETITE24" },
+        { label: "ic-ETITE'20", href: "/ic-ETITE20" },
       ],
     },
     {
@@ -190,7 +188,7 @@ export default function Navbar() {
 
         {/* DESKTOP NAVIGATION ITEMS */}
         <div className="hidden xl:flex items-center flex-nowrap whitespace-nowrap min-w-0">
-          <ul className="flex items-center gap-0 xl:gap-0.5 2xl:gap-1 text-[12px] xl:text-[12.5px] 2xl:text-[14px] font-semibold text-white flex-nowrap whitespace-nowrap">
+          <ul className="flex items-center gap-0 xl:gap-1 2xl:gap-1.5 text-[15px] xl:text-[15px] 2xl:text-[16px] font-semibold text-white flex-nowrap whitespace-nowrap">
             {navItems.map((item) => {
               const active = isActive(item);
               const isOpen = activeDropdown === item.label;
@@ -208,7 +206,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={item.href}
-                    className={`relative inline-flex items-center gap-0.5 xl:gap-1 py-1.5 px-1.5 xl:px-2 2xl:px-2.5 rounded-full transition-all whitespace-nowrap ${
+                    className={`relative inline-flex items-center gap-0.5 xl:gap-1 py-2 px-2 xl:px-3 2xl:px-3.5 rounded-full transition-all whitespace-nowrap ${
                       active
                         ? "bg-white/25 text-[#FFB81C] font-bold border border-white/35 shadow-[0_2px_8px_rgba(0,0,0,0.2)]"
                         : "text-white/85 hover:text-white hover:bg-white/10"
@@ -242,7 +240,7 @@ export default function Navbar() {
                               href={subItem.href}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="flex items-center justify-between px-4 py-2.5 text-[13px] 2xl:text-sm text-white/90 hover:text-white hover:bg-white/10 transition-colors"
+                              className="flex items-center justify-between px-4 py-2.5 text-[14px] 2xl:text-[15px] text-white/90 hover:text-white hover:bg-white/10 transition-colors"
                             >
                               <span>{subItem.label}</span>
                               <ExternalLink className="w-3.5 h-3.5 text-[#FFB81C]" />
@@ -250,7 +248,7 @@ export default function Navbar() {
                           ) : (
                             <Link
                               href={subItem.href}
-                              className="block px-4 py-2.5 text-[13px] 2xl:text-sm text-white/90 hover:text-[#FFB81C] hover:bg-white/10 transition-colors"
+                              className="block px-4 py-2.5 text-[14px] 2xl:text-[15px] text-white/90 hover:text-[#FFB81C] hover:bg-white/10 transition-colors"
                             >
                               {subItem.label}
                             </Link>
@@ -431,7 +429,7 @@ export default function Navbar() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={() => setMobileOpen(false)}
-                                className="flex items-center justify-between py-2 px-3 rounded-lg text-xs font-medium text-white/80 hover:text-white hover:bg-white/10"
+                                className="flex items-center justify-between py-2 px-3 rounded-lg text-sm font-medium text-white/80 hover:text-white hover:bg-white/10"
                               >
                                 <span>{sub.label}</span>
                                 <ExternalLink className="w-3.5 h-3.5 text-[#FFB81C]" />
@@ -440,7 +438,7 @@ export default function Navbar() {
                               <Link
                                 href={sub.href}
                                 onClick={() => setMobileOpen(false)}
-                                className="block py-2 px-3 rounded-lg text-xs font-medium text-white/80 hover:text-[#FFB81C] hover:bg-white/10"
+                                className="block py-2 px-3 rounded-lg text-sm font-medium text-white/80 hover:text-[#FFB81C] hover:bg-white/10"
                               >
                                 • {sub.label}
                               </Link>

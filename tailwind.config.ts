@@ -125,6 +125,15 @@ const config: Config = {
         card: "0 10px 15px -3px rgba(16, 27, 46, 0.04), 0 4px 6px -4px rgba(16, 27, 46, 0.02)",
         hover: "0 14px 28px -4px rgba(16, 27, 46, 0.09)",
       },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+      },
+      animation: {
+        marquee: 'marquee 60s linear infinite',
+      },
     },
   },
   plugins: [],
