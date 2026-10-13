@@ -147,18 +147,18 @@ export default function Navbar() {
         aria-label="Conference Primary Navigation"
       >
         {/* LEFT: ic-ETITE '28 Logo & IEEE ITS Emblem */}
-        <div className="flex items-center gap-1.5 sm:gap-2 xl:gap-2 shrink-0">
+        <div className="flex items-center gap-2 sm:gap-2.5 xl:gap-2.5 shrink-0">
           <Link
             href="/"
             title="ic-ETITE'28 International Conference"
             className="flex items-center shrink-0 hover:opacity-90 transition-opacity"
           >
-            <div className="relative h-7 sm:h-8 w-24 sm:w-26 xl:w-26 2xl:w-32">
+            <div className="relative h-7.5 sm:h-8.5 xl:h-8.5 2xl:h-9 w-26 sm:w-28 xl:w-28 2xl:w-34">
               <Image
                 src="/logos/ic-etite28-cropped-transparent.png"
                 alt="ic-ETITE'28 Conference Logo"
                 fill
-                sizes="(max-width: 640px) 104px, 128px"
+                sizes="(max-width: 640px) 104px, 136px"
                 className="object-contain object-left drop-shadow-[0_1px_4px_rgba(0,0,0,0.35)]"
                 priority
               />
@@ -173,12 +173,12 @@ export default function Navbar() {
             title="IEEE Information Theory Society"
             className="flex items-center shrink-0 hover:opacity-90 transition-opacity"
           >
-            <div className="relative h-7 sm:h-7.5 xl:h-7.5 2xl:h-8 w-7 sm:w-7.5 xl:w-7.5 2xl:w-8 rounded-full overflow-hidden border border-white/20 shadow-xs bg-[#00142E]">
+            <div className="relative h-7.5 sm:h-8 xl:h-8 2xl:h-8.5 w-7.5 sm:w-8 xl:w-8 2xl:w-8.5 rounded-full overflow-hidden border border-white/20 shadow-xs bg-[#00142E]">
               <Image
                 src="/logos/ieee-its-circle-logo.png"
                 alt="IEEE Information Theory Society Emblem"
                 fill
-                sizes="(max-width: 640px) 28px, 32px"
+                sizes="(max-width: 640px) 30px, 34px"
                 className="object-contain rounded-full"
                 priority
               />
@@ -187,8 +187,8 @@ export default function Navbar() {
         </div>
 
         {/* DESKTOP NAVIGATION ITEMS */}
-        <div className="hidden xl:flex items-center justify-center flex-1 min-w-0 mx-1 xl:mx-1.5 2xl:mx-2">
-          <ul className="flex items-center gap-0 xl:gap-0.5 2xl:gap-1 text-[13px] xl:text-[13px] 2xl:text-[14.5px] font-semibold text-white flex-nowrap whitespace-nowrap">
+        <div className="hidden xl:flex items-center justify-center flex-1 min-w-0 mx-2 xl:mx-3 2xl:mx-4">
+          <ul className="flex items-center gap-0.5 xl:gap-1 2xl:gap-2 text-[13.5px] xl:text-[14px] 2xl:text-[15px] font-semibold text-white flex-nowrap whitespace-nowrap">
             {navItems.map((item) => {
               const active = isActive(item);
               const isOpen = activeDropdown === item.label;
@@ -206,7 +206,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={item.href}
-                    className={`relative inline-flex items-center gap-0.5 py-1 px-1.5 xl:px-1.5 2xl:px-2.5 rounded-full transition-all whitespace-nowrap shrink-0 ${
+                    className={`relative inline-flex items-center gap-0.5 xl:gap-1 py-1.5 px-2 xl:px-2.5 2xl:px-3 rounded-full transition-all whitespace-nowrap shrink-0 ${
                       active
                         ? "bg-white/25 text-[#FFB81C] font-bold border border-white/35 shadow-[0_2px_8px_rgba(0,0,0,0.2)]"
                         : "text-white/90 hover:text-white hover:bg-white/10"
@@ -215,7 +215,7 @@ export default function Navbar() {
                     <span>{item.label}</span>
                     {item.hasDropdown && (
                       <ChevronDown
-                        className={`w-3 h-3 2xl:w-3.5 2xl:h-3.5 shrink-0 transition-transform duration-200 opacity-80 ${
+                        className={`w-3.5 h-3.5 shrink-0 transition-transform duration-200 opacity-80 ${
                           isOpen ? "rotate-180" : ""
                         }`}
                       />
@@ -264,19 +264,19 @@ export default function Navbar() {
         </div>
 
         {/* RIGHT: TechNext '28 & BOLT 3.0 Tags (Desktop Only) + Official VIT Logo */}
-        <div className="flex items-center gap-1 xl:gap-1.5 2xl:gap-2.5 shrink-0 ml-1.5 xl:ml-3 2xl:ml-4">
+        <div className="flex items-center gap-1.5 xl:gap-2 2xl:gap-3 shrink-0 ml-1.5 xl:ml-2.5 2xl:ml-4">
           {/* TechNext '28 Tag (Desktop) */}
           <Link
             href="/technext"
-            className="hidden xl:flex items-center justify-center h-7 xl:h-7 2xl:h-8 w-18 xl:w-20 2xl:w-24 rounded-full bg-white/10 hover:bg-white/20 border border-[#84E320]/70 shadow-[0_0_12px_rgba(132,227,32,0.25)] transition-all hover:scale-105 shrink-0"
+            className="hidden xl:flex items-center justify-center h-8 xl:h-8 2xl:h-8.5 w-24 xl:w-26 2xl:w-28 rounded-full bg-white/10 hover:bg-white/20 border border-[#84E320]/80 shadow-[0_0_12px_rgba(132,227,32,0.28)] transition-all hover:scale-105 shrink-0"
             title="TechNext '28 National Industrial Expo"
           >
-            <div className="relative h-2.5 xl:h-2.5 2xl:h-3 w-13 xl:w-14 2xl:w-17">
+            <div className="relative h-3.5 xl:h-3.5 2xl:h-4 w-18 xl:w-20 2xl:w-22">
               <Image
                 src="/logos/technext-logo.png"
                 alt="TechNext '28"
                 fill
-                sizes="80px"
+                sizes="100px"
                 className="object-contain"
               />
             </div>
@@ -285,11 +285,11 @@ export default function Navbar() {
           {/* BOLT 3.0 Hackathon Tag (Desktop) */}
           <Link
             href="/hackathon"
-            className="hidden xl:flex items-center justify-center gap-1 2xl:gap-1.5 h-7 xl:h-7 2xl:h-8 w-20 xl:w-22 2xl:w-26 rounded-full bg-[#00142E] hover:bg-[#00244D] border border-[#CCFF00] shadow-[0_0_12px_rgba(204,255,0,0.25)] transition-all hover:scale-105 shrink-0"
+            className="hidden xl:flex items-center justify-center gap-1.5 h-8 xl:h-8 2xl:h-8.5 px-3 xl:px-3.5 2xl:px-4 rounded-full bg-[#00142E] hover:bg-[#00244D] border border-[#CCFF00] shadow-[0_0_12px_rgba(204,255,0,0.28)] transition-all hover:scale-105 shrink-0"
             title="Register for BOLT 3.0 National Flagship Hackathon"
           >
-            <Zap className="w-3 h-3 2xl:w-3.5 2xl:h-3.5 text-[#CCFF00] fill-[#CCFF00] animate-pulse shrink-0" />
-            <span className="text-[10px] xl:text-[10px] 2xl:text-[11px] font-black tracking-wide text-[#CCFF00] whitespace-nowrap">
+            <Zap className="w-3.5 h-3.5 2xl:w-4 2xl:h-4 text-[#CCFF00] fill-[#CCFF00] animate-pulse shrink-0" />
+            <span className="text-[11px] xl:text-[11.5px] 2xl:text-[12px] font-black tracking-wide text-[#CCFF00] whitespace-nowrap">
               BOLT 3.0
             </span>
           </Link>
@@ -300,12 +300,12 @@ export default function Navbar() {
             title="Vellore Institute of Technology"
             className="flex items-center shrink-0 hover:opacity-95 transition-opacity"
           >
-            <div className="relative h-7 sm:h-8 xl:h-7.5 2xl:h-9 w-20 sm:w-22 xl:w-24 2xl:w-34">
+            <div className="relative h-7.5 sm:h-8 xl:h-8 2xl:h-9 w-22 sm:w-24 xl:w-26 2xl:w-34">
               <Image
                 src="/logos/vit-header-logo.webp"
                 alt="VIT Vellore Institute of Technology"
                 fill
-                sizes="(max-width: 640px) 80px, 136px"
+                sizes="(max-width: 640px) 88px, 140px"
                 className="object-contain object-right"
                 priority
               />
