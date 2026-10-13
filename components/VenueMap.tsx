@@ -1,6 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import { conferenceData } from "@/data/conference";
-import { Navigation, Plane, Train, Hotel, ExternalLink } from "lucide-react";
+import { Navigation, Plane, Train, Hotel, ExternalLink, ArrowRight } from "lucide-react";
 
 export default function VenueMap() {
   const { venue } = conferenceData;
@@ -105,6 +106,15 @@ export default function VenueMap() {
                 Limited on-campus university guest house accommodation is reserved for keynote speakers and session chairs.
                 Partnered hotels in Vellore city (Fortune Park, Benzz Park) are within 5–10 minutes of campus.
               </p>
+            </div>
+            <div className="pt-4 mt-4 border-t border-slate-100">
+              <Link
+                href="/hotels"
+                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#004B87] hover:text-[#002147] hover:underline"
+              >
+                <span>View Recommended Hotels &amp; Tariffs</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </div>

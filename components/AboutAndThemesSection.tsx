@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { ExternalLink, Award, Cpu, Globe2 } from "lucide-react";
+import Link from "next/link";
+import { ExternalLink, Award, Cpu, Globe2, ArrowRight } from "lucide-react";
 
 export default function AboutAndThemesSection() {
   return (
@@ -20,7 +21,7 @@ export default function AboutAndThemesSection() {
               About ic-ETITE’28
             </h2>
             <p className="text-[14.5px] sm:text-[15.5px] leading-[1.85] text-slate-700 font-normal">
-              The Third IEEE International Conference on Emerging Trends in Information Technology and
+              The Third International Conference on Emerging Trends in Information Technology and
               Engineering (ic-ETITE’28) will be held at the <strong>Vellore Institute of
               Technology (VIT), Vellore, India, on 10–11 February 2028</strong>.
             </p>
@@ -38,6 +39,16 @@ export default function AboutAndThemesSection() {
               is committed to promoting research excellence and facilitating the dissemination of knowledge
               that contributes to the advancement of science, technology, and education.
             </p>
+
+            <div className="pt-2">
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#002147] text-white text-sm font-semibold hover:bg-[#003366] transition-colors shadow-sm hover:shadow group"
+              >
+                <span>Read More About Conference</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
           </div>
 
           {/* Image Column: Framed Photo that Fills the Height */}
@@ -80,7 +91,7 @@ export default function AboutAndThemesSection() {
           {/* Text Column (Right on Desktop) */}
           <div className="lg:col-span-6 space-y-4 text-left order-1 lg:order-2 flex flex-col justify-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#E05A00] font-serif">
-              The theme of the Conference
+              Theme of the Conference
             </h2>
             <p className="text-[14.5px] sm:text-[15.5px] leading-[1.85] text-slate-700 font-normal">
               ic-ETITE’28 emphasizes the importance of advancing research and innovation in Information
@@ -146,8 +157,8 @@ export default function AboutAndThemesSection() {
             <div className="p-2.5 bg-white border-2 border-slate-200 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
               <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
                 <Image
-                  src="/images/frame_15.webp"
-                  alt="VIT Vellore Landmark Campus"
+                  src="/images/vit-sjt.png"
+                  alt="VIT Vellore Silver Jubilee Tower (SJT)"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover object-center hover:scale-105 transition-transform duration-700"
@@ -239,7 +250,7 @@ export default function AboutAndThemesSection() {
               About IEEE Information Theory Society, VIT
             </h2>
             <p className="text-[14.5px] sm:text-[15.5px] leading-[1.85] text-slate-700 font-normal">
-              The <strong>IEEE Information Theory Society at VIT</strong> is a vibrant student chapter dedicated to
+              The <strong>IEEE Information Theory Society at VIT</strong> is a student chapter dedicated to
               exploring the latest advancements in information theory and applying them to address
               contemporary technological challenges. The chapter provides a nurturing platform for students
               to foster innovative ideas, develop technical expertise, and engage in meaningful research and

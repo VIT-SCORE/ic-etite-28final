@@ -206,9 +206,9 @@ export default function CommitteesPage() {
 
   // Student Committee Members
   const studentLeads: TextMember[] = [
-    { name: "Likhith Medarametla", affiliation: "Lead Architect & Full Stack Lead, IEEE ITS Chapter, SCORE, VIT Vellore" },
-    { name: "Judson Daniel", affiliation: "Lead Architect & Full Stack Lead, IEEE ITS Chapter, SCORE, VIT Vellore" },
-    { name: "M.V.J.M Jaya Veera Maheshwar", affiliation: "Full Stack Developer, IEEE ITS Chapter, SCORE, VIT Vellore" },
+    { name: "Likhith Medarametla", affiliation: "SCORE, VIT Vellore" },
+    { name: "Judson Daniel", affiliation: "SCORE, VIT Vellore" },
+    { name: "M.J.V.Maheswara Reddy", affiliation: "SCORE, VIT Vellore" },
   ];
 
   // Split international advisory array into two balanced columns

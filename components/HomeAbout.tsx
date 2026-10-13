@@ -14,7 +14,7 @@ export default function HomeAbout() {
               ic-ETITE&apos;28 — Emerging Trends in IT &amp; Engineering
             </h2>
             <p className="text-gray-600 text-base leading-relaxed mb-4">
-              The Third IEEE International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE&apos;28) is organized by the <strong>School of Computer Science Engineering and Information Systems (SCORE)</strong>, Vellore Institute of Technology, Vellore.
+              The Third International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE&apos;28) is organized by the <strong>School of Computer Science Engineering and Information Systems (SCORE)</strong>, Vellore Institute of Technology, Vellore.
             </p>
             <p className="text-gray-600 text-base leading-relaxed mb-6">
               The conference provides an international platform for researchers, academicians, engineers, industrialists, and students to share findings in Science and Technology. All accepted papers will be published in <strong>IEEE Xplore</strong>.

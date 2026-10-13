@@ -54,7 +54,7 @@ export default function CFPSection() {
             </p>
 
             <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
-              The Third IEEE International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE’28) will be held at Vellore Institute of Technology (VIT), Vellore, India, on 10–11 February 2028. All submitted papers will go through a plagiarism check process.
+              The Third International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE’28) will be held at Vellore Institute of Technology (VIT), Vellore, India, on 10–11 February 2028. All submitted papers will go through a plagiarism check process.
             </p>
 
             <div className="mt-4 p-6 sm:p-7 rounded-2xl bg-[#FAFBFD] border-2 border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 shadow-sm">
@@ -63,7 +63,7 @@ export default function CFPSection() {
                   Official Submission Portal
                 </span>
                 <p className="text-xl font-bold text-[#002147] mt-1">
-                  EasyChair Conference System
+                  Microsoft Conference Management Toolkit (CMT)
                 </p>
               </div>
 
@@ -71,7 +71,7 @@ export default function CFPSection() {
                 href="/call-for-papers#submit"
                 className="bg-[#004B87] hover:bg-[#003366] text-white rounded-full text-sm sm:text-base py-3 px-6 inline-flex items-center gap-2 shrink-0 font-bold shadow-md cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98]"
               >
-                <span>Submit on EasyChair</span>
+                <span>Submit on CMT</span>
                 <span className="text-base font-bold">→</span>
               </Link>
             </div>
@@ -134,7 +134,7 @@ export default function CFPSection() {
               <div className="p-4 rounded-xl bg-amber-50/80 border border-amber-200 flex items-start gap-3 text-amber-950">
                 <AlertTriangle className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
                 <span>
-                  <strong>No Email Submission:</strong> Email submission will not be accepted. The papers should be submitted through EasyChair: <Link href="/call-for-papers#submit" className="font-semibold underline text-[#002147]">EasyChair Submission Portal</Link>.
+                  <strong>No Email Submission:</strong> Email submission will not be accepted. The papers should be submitted through Microsoft (CMT): <Link href="/call-for-papers#submit" className="font-semibold underline text-[#002147]">Microsoft (CMT) Submission Portal</Link>.
                 </span>
               </div>
             </div>

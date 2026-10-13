@@ -1,7 +1,110 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import MarqueeGallery from "@/components/MarqueeGallery";
-import { icetite20DrivePhotos } from "@/data/photos";
+import Image from "next/image";
+import GallerySlideshow, { GalleryItem } from "@/components/GallerySlideshow";
+
+const icetite20GalleryItems: GalleryItem[] = [
+  {
+    id: "stage-2020",
+    image: "/images/gallery/icetite20_stage_inaugural.webp",
+    title: "Main Dais & Inaugural Ceremony",
+    edition: "ic-ETITE'20 Inaugural Edition",
+    location: "Anna Auditorium Main Stage, VIT Vellore",
+    caption:
+      "Hon'ble Chancellor Dr. G. Viswanathan, Chief Guest, Guests of Honour, and university leadership presiding over the solemn inauguration of ic-ETITE'20 on the Anna Auditorium dais.",
+    category: "2020",
+  },
+  {
+    id: "plenary-audience-2020",
+    image: "/images/gallery/icetite20_plenary_audience.webp",
+    title: "Grand Plenary Audience & Delegates",
+    edition: "ic-ETITE'20 Plenary Hall",
+    location: "Anna Auditorium, VIT Vellore",
+    caption:
+      "A packed auditorium of international delegates, academic leaders, research scholars, and students participating in the inaugural proceedings with official ic-ETITE credentials.",
+    category: "2020",
+  },
+  {
+    id: "tree-barsky-2020",
+    image: "/images/gallery/icetite20_tree_plantation_barsky.webp",
+    title: "Tree Plantation - Prof. Brian A. Barsky (UC Berkeley)",
+    edition: "Green Campus Tradition · ic-ETITE'20",
+    location: "Auditorium Lawns, VIT Vellore",
+    caption:
+      "Prof. Brian A. Barsky, renowned Professor of Computer Science at University of California, Berkeley (USA), planting a memorial sapling alongside Hon'ble Chancellor Dr. G. Viswanathan.",
+    category: "2020",
+  },
+  {
+    id: "tree-abraham-2020",
+    image: "/images/gallery/icetite20_tree_plantation_abraham.webp",
+    title: "Tree Plantation - Dr. Ajith Abraham (MIR Labs, USA)",
+    edition: "Green Campus Tradition · ic-ETITE'20",
+    location: "Auditorium Lawns, VIT Vellore",
+    caption:
+      "Dr. Ajith Abraham, Director of Machine Intelligence Research Labs (MIR Labs, USA), planting a commemorative tree with Chancellor Dr. G. Viswanathan and university executives.",
+    category: "2020",
+  },
+  {
+    id: "tree-halonen-2020",
+    image: "/images/gallery/icetite20_tree_plantation_halonen.webp",
+    title: "Tree Plantation - Dr. Raija Halonen (Univ. of Oulu)",
+    edition: "Green Campus Tradition · ic-ETITE'20",
+    location: "Auditorium Lawns, VIT Vellore",
+    caption:
+      "Dr. Raija Halonen, distinguished professor from University of Oulu, Finland, planting a commemorative tree during the opening day ceremonies of ic-ETITE'20.",
+    category: "2020",
+  },
+  {
+    id: "traditional-welcome-2020",
+    image: "/images/gallery/icetite20_traditional_welcome.webp",
+    title: "Traditional Welcome of International Dignitaries",
+    edition: "Ceremonial Reception · ic-ETITE'20",
+    location: "Anna Auditorium Entrance Foyer",
+    caption:
+      "Traditional Indian ceremonial welcome accorded to international keynote speakers and guests of honour upon their arrival at Anna Auditorium.",
+    category: "2020",
+  },
+  {
+    id: "delegation-portrait-2020",
+    image: "/images/gallery/icetite20_delegation_portrait.webp",
+    title: "Chancellor & International Keynote Delegation",
+    edition: "Leadership Delegation · ic-ETITE'20",
+    location: "Chancellor's Secretariat, VIT Vellore",
+    caption:
+      "Official delegation portrait featuring Hon'ble Chancellor Dr. G. Viswanathan, university leadership, and distinguished keynote speakers from UC Berkeley, MIR Labs, and international universities.",
+    category: "2020",
+  },
+  {
+    id: "chancellor-conclave-2020",
+    image: "/images/gallery/icetite20_chancellor_conclave.webp",
+    title: "Pre-Conference Leadership Conclave",
+    edition: "Executive Conclave · ic-ETITE'20",
+    location: "Chancellor's Reception Lounge",
+    caption:
+      "Strategic academic dialogue and welcome interaction between Hon'ble Chancellor Dr. G. Viswanathan, vice presidents, and international guests prior to the conference inauguration.",
+    category: "2020",
+  },
+  {
+    id: "keynote-audience-2020",
+    image: "/images/gallery/icetite20_keynote_audience.webp",
+    title: "Technical Keynote Plenary Session",
+    edition: "Technical Sessions · ic-ETITE'20",
+    location: "Anna Auditorium Hall",
+    caption:
+      "Scholars, faculty researchers, and student innovators absorbed in an advanced technical keynote session during the two-day international conference.",
+    category: "2020",
+  },
+  {
+    id: "leadership-discussion-2020",
+    image: "/images/gallery/icetite20_leadership_discussion.webp",
+    title: "Executive & International Speaker Dialogue",
+    edition: "Bilateral Dialogue · ic-ETITE'20",
+    location: "VIP Executive Lounge",
+    caption:
+      "High-level bilateral exchange between VIT executive leadership, IEEE representatives, and international delegates on collaborative computing research.",
+    category: "2020",
+  },
+];
 import {
   ArrowLeft,
   ExternalLink,
@@ -10,8 +113,6 @@ import {
   CheckCircle2,
   BookOpen,
   Award,
-  Building2,
-  Cpu,
   Layers,
 } from "lucide-react";
 
@@ -56,10 +157,23 @@ const highlights = [
 ];
 
 const sponsors20 = [
-  { label: "Technical Co-Sponsor", name: "IEEE Madras Section" },
-  { label: "Title Sponsor", name: "Cisco" },
-  { label: "Technology Partner & Co-Title Sponsor", name: "Intel" },
-  { label: "Supported By", name: "ACM • IEEE ITS • IEEE CS Madras • IIC • Rox • Solaris • Yellow.ai" },
+  {
+    label: "TECHNICAL CO-SPONSOR",
+    name: "IEEE Communications Society Madras Chapter",
+    logo: "/logos/ieee-comsoc-madras-pure.png",
+    alt: "IEEE Communications Society Madras Chapter",
+  },
+  {
+    label: "TECHNICAL CO-SPONSOR",
+    name: "IEEE Computer Society Madras Chapter",
+    logo: "/logos/ieee-cs-madras-pure.png",
+    alt: "IEEE Computer Society Madras Chapter",
+  },
+];
+
+const supportedOrganizations20 = [
+  "Association for Computing Machinery (ACM)",
+  "IEEE Industry Applications Society (IAS)",
 ];
 
 export default function Icetite20Page() {
@@ -68,8 +182,23 @@ export default function Icetite20Page() {
 
       {/* ── HERO ── */}
       <section className="relative min-h-[70vh] flex items-end overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1a0033] via-[#2d0066] to-[#5B2D8E]" />
-        <div className="absolute inset-0 opacity-10"
+        {/* Background Image with Rich Violet/Navy Overlay */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/gallery/icetite20_conclave_wide.jpg"
+            alt="ic-ETITE'20 Inaugural Conclave with Hon'ble Chancellor Dr. G. Viswanathan and International Guests"
+            fill
+            sizes="100vw"
+            priority
+            className="object-cover object-center opacity-75"
+          />
+          {/* Directional gradient: darker on left to protect text readability, clear on right to showcase photo */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#140026]/90 via-[#1f003d]/45 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#140026] via-transparent to-black/25" />
+        </div>
+
+        {/* Decorative grid */}
+        <div className="absolute inset-0 opacity-5 z-[1] pointer-events-none"
           style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
 
         <div className="relative z-10 w-full px-6 sm:px-12 lg:px-20 pb-16 pt-28">
@@ -175,20 +304,22 @@ export default function Icetite20Page() {
         </div>
       </section>
 
-      {/* ── PHOTO MARQUEE ── */}
-      <section className="py-16 sm:py-20 bg-[#F7F9FC] border-b border-slate-200">
-        <div className="text-center mb-8 px-6">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#5B2D8E] bg-purple-50 px-3 py-1.5 rounded-full border border-purple-200 inline-block mb-4">
-            Official Photo Archive
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-[#002147] mb-2">
-            ic-ETITE&apos;20 Gallery
-          </h2>
-          <p className="text-slate-500 text-base max-w-xl mx-auto">
-            Archival photographs from the inaugural edition — inaugurations, keynotes, sessions &amp; more.
-          </p>
+      {/* ── PHOTO GALLERY SLIDESHOW ── */}
+      <section className="py-16 sm:py-24 px-4 sm:px-8 lg:px-12 bg-[#F7F9FC] border-b border-slate-200">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10 px-6">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#5B2D8E] bg-purple-50 px-3 py-1.5 rounded-full border border-purple-200 inline-block mb-4">
+              Official Photo Archive
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black text-[#002147] mb-2">
+              ic-ETITE&apos;20 Gallery
+            </h2>
+            <p className="text-slate-500 text-base max-w-xl mx-auto">
+              Archival photographs from the inaugural edition — inaugurations, keynotes, sessions &amp; more.
+            </p>
+          </div>
+          <GallerySlideshow items={icetite20GalleryItems} showCategoryFilter={false} />
         </div>
-        <MarqueeGallery photos={icetite20DrivePhotos} speed={65} />
       </section>
 
       {/* ── SPONSORS ── */}
@@ -200,41 +331,93 @@ export default function Icetite20Page() {
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-[#002147]">Sponsors & Support</h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {sponsors20.map(({ label, name }) => (
-              <div key={label} className="bg-[#F7F9FC] border border-slate-200 rounded-2xl p-6">
-                <div className="text-xs font-bold uppercase tracking-widest text-[#5B2D8E] mb-2">{label}</div>
-                <div className="text-[#002147] font-semibold text-base">{name}</div>
+          {/* 1. Main Technical Co-Sponsors Row in a single row */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            {sponsors20.map((sponsor) => (
+              <div
+                key={sponsor.name}
+                className="bg-[#F7F9FC] border border-slate-200 rounded-2xl p-6 sm:p-7 flex flex-col justify-between items-center text-center shadow-xs hover:border-[#5B2D8E]/40 transition-colors min-h-[220px]"
+              >
+                <div className="text-xs font-bold uppercase tracking-wider text-[#5B2D8E] mb-2">
+                  {sponsor.label}
+                </div>
+
+                <div className="my-auto py-3 flex items-center justify-center w-full min-h-[80px]">
+                  <div className="relative w-full max-w-[240px] h-16 flex items-center justify-center bg-white rounded-xl p-2 border border-slate-200/60 shadow-xs">
+                    <Image
+                      src={sponsor.logo}
+                      alt={sponsor.alt}
+                      width={220}
+                      height={60}
+                      className="max-h-14 w-auto object-contain"
+                    />
+                  </div>
+                </div>
+
+                <div className="text-[#002147] font-semibold text-sm sm:text-base mt-2">
+                  {sponsor.name}
+                </div>
               </div>
             ))}
           </div>
+
+          {/* 2. Supported By Section: Dedicated showcase with official logos */}
+          <div className="bg-[#F7F9FC] border border-slate-200 rounded-2xl p-6 sm:p-10 shadow-xs hover:border-[#5B2D8E]/40 transition-colors">
+            <div className="text-center mb-6">
+              <div className="text-xs font-bold uppercase tracking-wider text-[#5B2D8E] mb-1.5">
+                SUPPORTED BY
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-[#002147]">
+                Technical Societies &amp; Collaborators
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+              <div className="bg-white rounded-xl border border-slate-200/80 p-6 flex flex-col items-center justify-center text-center shadow-xs hover:border-[#5B2D8E]/30 transition-colors">
+                <div className="relative w-full max-w-[160px] h-20 flex items-center justify-center mb-3">
+                  <Image
+                    src="/logos/acm-pure.png"
+                    alt="ACM - Association for Computing Machinery"
+                    width={150}
+                    height={75}
+                    className="max-h-16 w-auto object-contain"
+                  />
+                </div>
+                <span className="text-[#002147] font-bold text-sm">
+                  Association for Computing Machinery (ACM)
+                </span>
+              </div>
+
+              <div className="bg-white rounded-xl border border-slate-200/80 p-6 flex flex-col items-center justify-center text-center shadow-xs hover:border-[#5B2D8E]/30 transition-colors">
+                <div className="relative w-full max-w-[200px] h-20 flex items-center justify-center mb-3">
+                  <Image
+                    src="/logos/ieee-ias-pure.png"
+                    alt="IEEE Industry Applications Society (IAS)"
+                    width={190}
+                    height={75}
+                    className="max-h-16 w-auto object-contain"
+                  />
+                </div>
+                <span className="text-[#002147] font-bold text-sm">
+                  IEEE Industry Applications Society (IAS)
+                </span>
+              </div>
+            </div>
+
+            {/* Tags of supporting organizations */}
+            <div className="flex flex-wrap items-center justify-center gap-2.5 mt-6 max-w-xl mx-auto">
+              {supportedOrganizations20.map((org) => (
+                <span
+                  key={org}
+                  className="px-3.5 py-1 rounded-full bg-white border border-slate-200 text-[#002147] font-semibold text-xs tracking-tight shadow-xs"
+                >
+                  {org}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
-
-      {/* ── ABOUT VIT & SCORE ── */}
-      <section className="py-16 sm:py-20 px-6 sm:px-12 lg:px-20 bg-[#1a0033] text-white">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Building2 className="w-5 h-5 text-[#FFD700]" />
-              <h3 className="text-xl font-bold text-[#FFD700]">About VIT</h3>
-            </div>
-            <p className="text-white/70 text-sm leading-relaxed">
-              Vellore Institute of Technology was established in 1984 and granted University status in 2001. Ranked among the top 601–700 Universities worldwide (Shanghai ARWU 2022), the 8th best University in India (NIRF 2023), and holds NAAC A++ accreditation (3.66/4). The university has a cosmopolitan atmosphere with students from all corners of the globe.
-            </p>
-          </div>
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Cpu className="w-5 h-5 text-[#FFD700]" />
-              <h3 className="text-xl font-bold text-[#FFD700]">About SCORE (Formerly SITE)</h3>
-            </div>
-            <p className="text-white/70 text-sm leading-relaxed">
-              The School of Computer Science Engineering and Information Systems (SCORE) offers B.Tech (IT), M.Tech (Software Engineering), MCA, BCA and Ph.D programs. With 5,900+ students and 188 faculty members, it has state-of-the-art infrastructure and a strong track record of international conferences and research collaboration.
-            </p>
-          </div>
-        </div>
-      </section>
-
     </div>
   );
 }

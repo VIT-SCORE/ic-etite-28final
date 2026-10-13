@@ -26,7 +26,7 @@ export default function TeamPage() {
           <div className="space-y-8 sm:space-y-10">
             <section className="space-y-2">
               <h2 className="text-xl sm:text-2xl font-bold text-[#004B87] tracking-tight">
-                Faculty Advisor
+                Faculty Advisors
               </h2>
               <div className="space-y-2 pt-1">
                 {facultyMembers.map((member) => (
@@ -35,7 +35,7 @@ export default function TeamPage() {
                     className="text-[15px] sm:text-[15.5px] leading-relaxed text-[#222]"
                   >
                     <span className="font-bold text-black">{member.name}</span>
-                    {`, ${member.role}`}
+                    {member.role ? `, ${member.role}` : ""}
                     {member.title ? `, ${member.title}` : ""}
                     {member.affiliation ? `, ${member.affiliation}` : ""}
                   </div>
@@ -57,7 +57,7 @@ export default function TeamPage() {
                     className="text-[15px] sm:text-[15.5px] leading-relaxed text-[#222]"
                   >
                     <span className="font-bold text-black">{member.name}</span>
-                    {`, ${member.role}`}
+                    {member.role ? `, ${member.role}` : ""}
                     {member.affiliation ? `, ${member.affiliation}` : ""}
                   </div>
                 ))}

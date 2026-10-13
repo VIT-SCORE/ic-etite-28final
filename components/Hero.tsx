@@ -98,7 +98,7 @@ export default function Hero() {
 
             {/* Sub-heading: Full conference title exactly as reference */}
             <p className="text-base sm:text-lg md:text-[1.2rem] text-white/95 leading-snug font-normal max-w-xl mb-8 drop-shadow">
-              The Third IEEE International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE&apos;28)
+              The Third International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE&apos;28)
             </p>
             <p className="text-xs sm:text-sm text-[#FFB81C] font-semibold mb-10">
               Organized by School of Computer Science Engineering &amp; Information Systems (SCORE) · VIT Vellore
@@ -234,7 +234,7 @@ export default function Hero() {
               </div>
               <h2 className="text-2xl font-bold tracking-tight">ic-ETITE&apos;28 Conference Brochure</h2>
               <p className="text-xs text-white/80 mt-1">
-                The Third IEEE International Conference on Emerging Trends in Information Technology and
+                The Third International Conference on Emerging Trends in Information Technology and
                 Engineering
               </p>
             </div>
@@ -265,7 +265,7 @@ export default function Hero() {
               <div className="space-y-2">
                 <h3 className="text-sm font-bold text-[#002147]">About the Conference</h3>
                 <p className="text-xs leading-relaxed text-[#4A5568]">
-                  The Third IEEE International Conference on Emerging Trends in Information Technology and
+                  The Third International Conference on Emerging Trends in Information Technology and
                   Engineering (ic-ETITE’28) will be held at Vellore Institute of Technology (VIT), Vellore,
                   India, on 10–11 February 2028.
                 </p>
@@ -299,7 +299,7 @@ export default function Hero() {
               <div className="p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-between">
                 <div>
                   <p className="text-xs font-bold text-[#002147]">Full Paper Submission Deadline</p>
-                  <p className="text-xs text-[#4A5568]">05 October 2027 via EasyChair</p>
+                  <p className="text-xs text-[#4A5568]">05 October 2027 via Microsoft (CMT)</p>
                 </div>
                 <span className="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold">
                   Open for Submissions

@@ -1,8 +1,100 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import MarqueeGallery from "@/components/MarqueeGallery";
-import { icetite24Photos } from "@/data/photos";
+import GallerySlideshow, { GalleryItem } from "@/components/GallerySlideshow";
+
+const icetite24GalleryItems: GalleryItem[] = [
+  {
+    id: "conclave-wide-2024",
+    image: "/images/gallery/icetite24_conclave_wide.jpg",
+    title: "ic-ETITE'24 Leadership & International Dignitaries Conclave",
+    edition: "ic-ETITE'24 Second Edition",
+    location: "Chancellor's Reception Lounge, VIT Vellore",
+    caption:
+      "Hon'ble Chancellor Dr. G. Viswanathan with Chief Guest Dr. Zvi Galil, academic leadership, and organizing chairs during the executive conclave.",
+    category: "2024",
+  },
+  {
+    id: "inauguration-2024",
+    image: "/images/gallery/icetite24_inauguration.webp",
+    title: "ic-ETITE'24 Grand Inaugural Ceremony",
+    edition: "ic-ETITE'24 Second Edition",
+    location: "Anna Auditorium, VIT Vellore",
+    caption:
+      "Official inaugural stage at Anna Auditorium, VIT Vellore with Chancellor Dr. G. Viswanathan and global keynote guests.",
+    category: "2024",
+  },
+  {
+    id: "dignitaries-2024",
+    image: "/images/gallery/icetite24_dignitaries.webp",
+    title: "Dignitaries on Stage & Proceedings Release",
+    edition: "ic-ETITE'24 Second Edition",
+    location: "Anna Auditorium Main Stage, VIT Vellore",
+    caption:
+      "Formal unveiling of the ic-ETITE'24 IEEE Xplore proceedings volume and conference schedule.",
+    category: "2024",
+  },
+  {
+    id: "proceedings-release-2024",
+    image: "/images/004A3218.webp",
+    title: "Anna Auditorium Main Plenary Session",
+    edition: "ic-ETITE'24 Second Edition",
+    location: "Anna Auditorium, VIT Vellore",
+    caption:
+      "Distinguished scholars and attendees gathered during the opening plenary track.",
+    category: "2024",
+  },
+  {
+    id: "delegates-audience-2024",
+    image: "/images/ic-etite24.webp",
+    title: "ic-ETITE'24 Delegates & Paper Presenters",
+    edition: "ic-ETITE'24 Second Edition",
+    location: "Anna Auditorium, VIT Vellore",
+    caption:
+      "Paper presentation sessions attended by 1,088+ participants from 19 countries.",
+    category: "2024",
+  },
+  {
+    id: "keynote-2024",
+    image: "/images/gallery/icetite24_keynote.webp",
+    title: "Global Keynote Address",
+    edition: "ic-ETITE'24 Second Edition",
+    location: "Anna Auditorium, VIT Vellore",
+    caption:
+      "Keynote presentation by international scientist on frontier trends in information technology and computer engineering.",
+    category: "2024",
+  },
+  {
+    id: "discussions-2024",
+    image: "/images/004A3344.webp",
+    title: "Conference Plenary Discussions",
+    edition: "ic-ETITE'24 Second Edition",
+    location: "VIT Vellore Campus",
+    caption:
+      "Engaging discussions during the technical session at VIT Vellore campus.",
+    category: "2024",
+  },
+  {
+    id: "its-workshop-2024",
+    image: "/images/ieee-its-workshop.webp",
+    title: "IEEE ITS Chapter Workshop & Colloquium",
+    edition: "ic-ETITE'24 Second Edition",
+    location: "SCORE, VIT Vellore",
+    caption:
+      "Hands-on symposium track organized with IEEE Information Theory Society Student Chapter.",
+    category: "2024",
+  },
+  {
+    id: "banner-stage-2024",
+    image: "/images/ic-etite24-preview.webp",
+    title: "ic-ETITE'24 Official Banner Stage",
+    edition: "ic-ETITE'24 Second Edition",
+    location: "SCORE, VIT Vellore",
+    caption:
+      "Second edition milestone celebration at School of Computer Science Engineering and Information Systems (SCORE).",
+    category: "2024",
+  },
+];
 import {
   ArrowLeft,
   ExternalLink,
@@ -61,10 +153,36 @@ const highlights = [
 ];
 
 const sponsors = [
-  { label: "Technical Co-Sponsor", name: "IEEE Madras Section" },
-  { label: "Title Sponsor", name: "Cisco" },
-  { label: "Technology Partner & Co-Title Sponsor", name: "Intel" },
-  { label: "Supported By", name: "ACM • IEEE ITS • IEEE CS • Yellow.ai • Java Capital • Seed VC Innovation" },
+  {
+    label: "TECHNICAL CO-SPONSOR",
+    name: "IEEE Madras Section",
+    logo: "/logos/ieee-madras-section.svg",
+    alt: "IEEE Madras Section",
+  },
+  {
+    label: "TITLE SPONSOR",
+    name: "Cisco",
+    logo: "/logos/cisco.svg",
+    alt: "Cisco",
+  },
+  {
+    label: "TECHNOLOGY PARTNER & CO-TITLE SPONSOR",
+    name: "Intel",
+    logo: "/logos/intel.svg",
+    alt: "Intel",
+  },
+];
+
+const supportedOrganizations = [
+  "ACM",
+  "IEEE Information Theory Society",
+  "IEEE Computer Society Madras Chapter",
+  "IEEE Communications Society Madras Chapter",
+  "Institution's Innovation Council",
+  "ROX",
+  "Solaris",
+  "Eaglewings",
+  "Yellow.ai",
 ];
 
 export default function Icetite24Page() {
@@ -73,9 +191,23 @@ export default function Icetite24Page() {
 
       {/* ── HERO ── */}
       <section className="relative min-h-[70vh] flex items-end overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#001a3d] via-[#002d6b] to-[#004B87]" />
+        {/* Background Image with Dark Navy Gradient Overlay */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/gallery/icetite24_conclave_wide.jpg"
+            alt="ic-ETITE'24 Inaugural Conclave with Hon'ble Chancellor Dr. G. Viswanathan and International Guests"
+            fill
+            sizes="100vw"
+            priority
+            className="object-cover object-center opacity-75"
+          />
+          {/* Directional gradient: darker on left to protect text, clear on right to showcase photo */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#00142E]/90 via-[#00142E]/45 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#00142E] via-transparent to-black/25" />
+        </div>
+
         {/* Decorative grid */}
-        <div className="absolute inset-0 opacity-10"
+        <div className="absolute inset-0 opacity-5 z-[1] pointer-events-none"
           style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
 
         <div className="relative z-10 w-full px-6 sm:px-12 lg:px-20 pb-16 pt-28">
@@ -104,7 +236,7 @@ export default function Icetite24Page() {
           </p>
 
           <a
-            href="https://ieeexplore.ieee.org/xpl/conhome/10457991/proceeding"
+            href="https://ieeexplore.ieee.org/xpl/conhome/10493200/proceeding"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#CCFF00] text-[#001a3d] font-bold px-6 py-3 rounded-xl hover:bg-white transition-colors text-sm"
@@ -184,20 +316,22 @@ export default function Icetite24Page() {
         </div>
       </section>
 
-      {/* ── PHOTO MARQUEE ── */}
-      <section className="py-16 sm:py-20 bg-[#F7F9FC] border-b border-slate-200">
-        <div className="text-center mb-8 px-6">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#004B87] bg-[#EBF3F8] px-3 py-1.5 rounded-full border border-[#004B87]/20 inline-block mb-4">
-            Official Photo Archive
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-[#002147] mb-2">
-            ic-ETITE&apos;24 Highlights
-          </h2>
-          <p className="text-slate-500 text-base max-w-xl mx-auto">
-            Moments from the second edition — keynotes, inaugurations, sessions &amp; awards.
-          </p>
+      {/* ── PHOTO GALLERY SLIDESHOW ── */}
+      <section className="py-16 sm:py-24 px-4 sm:px-8 lg:px-12 bg-[#F7F9FC] border-b border-slate-200">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10 px-6">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#004B87] bg-[#EBF3F8] px-3 py-1.5 rounded-full border border-[#004B87]/20 inline-block mb-4">
+              Official Photo Archive
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black text-[#002147] mb-2">
+              ic-ETITE&apos;24 Highlights
+            </h2>
+            <p className="text-slate-500 text-base max-w-xl mx-auto">
+              Moments from the second edition — keynotes, inaugurations, sessions &amp; awards.
+            </p>
+          </div>
+          <GallerySlideshow items={icetite24GalleryItems} showCategoryFilter={false} />
         </div>
-        <MarqueeGallery photos={icetite24Photos} speed={70} />
       </section>
 
       {/* ── SPONSORS ── */}
@@ -209,13 +343,70 @@ export default function Icetite24Page() {
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-[#002147]">Sponsors & Support</h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {sponsors.map(({ label, name }) => (
-              <div key={label} className="bg-[#F7F9FC] border border-slate-200 rounded-2xl p-6">
-                <div className="text-xs font-bold uppercase tracking-widest text-[#004B87] mb-2">{label}</div>
-                <div className="text-[#002147] font-semibold text-base">{name}</div>
+          {/* 1. Main Sponsors Row: 3 columns in a single row */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {sponsors.map((sponsor) => (
+              <div
+                key={sponsor.label}
+                className="bg-[#F7F9FC] border border-slate-200 rounded-2xl p-6 sm:p-7 flex flex-col justify-between items-center text-center shadow-xs hover:border-[#004B87]/40 transition-colors min-h-[220px]"
+              >
+                <div className="text-xs font-bold uppercase tracking-wider text-[#004B87] mb-2">
+                  {sponsor.label}
+                </div>
+
+                <div className="my-auto py-3 flex items-center justify-center w-full min-h-[80px]">
+                  <div className="relative w-full max-w-[200px] h-16 flex items-center justify-center">
+                    <Image
+                      src={sponsor.logo}
+                      alt={sponsor.alt || sponsor.name}
+                      width={200}
+                      height={64}
+                      className="max-h-16 w-auto object-contain"
+                    />
+                  </div>
+                </div>
+
+                <div className="text-[#002147] font-semibold text-sm sm:text-base mt-2">
+                  {sponsor.name}
+                </div>
               </div>
             ))}
+          </div>
+
+          {/* 2. Supported By Section: Dedicated showcase with official logos */}
+          <div className="bg-[#F7F9FC] border border-slate-200 rounded-2xl p-6 sm:p-10 shadow-xs hover:border-[#004B87]/40 transition-colors">
+            <div className="text-center mb-6">
+              <div className="text-xs font-bold uppercase tracking-wider text-[#004B87] mb-1.5">
+                SUPPORTED BY
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-[#002147]">
+                Technical Societies &amp; Corporate Collaborators
+              </h3>
+            </div>
+
+            <div className="bg-white rounded-xl border border-slate-200/80 p-6 sm:p-8 flex items-center justify-center shadow-xs">
+              <div className="relative w-full max-w-4xl aspect-[1024/397]">
+                <Image
+                  src="/logos/icetite24-supported-by-logos.png"
+                  alt="Organizations and companies that supported ic-ETITE'24"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 900px"
+                  className="object-contain"
+                />
+              </div>
+            </div>
+
+            {/* List of supporting entities */}
+            <div className="flex flex-wrap items-center justify-center gap-2 mt-6 max-w-4xl mx-auto">
+              {supportedOrganizations.map((org) => (
+                <span
+                  key={org}
+                  className="px-3 py-1 rounded-full bg-white border border-slate-200 text-[#002147] font-semibold text-xs tracking-tight shadow-xs"
+                >
+                  {org}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>

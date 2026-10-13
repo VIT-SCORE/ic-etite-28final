@@ -14,7 +14,7 @@ export const importantDatesData: ImportantDate[] = [
     title: "Full Paper Submission",
     date: "05 October 2027",
     isoDate: "2027-10-05",
-    description: "Deadline for electronic submission of complete, original research manuscripts via EasyChair.",
+    description: "Deadline for electronic submission of complete, original research manuscripts via Microsoft (CMT).",
     status: "upcoming",
     isKeyMilestone: true,
   },

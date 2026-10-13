@@ -157,7 +157,15 @@ export const galleryItems: GalleryItem[] = [
   },
 ];
 
-export default function GallerySlideshow() {
+export interface GallerySlideshowProps {
+  items?: GalleryItem[];
+  showCategoryFilter?: boolean;
+}
+
+export default function GallerySlideshow({
+  items,
+  showCategoryFilter = true,
+}: GallerySlideshowProps = {}) {
   const [activeCategory, setActiveCategory] = useState<"all" | "2020" | "2024">("all");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -165,27 +173,30 @@ export default function GallerySlideshow() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const filteredItems =
-    activeCategory === "all"
-      ? galleryItems
-      : galleryItems.filter((item) => item.category === activeCategory);
+  const filteredItems = items
+    ? items
+    : activeCategory === "all"
+    ? galleryItems
+    : galleryItems.filter((item) => item.category === activeCategory);
 
   // Keep index within bounds when filter changes
   useEffect(() => {
     setCurrentIndex(0);
-  }, [activeCategory]);
+  }, [activeCategory, items]);
 
   const nextSlide = useCallback(() => {
+    if (!filteredItems.length) return;
     setCurrentIndex((prev) => (prev + 1) % filteredItems.length);
   }, [filteredItems.length]);
 
   const prevSlide = useCallback(() => {
+    if (!filteredItems.length) return;
     setCurrentIndex((prev) => (prev - 1 + filteredItems.length) % filteredItems.length);
   }, [filteredItems.length]);
 
   // Autoplay ticker
   useEffect(() => {
-    if (isPlaying && !isHovered) {
+    if (isPlaying && !isHovered && filteredItems.length > 1) {
       timerRef.current = setInterval(() => {
         nextSlide();
       }, 5000);
@@ -193,45 +204,49 @@ export default function GallerySlideshow() {
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [isPlaying, isHovered, nextSlide]);
+  }, [isPlaying, isHovered, nextSlide, filteredItems.length]);
 
   const activeItem = filteredItems[currentIndex] || filteredItems[0];
+
+  if (!activeItem) return null;
 
   return (
     <div className="w-full">
       {/* Category Filter Pills */}
-      <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
-        <button
-          onClick={() => setActiveCategory("all")}
-          className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
-            activeCategory === "all"
-              ? "bg-[#002147] text-white shadow-sm"
-              : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
-          }`}
-        >
-          All Moments ({galleryItems.length})
-        </button>
-        <button
-          onClick={() => setActiveCategory("2020")}
-          className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
-            activeCategory === "2020"
-              ? "bg-[#004B87] text-white shadow-sm"
-              : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
-          }`}
-        >
-          ic-ETITE&apos;20 Inaugural (10)
-        </button>
-        <button
-          onClick={() => setActiveCategory("2024")}
-          className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
-            activeCategory === "2024"
-              ? "bg-[#DE6D1B] text-white shadow-sm"
-              : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
-          }`}
-        >
-          ic-ETITE&apos;24 Conclave (3)
-        </button>
-      </div>
+      {showCategoryFilter && !items && (
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
+          <button
+            onClick={() => setActiveCategory("all")}
+            className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
+              activeCategory === "all"
+                ? "bg-[#002147] text-white shadow-sm"
+                : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
+            }`}
+          >
+            All Moments ({galleryItems.length})
+          </button>
+          <button
+            onClick={() => setActiveCategory("2020")}
+            className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
+              activeCategory === "2020"
+                ? "bg-[#004B87] text-white shadow-sm"
+                : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
+            }`}
+          >
+            ic-ETITE&apos;20 Inaugural (10)
+          </button>
+          <button
+            onClick={() => setActiveCategory("2024")}
+            className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
+              activeCategory === "2024"
+                ? "bg-[#DE6D1B] text-white shadow-sm"
+                : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
+            }`}
+          >
+            ic-ETITE&apos;24 Conclave (3)
+          </button>
+        </div>
+      )}
 
       {/* Main Slideshow Player Card */}
       <div

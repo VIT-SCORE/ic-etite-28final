@@ -53,9 +53,9 @@ export default function HomePastEditions() {
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                 />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-4 text-white">
-                  <p className="text-xs sm:text-sm font-semibold">ic-ETITE’24 Grand Inauguration Conclave</p>
-                  <p className="text-[11px] text-white/80">Anna Auditorium, VIT Vellore · International Delegates</p>
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4 text-white z-10">
+                  <p className="text-xs sm:text-sm font-semibold !text-white text-white drop-shadow-md">ic-ETITE’24 Grand Inauguration Conclave</p>
+                  <p className="text-[11px] !text-white/90 text-white/90 drop-shadow">Anna Auditorium, VIT Vellore · International Delegates</p>
                 </div>
               </div>
 
@@ -145,9 +145,9 @@ export default function HomePastEditions() {
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                 />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-4 text-white">
-                  <p className="text-xs sm:text-sm font-semibold">ic-ETITE’20 Main Dais &amp; Solemn Inauguration</p>
-                  <p className="text-[11px] text-white/80">Presided over by Chancellor Dr. G. Viswanathan &amp; Keynote Dignitaries</p>
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4 text-white z-10">
+                  <p className="text-xs sm:text-sm font-semibold !text-white text-white drop-shadow-md">ic-ETITE’20 Main Dais &amp; Solemn Inauguration</p>
+                  <p className="text-[11px] !text-white/90 text-white/90 drop-shadow">Presided over by Chancellor Dr. G. Viswanathan &amp; Keynote Dignitaries</p>
                 </div>
               </div>
 

@@ -7,7 +7,7 @@ import { FileCheck, ShieldCheck, CheckCircle2, ExternalLink } from "lucide-react
 export const metadata: Metadata = {
   title: "Call for Papers & Author Guidelines | ic-ETITE'28",
   description:
-    "Author instructions, manuscript templates, IEEE publication rules, plagiarism criteria, and EasyChair submission link for ic-ETITE'28.",
+    "Author instructions, manuscript templates, IEEE publication rules, plagiarism criteria, and Microsoft (CMT) submission link for ic-ETITE'28.",
 };
 
 import PageHeader from "@/components/PageHeader";
@@ -86,7 +86,7 @@ export default function CallForPapersPage() {
           {/* Badge */}
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/90 text-xs font-bold tracking-widest uppercase">
             <span className="w-2 h-2 rounded-full bg-[#F5A623] animate-pulse" />
-            Submissions Open — EasyChair Portal
+            Submissions Open — Microsoft (CMT) Portal
           </span>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight">
@@ -94,7 +94,7 @@ export default function CallForPapersPage() {
           </h2>
 
           <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-2xl font-normal">
-            You have reviewed all the guidelines above. Click below to proceed to the official EasyChair submission portal for ic-ETITE&apos;28. Ensure your manuscript follows IEEE two-column formatting before uploading.
+            You have reviewed all the guidelines above. Click below to proceed to the official Microsoft (CMT) submission portal for ic-ETITE&apos;28. Ensure your manuscript follows IEEE two-column formatting before uploading.
           </p>
 
           {/* Checklist reminder */}
@@ -105,7 +105,7 @@ export default function CallForPapersPage() {
               "No embedded links / headers / footers",
               "No scanned images",
               "Original & unpublished work",
-              "No email submissions accepted (EasyChair only)",
+              "No email submissions accepted (Microsoft (CMT) only)",
             ].map((item) => (
               <li key={item} className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-[#F5A623] shrink-0" />
@@ -114,14 +114,14 @@ export default function CallForPapersPage() {
             ))}
           </ul>
 
-          {/* THE external EasyChair button */}
+          {/* THE external Microsoft CMT button */}
           <a
-            href="https://easychair.org/conferences/?conf=icetite28"
+            href="https://cmt3.research.microsoft.com/About"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-4 inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-[#004B87] hover:bg-[#003366] text-white font-bold text-base sm:text-lg shadow-xl shadow-black/30 transition-all hover:scale-105 active:scale-95 border border-white/20"
           >
-            <span>Submit Your Paper on EasyChair</span>
+            <span>Submit on CMT</span>
             <ExternalLink className="w-5 h-5" />
           </a>
         </div>

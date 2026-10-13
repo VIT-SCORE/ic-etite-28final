@@ -117,7 +117,7 @@ export default function AboutPage() {
       <PageHeader
         badge="Vellore Institute of Technology · SCORE"
         title="About ic-ETITE'28"
-        subtitle="The Third IEEE International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE’28) will be held at VIT Vellore, India, on 10–11 February 2028."
+        subtitle="The Third International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE’28) will be held at VIT Vellore, India, on 10–11 February 2028."
         breadcrumb="About Conference"
         bgImage="/images/frame_15.webp"
       />
@@ -277,11 +277,11 @@ export default function AboutPage() {
 
               <div className="pt-6 mt-6 border-t border-slate-200 flex flex-col sm:flex-row gap-3">
                 <Link
-                  href="/about/icetite24"
+                  href="/ic-ETITE24"
                   className="bg-[#002147] hover:bg-[#003366] text-white font-bold text-xs flex-1 py-3 px-4 rounded-xl inline-flex items-center justify-center gap-2 transition-all hover:scale-[1.01] active:scale-[0.99] shadow-sm"
                 >
-                  <Camera className="w-4 h-4 text-[#72EFDD]" />
-                  <span>View ic-ETITE’24 Photos</span>
+                  <span>Explore ic-ETITE&apos;24</span>
+                  <ChevronRight className="w-4 h-4 text-[#FFB81C]" />
                 </Link>
                 <a
                   href="https://ieeexplore.ieee.org/xpl/conhome/10493200/proceeding"
@@ -347,11 +347,11 @@ export default function AboutPage() {
 
               <div className="pt-6 mt-6 border-t border-slate-200 flex flex-col sm:flex-row gap-3">
                 <Link
-                  href="/about/icetite20"
+                  href="/ic-ETITE20"
                   className="bg-[#002147] hover:bg-[#003366] text-white font-bold text-xs flex-1 py-3 px-4 rounded-xl inline-flex items-center justify-center gap-2 transition-all hover:scale-[1.01] active:scale-[0.99] shadow-sm"
                 >
-                  <Camera className="w-4 h-4 text-[#72EFDD]" />
-                  <span>View ic-ETITE’20 Photos</span>
+                  <span>Explore ic-ETITE&apos;20</span>
+                  <ChevronRight className="w-4 h-4 text-[#FFB81C]" />
                 </Link>
                 <a
                   href="https://ieeexplore.ieee.org/xpl/conhome/9070069/proceeding"
@@ -584,7 +584,7 @@ export default function AboutPage() {
               About IEEE Information Theory Society, VIT
             </h2>
             <p className="text-base leading-relaxed text-slate-700">
-              The IEEE Information Theory Society at VIT is a vibrant student chapter dedicated to exploring the latest advancements in information theory and applying them to address contemporary technological challenges.
+              The IEEE Information Theory Society at VIT is a student chapter dedicated to exploring the latest advancements in information theory and applying them to address contemporary technological challenges.
             </p>
             <p className="text-sm sm:text-base leading-relaxed text-slate-600">
               The chapter provides a nurturing platform for students to foster innovative ideas, develop technical expertise, and engage in meaningful research and projects. Through technical events, workshops, seminars, and collaborative initiatives, the chapter promotes knowledge sharing and practical learning while connecting students with partners and collaborators from academia and industry. By encouraging curiosity, creativity, and continuous learning, the IEEE Information Theory Society at VIT strives to empower students to develop innovative solutions, address emerging challenges, and contribute meaningfully to the advancement of information and communication technologies.
@@ -593,10 +593,10 @@ export default function AboutPage() {
 
           <div className="md:col-span-6 flex flex-col justify-center">
             <div className="p-2.5 bg-white border-2 border-slate-200 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-              <div className="relative w-full aspect-[3/2] rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
+              <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
                 <Image
-                  src="/images/ieee-its-workshop.webp"
-                  alt="IEEE Information Theory Society Workshop at VIT"
+                  src="/images/ieee-its-group.jpg"
+                  alt="IEEE Information Theory Society Team at VIT"
                   fill
                   loading="lazy"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -604,7 +604,7 @@ export default function AboutPage() {
                 />
               </div>
               <div className="p-3 bg-slate-50 border-t border-slate-200 text-xs sm:text-sm text-slate-600 font-medium rounded-b-xl mt-2.5">
-                IEEE Information Theory Society student researchers and faculty symposium at VIT Vellore
+                IEEE Information Theory Society Student Chapter team and faculty at VIT Vellore
               </div>
             </div>
           </div>

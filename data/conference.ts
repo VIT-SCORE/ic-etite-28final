@@ -136,7 +136,7 @@ export interface ConferenceInfo {
 export const conferenceData: ConferenceInfo = {
   name: "IEEE International Conference on Emerging Trends in Information Technology and Engineering",
   shortName: "ic-ETITE’28",
-  edition: "The Third IEEE International Conference on Emerging Trends in Information Technology and Engineering",
+  edition: "The Third International Conference on Emerging Trends in Information Technology and Engineering",
   editionNumber: 3,
   year: 2028,
   dates: "10–11 February 2028",
@@ -205,9 +205,9 @@ export const conferenceData: ConferenceInfo = {
   },
   aboutConference: {
     summary:
-      "The Third IEEE International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE’28) will be held at the Vellore Institute of Technology (VIT), Vellore, India, on 10–11 February 2028.",
+      "The Third International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE’28) will be held at the Vellore Institute of Technology (VIT), Vellore, India, on 10–11 February 2028.",
     paragraphs: [
-      "The Third IEEE International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE’28) will be held at the Vellore Institute of Technology (VIT), Vellore, India, on 10–11 February 2028.",
+      "The Third International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE’28) will be held at the Vellore Institute of Technology (VIT), Vellore, India, on 10–11 February 2028.",
       "The conference aims to provide an international platform for researchers, academicians, engineers, industry professionals, and students to present and exchange innovative research in Information Technology, Computer Engineering, Communication Engineering, Electronics Engineering, and related emerging areas. ic-ETITE’28 seeks to foster knowledge sharing, interdisciplinary collaboration, industry–academia interaction, and future research partnerships among participants from around the world.",
       "Original and unpublished research papers addressing emerging challenges, innovative technologies, and recent developments are invited from researchers worldwide. The conference is committed to promoting research excellence and facilitating the dissemination of knowledge that contributes to the advancement of science, technology, and education.",
     ],
@@ -260,13 +260,13 @@ export const conferenceData: ConferenceInfo = {
     },
   },
   submission: {
-    platform: "EasyChair",
-    url: "https://easychair.org/conferences/?conf=icetite28",
+    platform: "Microsoft (CMT)",
+    url: "https://cmt3.research.microsoft.com/About",
     emailSubmissionAccepted: false,
     plagiarismCheck: true,
     scopusNote: "Extended version of selected papers will be recommended for publication in Scopus indexed journals with impact factor.",
     rules: [
-      "The papers should be submitted through EasyChair (https://easychair.org/conferences/?conf=icetite28).",
+      "The papers should be submitted through Microsoft (CMT) (https://cmt3.research.microsoft.com/About).",
       "All submitted papers will go through a plagiarism check process.",
       "The manuscript should not contain embedded links, scanned images, header and footer.",
       "Email submission will not be accepted.",
@@ -328,7 +328,7 @@ export const conferenceData: ConferenceInfo = {
   ieeeItsInfo: {
     name: "IEEE Information Theory Society, VIT",
     description:
-      "The IEEE Information Theory Society at VIT is a vibrant student chapter dedicated to exploring the latest advancements in information theory and applying them to address contemporary technological challenges. The chapter provides a nurturing platform for students to foster innovative ideas, develop technical expertise, and engage in meaningful research and projects. Through technical events, workshops, seminars, and collaborative initiatives, the chapter promotes knowledge sharing and practical learning while connecting students with partners and collaborators from academia and industry. By encouraging curiosity, creativity, and continuous learning, the IEEE Information Theory Society at VIT strives to empower students to develop innovative solutions, address emerging challenges, and contribute meaningfully to the advancement of information and communication technologies.",
+      "The IEEE Information Theory Society at VIT is a student chapter dedicated to exploring the latest advancements in information theory and applying them to address contemporary technological challenges. The chapter provides a nurturing platform for students to foster innovative ideas, develop technical expertise, and engage in meaningful research and projects. Through technical events, workshops, seminars, and collaborative initiatives, the chapter promotes knowledge sharing and practical learning while connecting students with partners and collaborators from academia and industry. By encouraging curiosity, creativity, and continuous learning, the IEEE Information Theory Society at VIT strives to empower students to develop innovative solutions, address emerging challenges, and contribute meaningfully to the advancement of information and communication technologies.",
     mission:
       "By encouraging curiosity, creativity, and continuous learning, the IEEE Information Theory Society at VIT strives to empower students to develop innovative solutions, address emerging challenges, and contribute meaningfully to the advancement of information and communication technologies.",
     pillars: [

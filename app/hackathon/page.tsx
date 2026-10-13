@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import PhotoGridModal from "@/components/PhotoGridModal";
+import BoltFloatingReturn from "@/components/BoltFloatingReturn";
 import { bolt20Photos } from "@/data/photos";
 import {
   Zap,
@@ -345,6 +346,9 @@ export default function HackathonPage() {
           </div>
         </div>
       </section>
+
+      {/* Floating Overlay Button to Return to Home on Scroll */}
+      <BoltFloatingReturn />
     </div>
   );
 }

@@ -127,7 +127,7 @@ export default function LegacyTimeline() {
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-3.5 h-3.5 text-[#137547] shrink-0" />
-                  <span>EasyChair Submissions Active</span>
+                  <span>Microsoft (CMT) Submissions Active</span>
                 </li>
               </ul>
               <div className="mt-4 pt-3 border-t border-[#f0ede7] flex items-center justify-between">

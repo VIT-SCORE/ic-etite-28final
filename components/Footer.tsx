@@ -51,7 +51,7 @@ export default function Footer() {
             </h3>
 
             <p className="text-xs sm:text-sm text-white/80 leading-relaxed font-normal">
-              The Third IEEE International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE’28).
+              The Third International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE’28).
               Organized by the{" "}
               <a
                 href="https://vit.ac.in/schools/school-of-computer-science-engineering-and-information-systems"
@@ -128,7 +128,12 @@ export default function Footer() {
               </li>
               <li>
                 <Link className="hover:text-white transition-colors block" href="/venue">
-                  Venue &amp; Travel
+                  Conference Venue
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-white transition-colors block" href="/hotels">
+                  Hotels &amp; Accommodation
                 </Link>
               </li>
               <li>
@@ -175,7 +180,7 @@ export default function Footer() {
                   href="/call-for-papers#submit"
                   className="hover:text-white transition-colors block"
                 >
-                  Paper Submission Portal (EasyChair)
+                  Paper Submission Portal (Microsoft CMT)
                 </Link>
               </li>
               <li>

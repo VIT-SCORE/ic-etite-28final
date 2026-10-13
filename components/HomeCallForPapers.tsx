@@ -36,7 +36,7 @@ export default function HomeCallForPapers() {
                 href="/call-for-papers#submit"
                 className="btn-primary inline-flex items-center gap-2"
               >
-                <span>Submit on EasyChair</span>
+                <span>Submit on CMT</span>
                 <span className="text-base font-bold">→</span>
               </Link>
               <Link
@@ -61,7 +61,7 @@ export default function HomeCallForPapers() {
               <ul className="space-y-3.5 text-[14px] text-[#101B2E]/85">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#004B87] shrink-0" />
-                  <span>The papers should be submitted through EasyChair portal.</span>
+                  <span>The papers should be submitted through Microsoft (CMT) portal.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#004B87] shrink-0" />

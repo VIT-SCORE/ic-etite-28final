@@ -6,7 +6,7 @@ export default function HomeImportantDates() {
     {
       date: "05 October 2027",
       title: "Full Paper Submission",
-      note: "EasyChair submission system closes at 23:59 IST",
+      note: "Microsoft (CMT) submission system closes at 23:59 IST",
       highlight: false,
     },
     {

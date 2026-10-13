@@ -27,14 +27,14 @@ export default function EventsPage() {
       badge: "Flagship IEEE International Conference",
       badgeColor: "bg-[#002147] text-[#F5A623]",
       title: "ic-ETITE’28 International Conference",
-      edition: "Third IEEE International Conference",
+      edition: "Third International Conference",
       dates: "10–11 February 2028",
       venue: "Anna Auditorium & SCORE, VIT Vellore",
       logo: "/logos/ic-etite28-cropped-transparent.png",
       logoBg: "bg-[#002147]",
       isImage: true,
       description:
-        "The Third IEEE International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE’28) brings together leading academic scientists, researchers, and scholars to exchange research discoveries. Technically co-sponsored by IEEE with proceedings submitted to IEEE Xplore® Digital Library.",
+        "The Third International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE’28) brings together leading academic scientists, researchers, and scholars to exchange research discoveries. Technically co-sponsored by IEEE with proceedings submitted to IEEE Xplore® Digital Library.",
       highlights: [
         "4 Comprehensive IEEE Research Tracks",
         "Keynotes by world-renowned scientists",
@@ -60,10 +60,8 @@ export default function EventsPage() {
       description:
         "BOLT 3.0 is a high-intensity, 24-hour overnight hackathon challenging student innovators to build working software and hardware prototypes across AI/ML, Cybersecurity, Cloud, and Embedded Systems. Featuring cash prizes, industry mentors, and judging by venture founders.",
       highlights: [
-        "Rs. 1,00,000+ Prize Pool & Sponsor Bounties",
         "24-Hour non-stop overnight sprint with meals",
         "Mentorship from leading tech leaders",
-        "680+ participants track record from 50+ institutes",
       ],
       href: "/hackathon",
       ctaText: "Explore BOLT 3.0 Hackathon",

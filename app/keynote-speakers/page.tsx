@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import SpeakerCard from "@/components/SpeakerCard";
-import { speakersData } from "@/data/speakers";
 import { Info } from "lucide-react";
+import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
   title: "Keynote Speakers Directory | ic-ETITE'28",
@@ -9,12 +8,7 @@ export const metadata: Metadata = {
     "Eminent global researchers, keynote luminaries, and plenary chairs of the IEEE ic-ETITE conference series.",
 };
 
-import PageHeader from "@/components/PageHeader";
-
 export default function KeynoteSpeakersPage() {
-  const keynotes = speakersData.filter((s) => s.type === "Keynote Speaker");
-  const panelSpeakers = speakersData.filter((s) => s.type === "Panel Speaker");
-
   return (
     <div className="bg-white min-h-screen text-[#002147]">
       <PageHeader
@@ -32,8 +26,7 @@ export default function KeynoteSpeakersPage() {
           <div className="text-[13.5px] text-[#101B2E]/80 leading-relaxed">
             <strong className="font-semibold text-[#101B2E]">ic-ETITE’28 Keynote Announcements:</strong> The technical
             program committee is currently confirming the plenary keynote addresses for the February 2028 edition with
-            international IEEE Fellows and distinguished research leaders. Below is the verified directory of distinguished
-            keynote and panel luminaries across the conference series.
+            international IEEE Fellows and distinguished research leaders. Keynote announcements will be published soon.
           </div>
         </div>
 
@@ -46,10 +39,10 @@ export default function KeynoteSpeakersPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {keynotes.map((speaker, idx) => (
-              <SpeakerCard key={speaker.id} speaker={speaker} index={idx} />
-            ))}
+          <div className="p-10 sm:p-14 rounded-2xl bg-[#F8FAFC] border-2 border-dashed border-slate-300 text-center">
+            <p className="text-xl sm:text-2xl font-serif font-bold text-[#002147]">
+              To be announced soon
+            </p>
           </div>
         </div>
 
@@ -62,10 +55,10 @@ export default function KeynoteSpeakersPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {panelSpeakers.map((speaker, idx) => (
-              <SpeakerCard key={speaker.id} speaker={speaker} index={idx + 20} />
-            ))}
+          <div className="p-10 sm:p-14 rounded-2xl bg-[#F8FAFC] border-2 border-dashed border-slate-300 text-center">
+            <p className="text-xl sm:text-2xl font-serif font-bold text-[#002147]">
+              To be announced soon
+            </p>
           </div>
         </div>
       </div>

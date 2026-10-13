@@ -246,6 +246,20 @@ export const executiveAdvisoryCommittee: CommitteeMember[] = [
     portfolioUrl: "https://vit.ac.in/system-and-software/dr-sujatha-r",
   },
   {
+    name: "Dr. Vanitha. M",
+    role: "Professor",
+    affiliation: "SCORE, VIT, Vellore",
+    image: "/images/faculty/dr-vanitha-m.webp",
+    portfolioUrl: "https://vit.ac.in/system-and-software/dr-vanitha-m",
+  },
+  {
+    name: "Dr. Prasanna. S",
+    role: "Professor",
+    affiliation: "SCORE, VIT, Vellore",
+    image: "/images/faculty/dr-prasanna-s.webp",
+    portfolioUrl: "https://vit.ac.in/system-and-software/dr-prasanna-s",
+  },
+  {
     name: "Dr. Chiranji Lal Chowdhary",
     role: "Professor",
     affiliation: "SCORE, VIT, Vellore",

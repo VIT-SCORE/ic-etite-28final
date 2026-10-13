@@ -8,7 +8,7 @@ export default function ManuscriptSection() {
           href="/call-for-papers#submit"
           className="text-blue-800 font-bold hover:underline"
         >
-          EasyChair submission portal
+          Microsoft (CMT) submission portal
         </a>
         . All submitted papers will go through a plagiarism check process. The manuscript should not contain embedded links, scanned images, header or footer. Email submission will not be accepted. All queries related to the conference shall be addressed to{" "}
         <a href="mailto:icetiteconference@vit.ac.in" className="text-blue-800 font-bold hover:underline">

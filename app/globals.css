@@ -209,6 +209,7 @@ h1, h2, h3, h4, h5, h6 {
   --accent2: #003366;
   --vit-navy: #002147;
   --vit-navy-dark: #001733;
+  --vit-blue: #003366;
   --vit-royal: #0D2E5C;
   --vit-gold: #F5A623;
   --vit-gold-light: #FFF4DB;
@@ -435,20 +436,22 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--vit-navy);
-  background: var(--vit-navy);
+  border: 1px solid var(--vit-navy, #002147);
+  background-color: var(--vit-navy, #002147);
   color: #ffffff !important;
   border-radius: 6px;
   padding: 0.6rem 1.2rem;
   font-size: 0.88rem;
   font-weight: 600;
-  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 33, 71, 0.2);
 }
 .btn-outline:hover {
-  border-color: var(--vit-blue);
-  background: var(--vit-blue);
+  border-color: var(--vit-blue, #003366);
+  background-color: var(--vit-blue, #003366);
   color: #ffffff !important;
   transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 33, 71, 0.28);
 }
 
 /* hero network canvas */

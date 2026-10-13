@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import MarqueeGallery from "@/components/MarqueeGallery";
+import TechNextFloatingReturn from "@/components/TechNextFloatingReturn";
 import { technext24Photos } from "@/data/photos";
 import {
   ArrowLeft,
@@ -300,6 +301,9 @@ export default function TechNextPage() {
           </div>
         </div>
       </section>
+
+      {/* Floating Overlay Button to Return to Home on Scroll */}
+      <TechNextFloatingReturn />
     </div>
   );
 }

@@ -66,22 +66,22 @@ export default function Navbar() {
       hasDropdown: false,
     },
     {
-      label: "Committees",
-      href: "/committees",
-      hasDropdown: false,
-    },
-    {
       label: "Conference",
       href: "/call-for-papers",
       hasDropdown: true,
       alignRight: false,
       dropdownItems: [
         { label: "Call for Papers (Guidelines)", href: "/call-for-papers" },
-        { label: "Conference Research Tracks", href: "/tracks" },
-        { label: "Submit on EasyChair", href: "/call-for-papers#submit" },
+        { label: "Research Tracks", href: "/tracks" },
+        { label: "Submit Paper", href: "/call-for-papers#submit" },
         { label: "Important Dates", href: "/important-dates" },
         { label: "Registration", href: "/registration" },
       ],
+    },
+    {
+      label: "Committees",
+      href: "/committees",
+      hasDropdown: false,
     },
     {
       label: "Visa",
@@ -103,12 +103,11 @@ export default function Navbar() {
       ],
     },
     {
-      label: "ic-ETITE",
-      href: "/about",
+      label: "Previous ic-ETITE",
+      href: "/ic-ETITE24",
       hasDropdown: true,
       alignRight: true,
       dropdownItems: [
-        { label: "ic-ETITE'28", href: "/about" },
         { label: "ic-ETITE'24", href: "/ic-ETITE24" },
         { label: "ic-ETITE'20", href: "/ic-ETITE20" },
       ],
@@ -125,7 +124,8 @@ export default function Navbar() {
       alignRight: true,
       dropdownItems: [
         { label: "Advisory Board", href: "/advisory" },
-        { label: "Campus Venue & Travel", href: "/venue" },
+        { label: "Conference Venue", href: "/venue" },
+        { label: "Hotels & Accommodation", href: "/hotels" },
         { label: "Visa & Travel Information", href: "/visa" },
         { label: "Web Development Team", href: "/team" },
         {
@@ -143,22 +143,22 @@ export default function Navbar() {
       className="sticky top-0 z-50 w-full bg-[#002147] shadow-xl border-b border-white/15 py-2 sm:py-2.5"
     >
       <nav
-        className="w-full max-w-[1700px] mx-auto px-3 sm:px-4 xl:px-4 2xl:px-6 flex items-center justify-between gap-1.5 xl:gap-2 2xl:gap-3"
+        className="w-full max-w-[1800px] mx-auto px-2 sm:px-3 xl:px-4 2xl:px-6 flex items-center justify-between gap-1 xl:gap-2 2xl:gap-4"
         aria-label="Conference Primary Navigation"
       >
         {/* LEFT: ic-ETITE '28 Logo & IEEE ITS Emblem */}
-        <div className="flex items-center gap-1.5 sm:gap-2 xl:gap-2.5 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-2 xl:gap-2 shrink-0">
           <Link
             href="/"
             title="ic-ETITE'28 International Conference"
             className="flex items-center shrink-0 hover:opacity-90 transition-opacity"
           >
-            <div className="relative h-7 sm:h-8 w-24 sm:w-28 xl:w-30 2xl:w-36">
+            <div className="relative h-7 sm:h-8 w-24 sm:w-26 xl:w-26 2xl:w-32">
               <Image
                 src="/logos/ic-etite28-cropped-transparent.png"
                 alt="ic-ETITE'28 Conference Logo"
                 fill
-                sizes="(max-width: 640px) 112px, 144px"
+                sizes="(max-width: 640px) 104px, 128px"
                 className="object-contain object-left drop-shadow-[0_1px_4px_rgba(0,0,0,0.35)]"
                 priority
               />
@@ -173,12 +173,12 @@ export default function Navbar() {
             title="IEEE Information Theory Society"
             className="flex items-center shrink-0 hover:opacity-90 transition-opacity"
           >
-            <div className="relative h-7 sm:h-8 xl:h-8.5 w-7 sm:w-8 xl:w-8.5 rounded-full overflow-hidden border border-white/20 shadow-xs bg-[#00142E]">
+            <div className="relative h-7 sm:h-7.5 xl:h-7.5 2xl:h-8 w-7 sm:w-7.5 xl:w-7.5 2xl:w-8 rounded-full overflow-hidden border border-white/20 shadow-xs bg-[#00142E]">
               <Image
                 src="/logos/ieee-its-circle-logo.png"
                 alt="IEEE Information Theory Society Emblem"
                 fill
-                sizes="(max-width: 640px) 28px, 36px"
+                sizes="(max-width: 640px) 28px, 32px"
                 className="object-contain rounded-full"
                 priority
               />
@@ -187,8 +187,8 @@ export default function Navbar() {
         </div>
 
         {/* DESKTOP NAVIGATION ITEMS */}
-        <div className="hidden xl:flex items-center flex-nowrap whitespace-nowrap min-w-0">
-          <ul className="flex items-center gap-0 xl:gap-1 2xl:gap-1.5 text-[15px] xl:text-[15px] 2xl:text-[16px] font-semibold text-white flex-nowrap whitespace-nowrap">
+        <div className="hidden xl:flex items-center justify-center flex-1 min-w-0 mx-1 xl:mx-1.5 2xl:mx-2">
+          <ul className="flex items-center gap-0 xl:gap-0.5 2xl:gap-1 text-[13px] xl:text-[13px] 2xl:text-[14.5px] font-semibold text-white flex-nowrap whitespace-nowrap">
             {navItems.map((item) => {
               const active = isActive(item);
               const isOpen = activeDropdown === item.label;
@@ -196,7 +196,7 @@ export default function Navbar() {
               return (
                 <li
                   key={item.label}
-                  className="relative group py-1"
+                  className="relative group py-1 shrink-0"
                   onMouseEnter={() => {
                     if (item.hasDropdown) handleMouseEnter(item.label);
                   }}
@@ -206,16 +206,16 @@ export default function Navbar() {
                 >
                   <Link
                     href={item.href}
-                    className={`relative inline-flex items-center gap-0.5 xl:gap-1 py-2 px-2 xl:px-3 2xl:px-3.5 rounded-full transition-all whitespace-nowrap ${
+                    className={`relative inline-flex items-center gap-0.5 py-1 px-1.5 xl:px-1.5 2xl:px-2.5 rounded-full transition-all whitespace-nowrap shrink-0 ${
                       active
                         ? "bg-white/25 text-[#FFB81C] font-bold border border-white/35 shadow-[0_2px_8px_rgba(0,0,0,0.2)]"
-                        : "text-white/85 hover:text-white hover:bg-white/10"
+                        : "text-white/90 hover:text-white hover:bg-white/10"
                     }`}
                   >
                     <span>{item.label}</span>
                     {item.hasDropdown && (
                       <ChevronDown
-                        className={`w-3 h-3 2xl:w-3.5 2xl:h-3.5 transition-transform duration-200 opacity-80 ${
+                        className={`w-3 h-3 2xl:w-3.5 2xl:h-3.5 shrink-0 transition-transform duration-200 opacity-80 ${
                           isOpen ? "rotate-180" : ""
                         }`}
                       />
@@ -264,14 +264,14 @@ export default function Navbar() {
         </div>
 
         {/* RIGHT: TechNext '28 & BOLT 3.0 Tags (Desktop Only) + Official VIT Logo */}
-        <div className="flex items-center gap-1.5 xl:gap-2 2xl:gap-2.5 shrink-0 ml-1 xl:ml-1.5 2xl:ml-2">
-          {/* TechNext '28 Tag (Desktop) - EQUAL SIZE (w-24 2xl:w-28, h-8) */}
+        <div className="flex items-center gap-1 xl:gap-1.5 2xl:gap-2.5 shrink-0 ml-1.5 xl:ml-3 2xl:ml-4">
+          {/* TechNext '28 Tag (Desktop) */}
           <Link
             href="/technext"
-            className="hidden xl:flex items-center justify-center h-8 w-24 2xl:w-28 rounded-full bg-white/10 hover:bg-white/20 border border-[#84E320]/70 shadow-[0_0_12px_rgba(132,227,32,0.25)] transition-all hover:scale-105 shrink-0"
+            className="hidden xl:flex items-center justify-center h-7 xl:h-7 2xl:h-8 w-18 xl:w-20 2xl:w-24 rounded-full bg-white/10 hover:bg-white/20 border border-[#84E320]/70 shadow-[0_0_12px_rgba(132,227,32,0.25)] transition-all hover:scale-105 shrink-0"
             title="TechNext '28 National Industrial Expo"
           >
-            <div className="relative h-3 2xl:h-3.5 w-16 2xl:w-20">
+            <div className="relative h-2.5 xl:h-2.5 2xl:h-3 w-13 xl:w-14 2xl:w-17">
               <Image
                 src="/logos/technext-logo.png"
                 alt="TechNext '28"
@@ -282,14 +282,14 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* BOLT 3.0 Hackathon Tag (Desktop) - EQUAL SIZE (w-24 2xl:w-28, h-8) */}
+          {/* BOLT 3.0 Hackathon Tag (Desktop) */}
           <Link
             href="/hackathon"
-            className="hidden xl:flex items-center justify-center gap-1 2xl:gap-1.5 h-8 w-24 2xl:w-28 rounded-full bg-[#00142E] hover:bg-[#00244D] border border-[#CCFF00] shadow-[0_0_12px_rgba(204,255,0,0.25)] transition-all hover:scale-105 shrink-0"
+            className="hidden xl:flex items-center justify-center gap-1 2xl:gap-1.5 h-7 xl:h-7 2xl:h-8 w-20 xl:w-22 2xl:w-26 rounded-full bg-[#00142E] hover:bg-[#00244D] border border-[#CCFF00] shadow-[0_0_12px_rgba(204,255,0,0.25)] transition-all hover:scale-105 shrink-0"
             title="Register for BOLT 3.0 National Flagship Hackathon"
           >
             <Zap className="w-3 h-3 2xl:w-3.5 2xl:h-3.5 text-[#CCFF00] fill-[#CCFF00] animate-pulse shrink-0" />
-            <span className="text-[10.5px] 2xl:text-[11px] font-black tracking-wide text-[#CCFF00] whitespace-nowrap">
+            <span className="text-[10px] xl:text-[10px] 2xl:text-[11px] font-black tracking-wide text-[#CCFF00] whitespace-nowrap">
               BOLT 3.0
             </span>
           </Link>
@@ -300,12 +300,12 @@ export default function Navbar() {
             title="Vellore Institute of Technology"
             className="flex items-center shrink-0 hover:opacity-95 transition-opacity"
           >
-            <div className="relative h-7 sm:h-8 xl:h-8 2xl:h-9 w-20 sm:w-24 xl:w-28 2xl:w-36">
+            <div className="relative h-7 sm:h-8 xl:h-7.5 2xl:h-9 w-20 sm:w-22 xl:w-24 2xl:w-34">
               <Image
                 src="/logos/vit-header-logo.webp"
                 alt="VIT Vellore Institute of Technology"
                 fill
-                sizes="(max-width: 640px) 80px, 144px"
+                sizes="(max-width: 640px) 80px, 136px"
                 className="object-contain object-right"
                 priority
               />
@@ -469,7 +469,7 @@ export default function Navbar() {
                 onClick={() => setMobileOpen(false)}
                 className="flex items-center justify-between p-3.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors text-white"
               >
-                <span className="font-semibold">Submit Paper on EasyChair</span>
+                <span className="font-semibold">Submit on CMT</span>
                 <span className="text-[#FFB81C] font-bold text-sm">→</span>
               </Link>
             </div>

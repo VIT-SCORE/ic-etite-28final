@@ -51,8 +51,24 @@ export default function BoltNavbar() {
           ))}
         </div>
 
-        {/* Right: Mobile Hamburger */}
-        <div className="flex items-center gap-3">
+        {/* Right: ic-ETITE'28 Logo (redirects to homepage) & Mobile Hamburger */}
+        <div className="flex items-center gap-3 shrink-0">
+          <Link
+            href="/"
+            title="Go to ic-ETITE'28 Home"
+            className="flex items-center gap-2 group hover:opacity-90 transition-opacity bg-white/10 hover:bg-white/20 px-2.5 sm:px-3 py-1.5 rounded-xl border border-white/20 shadow-xs"
+          >
+            <div className="relative h-6 sm:h-7 w-20 sm:w-24">
+              <Image
+                src="/logos/ic-etite28-cropped-transparent.png"
+                alt="ic-ETITE'28 Conference Logo"
+                fill
+                sizes="(max-width: 640px) 80px, 96px"
+                className="object-contain"
+                priority
+              />
+            </div>
+          </Link>
 
           {/* Mobile menu trigger */}
           <button

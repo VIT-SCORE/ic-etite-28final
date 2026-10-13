@@ -282,7 +282,7 @@ export default function VisaPage() {
                 className="btn-primary w-full text-xs sm:text-sm py-3 flex items-center justify-center gap-2 font-bold shadow-lg"
               >
                 <Mail className="w-4 h-4" />
-                <span>Email icetiteconference@vit.ac.in</span>
+                <span>Email: icetiteconference@vit.ac.in</span>
               </a>
 
               <p className="text-[11px] text-white/60">

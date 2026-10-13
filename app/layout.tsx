@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | ic-ETITE'28 - IEEE International Conference",
   },
   description:
-    "Official website of ic-ETITE'28, the Third IEEE International Conference on Emerging Trends in Information Technology and Engineering, organized by Vellore Institute of Technology, Vellore. Technically co-sponsored by IEEE. 10–11 February 2028.",
+    "Official website of ic-ETITE'28, the Third International Conference on Emerging Trends in Information Technology and Engineering, organized by Vellore Institute of Technology, Vellore. Technically co-sponsored by IEEE. 10–11 February 2028.",
   keywords: [
     "ic-ETITE",
     "ic-ETITE 2028",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ic-ETITE'28 | IEEE International Conference",
     description:
-      "Third IEEE International Conference on Emerging Trends in Information Technology and Engineering, VIT Vellore, 10–11 Feb 2028.",
+      "Third International Conference on Emerging Trends in Information Technology and Engineering, VIT Vellore, 10–11 Feb 2028.",
   },
   robots: {
     index: true,
@@ -76,7 +76,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "AcademicConference",
-              name: "The Third IEEE International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE'28)",
+              name: "The Third International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE'28)",
               alternateName: "ic-ETITE'28",
               startDate: "2028-02-10",
               endDate: "2028-02-11",
