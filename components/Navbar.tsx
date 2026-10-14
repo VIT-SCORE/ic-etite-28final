@@ -141,12 +141,12 @@ export default function Navbar() {
             title="ic-ETITE'28 International Conference"
             className="flex items-center shrink-0 hover:opacity-90 transition-opacity"
           >
-            <div className="relative h-7.5 sm:h-8.5 xl:h-8.5 2xl:h-9 w-26 sm:w-28 xl:w-28 2xl:w-34">
+            <div className="relative h-7 sm:h-8 xl:h-8 2xl:h-9 w-28 sm:w-32 xl:w-32 2xl:w-36">
               <Image
                 src="/logos/ic-etite28-cropped-transparent.png"
                 alt="ic-ETITE'28 Conference Logo"
                 fill
-                sizes="(max-width: 640px) 104px, 136px"
+                sizes="(max-width: 640px) 112px, 144px"
                 className="object-contain object-left drop-shadow-[0_1px_4px_rgba(0,0,0,0.35)]"
                 priority
               />
@@ -161,12 +161,12 @@ export default function Navbar() {
             title="IEEE Information Theory Society"
             className="flex items-center shrink-0 hover:opacity-90 transition-opacity"
           >
-            <div className="relative h-7.5 sm:h-8 xl:h-8 2xl:h-8.5 w-7.5 sm:w-8 xl:w-8 2xl:w-8.5 rounded-full overflow-hidden border border-white/20 shadow-xs bg-[#00142E]">
+            <div className="relative h-7 sm:h-8 xl:h-8 2xl:h-9 w-7 sm:w-8 xl:w-8 2xl:w-9 rounded-full overflow-hidden border border-white/20 shadow-xs bg-[#00142E]">
               <Image
                 src="/logos/ieee-its-circle-logo.png"
                 alt="IEEE Information Theory Society Emblem"
                 fill
-                sizes="(max-width: 640px) 30px, 34px"
+                sizes="(max-width: 640px) 28px, 36px"
                 className="object-contain rounded-full"
                 priority
               />
@@ -256,10 +256,10 @@ export default function Navbar() {
           {/* TechNext '28 Tag (Desktop) */}
           <Link
             href="/technext"
-            className="hidden xl:flex items-center justify-center h-8 xl:h-8 2xl:h-8.5 w-24 xl:w-26 2xl:w-28 rounded-full bg-white/10 hover:bg-white/20 border border-[#84E320]/80 shadow-[0_0_12px_rgba(132,227,32,0.28)] transition-all hover:scale-105 shrink-0"
+            className="hidden xl:flex items-center justify-center h-8 2xl:h-9 w-24 2xl:w-28 rounded-full bg-white/10 hover:bg-white/20 border border-[#84E320]/80 shadow-[0_0_12px_rgba(132,227,32,0.28)] transition-all hover:scale-105 shrink-0"
             title="TechNext '28 National Industrial Expo"
           >
-            <div className="relative h-3.5 xl:h-3.5 2xl:h-4 w-18 xl:w-20 2xl:w-22">
+            <div className="relative h-3.5 2xl:h-4 w-16 2xl:w-20">
               <Image
                 src="/logos/technext-logo.png"
                 alt="TechNext '28"
@@ -273,7 +273,7 @@ export default function Navbar() {
           {/* BOLT 3.0 Hackathon Tag (Desktop) */}
           <Link
             href="/hackathon"
-            className="hidden xl:flex items-center justify-center gap-1.5 h-8 xl:h-8 2xl:h-8.5 px-3 xl:px-3.5 2xl:px-4 rounded-full bg-[#00142E] hover:bg-[#00244D] border border-[#CCFF00] shadow-[0_0_12px_rgba(204,255,0,0.28)] transition-all hover:scale-105 shrink-0"
+            className="hidden xl:flex items-center justify-center gap-1.5 h-8 2xl:h-9 px-3 xl:px-3.5 2xl:px-4 rounded-full bg-[#00142E] hover:bg-[#00244D] border border-[#CCFF00] shadow-[0_0_12px_rgba(204,255,0,0.28)] transition-all hover:scale-105 shrink-0"
             title="Register for BOLT 3.0 National Flagship Hackathon"
           >
             <Zap className="w-3.5 h-3.5 2xl:w-4 2xl:h-4 text-[#CCFF00] fill-[#CCFF00] animate-pulse shrink-0" />
@@ -288,12 +288,12 @@ export default function Navbar() {
             title="Vellore Institute of Technology"
             className="flex items-center shrink-0 hover:opacity-95 transition-opacity"
           >
-            <div className="relative h-7.5 sm:h-8 xl:h-8 2xl:h-9 w-22 sm:w-24 xl:w-26 2xl:w-34">
+            <div className="relative h-7 sm:h-8 xl:h-8 2xl:h-9 w-20 sm:w-24 xl:w-28 2xl:w-32">
               <Image
                 src="/logos/vit-header-logo.webp"
                 alt="VIT Vellore Institute of Technology"
                 fill
-                sizes="(max-width: 640px) 88px, 140px"
+                sizes="(max-width: 640px) 80px, 128px"
                 className="object-contain object-right"
                 priority
               />
