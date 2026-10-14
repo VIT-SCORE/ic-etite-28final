@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import MarqueeGallery from "@/components/MarqueeGallery";
+import GallerySlideshow, { GalleryItem } from "@/components/GallerySlideshow";
 import TechNextFloatingReturn from "@/components/TechNextFloatingReturn";
-import { technext24Photos } from "@/data/photos";
 import {
   ArrowLeft,
   ArrowRight,
@@ -17,7 +16,6 @@ import {
   Building,
   Clock,
   Mail,
-  Camera,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -25,6 +23,259 @@ export const metadata: Metadata = {
   description:
     "Official page of TechNext '28, the flagship national industrial exposition and student project innovation showcase at VIT Vellore.",
 };
+
+const technextGalleryItems: GalleryItem[] = [
+  {
+    id: "technext24-01",
+    image: "/images/technext24/technext_01.webp",
+    title: "TechNext'24 Industrial Expo Launch & Inception",
+    edition: "TechNext'24 Industrial Expo",
+    location: "Technology Tower Expo Grounds, VIT Vellore",
+    caption:
+      "Inaugural walkthrough of student-built hardware prototypes and corporate booths at VIT Vellore.",
+    category: "2024",
+  },
+  {
+    id: "technext24-02",
+    image: "/images/technext24/technext_02.webp",
+    title: "Student Hardware Innovation & Embedded Systems",
+    edition: "TechNext'24 Industrial Expo",
+    location: "Expo Arena, VIT Vellore",
+    caption:
+      "Teams demonstrating microcontroller architectures and live automation solutions to visiting jury members.",
+    category: "2024",
+  },
+  {
+    id: "technext24-03",
+    image: "/images/technext24/technext_03.webp",
+    title: "Autonomous Robotics & Smart Mobility Chassis",
+    edition: "TechNext'24 Industrial Expo",
+    location: "Robotics Arena, VIT Vellore",
+    caption:
+      "3D-printed modular rover chassis and autonomous vehicle prototypes engineered by student innovators.",
+    category: "2024",
+  },
+  {
+    id: "technext24-04",
+    image: "/images/technext24/technext_04.webp",
+    title: "Precision Sensor Array & Motor Controllers",
+    edition: "TechNext'24 Industrial Expo",
+    location: "Hardware Prototyping Hall, VIT Vellore",
+    caption:
+      "Testing custom motor control circuits and telemetry sensor systems during live exhibition trials.",
+    category: "2024",
+  },
+  {
+    id: "technext24-05",
+    image: "/images/technext24/technext_05.webp",
+    title: "Industry Dignitaries & Jury Evaluation Track",
+    edition: "TechNext'24 Industrial Expo",
+    location: "Evaluation Dais, VIT Vellore",
+    caption:
+      "Distinguished academic deans and industry architects examining project feasibility and commercial viability.",
+    category: "2024",
+  },
+  {
+    id: "technext24-06",
+    image: "/images/technext24/technext_06.webp",
+    title: "Deep Tech & Applied AI Demonstrations",
+    edition: "TechNext'24 Industrial Expo",
+    location: "Software & AI Pavilion, VIT Vellore",
+    caption:
+      "Interactive software frameworks and intelligent edge-computing algorithms solving real-world challenges.",
+    category: "2024",
+  },
+  {
+    id: "technext24-07",
+    image: "/images/technext24/technext_07.webp",
+    title: "Interactive STEM Demonstrations & Peer Exchange",
+    edition: "TechNext'24 Industrial Expo",
+    location: "Exhibition Floor, VIT Vellore",
+    caption:
+      "Cross-disciplinary collaboration and knowledge sharing among engineering participants and researchers.",
+    category: "2024",
+  },
+  {
+    id: "technext24-08",
+    image: "/images/technext24/technext_08.webp",
+    title: "Industry Mentors Reviewing Working Prototypes",
+    edition: "TechNext'24 Industrial Expo",
+    location: "Demonstration Booths, VIT Vellore",
+    caption:
+      "Mentors from leading tech corporate partners providing technical feedback on functional circuit designs.",
+    category: "2024",
+  },
+  {
+    id: "technext24-09",
+    image: "/images/technext24/technext_09.webp",
+    title: "Hardware Telemetry & IoT Sensor Exhibits",
+    edition: "TechNext'24 Industrial Expo",
+    location: "IoT Showcase Hall, VIT Vellore",
+    caption:
+      "Live environmental and industrial sensor metrics streamed to cloud analytics dashboards.",
+    category: "2024",
+  },
+  {
+    id: "technext24-10",
+    image: "/images/technext24/technext_10.webp",
+    title: "Project Architecture Defense & Technical Q&A",
+    edition: "TechNext'24 Industrial Expo",
+    location: "Jury Review Stalls, VIT Vellore",
+    caption:
+      "Student project creators defending design choices, cost structures, and power efficiency metrics.",
+    category: "2024",
+  },
+  {
+    id: "technext24-11",
+    image: "/images/technext24/technext_11.webp",
+    title: "Robotics Arena Live Maneuvering Demonstration",
+    edition: "TechNext'24 Industrial Expo",
+    location: "Robotics Testing Floor, VIT Vellore",
+    caption:
+      "Field testing of obstacle-avoidance rovers and precision actuator mechanisms before the judges.",
+    category: "2024",
+  },
+  {
+    id: "technext24-12",
+    image: "/images/technext24/technext_12.webp",
+    title: "Faculty Convenors & Organizers Tour",
+    edition: "TechNext'24 Industrial Expo",
+    location: "SCORE Pavilion, VIT Vellore",
+    caption:
+      "School of Computer Science Engineering faculty convenors visiting project stalls across exhibition zones.",
+    category: "2024",
+  },
+  {
+    id: "technext24-13",
+    image: "/images/technext24/technext_13.webp",
+    title: "Startup Incubation & Venture Evaluation",
+    edition: "TechNext'24 Industrial Expo",
+    location: "Startup Pavilion, VIT Vellore",
+    caption:
+      "Early-stage venture pitches evaluated for patenting, incubation support, and prototype acceleration.",
+    category: "2024",
+  },
+  {
+    id: "technext24-14",
+    image: "/images/technext24/technext_14.webp",
+    title: "Hardware Interface & Debugging Sessions",
+    edition: "TechNext'24 Industrial Expo",
+    location: "Innovation Arena, VIT Vellore",
+    caption:
+      "Hands-on calibration and real-time sensor tuning conducted during continuous booth exhibitions.",
+    category: "2024",
+  },
+  {
+    id: "technext24-15",
+    image: "/images/technext24/technext_15.webp",
+    title: "Finalist Review & Outstanding Project Nominations",
+    edition: "TechNext'24 Industrial Expo",
+    location: "Main Exhibition Dais, VIT Vellore",
+    caption:
+      "Selecting the top engineering innovations across smart hardware, healthcare tech, and automation.",
+    category: "2024",
+  },
+  {
+    id: "technext24-16",
+    image: "/images/technext24/technext_16.webp",
+    title: "Inter-University Student Innovator Delegations",
+    edition: "TechNext'24 Industrial Expo",
+    location: "Central Expo Concourse, VIT Vellore",
+    caption:
+      "Delegations representing leading technical institutions from across the country showcasing inventions.",
+    category: "2024",
+  },
+  {
+    id: "technext24-17",
+    image: "/images/technext24/technext_17.webp",
+    title: "Sustainable Green Technology & IoT Clean Energy",
+    edition: "TechNext'24 Industrial Expo",
+    location: "Sustainability Pavilion, VIT Vellore",
+    caption:
+      "Renewable energy controllers, smart micro-grids, and efficiency monitors exhibited by participants.",
+    category: "2024",
+  },
+  {
+    id: "technext24-18",
+    image: "/images/technext24/technext_18.webp",
+    title: "Valedictory Awards & Innovation Cash Prize Ceremony",
+    edition: "TechNext'24 Industrial Expo",
+    location: "Auditorium Stage, VIT Vellore",
+    caption:
+      "Celebrating winning innovator teams with merit certificates, cash prizes, and incubation grants.",
+    category: "2024",
+  },
+  {
+    id: "technext24-19",
+    image: "/images/technext24/technext_19.webp",
+    title: "Excellence in Engineering Project Awards",
+    edition: "TechNext'24 Industrial Expo",
+    location: "Valedictory Hall, VIT Vellore",
+    caption:
+      "Honoring pioneering student breakthroughs with coveted TechNext'24 trophies.",
+    category: "2024",
+  },
+  {
+    id: "technext24-20",
+    image: "/images/technext24/technext_20.webp",
+    title: "Interactive STEM Demonstrations & Gadget Trials",
+    edition: "TechNext'24 Industrial Expo",
+    location: "Exhibition Floor, VIT Vellore",
+    caption:
+      "Attendees and visitors trying out functional prototypes across technical tracks.",
+    category: "2024",
+  },
+  {
+    id: "technext24-21",
+    image: "/images/technext24/technext_21.webp",
+    title: "Industry Partnerships & Corporate Booth Tour",
+    edition: "TechNext'24 Industrial Expo",
+    location: "Partner Stalls, VIT Vellore",
+    caption:
+      "Corporate delegates showcasing advanced hardware developer toolkits to university researchers.",
+    category: "2024",
+  },
+  {
+    id: "technext24-22",
+    image: "/images/technext24/technext_22.webp",
+    title: "Innovators Group Showcase at VIT Vellore",
+    edition: "TechNext'24 Industrial Expo",
+    location: "Technology Tower, VIT Vellore",
+    caption:
+      "Student hardware designers gathered for milestone event photography.",
+    category: "2024",
+  },
+  {
+    id: "technext24-23",
+    image: "/images/technext24/technext_23.webp",
+    title: "Hands-on Product Testing & Sensor Calibrations",
+    edition: "TechNext'24 Industrial Expo",
+    location: "Expo Arena, VIT Vellore",
+    caption:
+      "Real-time accuracy validation of medical instrumentation and robotic manipulators.",
+    category: "2024",
+  },
+  {
+    id: "technext24-24",
+    image: "/images/technext24/technext_24.webp",
+    title: "Cash Prizes & Incubation Grant Handover",
+    edition: "TechNext'24 Industrial Expo",
+    location: "Anna Auditorium, VIT Vellore",
+    caption:
+      "Cheque handover to top podium finishers by academic dignitaries and industry leads.",
+    category: "2024",
+  },
+  {
+    id: "technext24-25",
+    image: "/images/technext24/technext_25.webp",
+    title: "TechNext'24 Concluding Delegation & Organizer Portrait",
+    edition: "TechNext'24 Industrial Expo",
+    location: "Technology Tower Front Lawns, VIT Vellore",
+    caption:
+      "Grand group photo uniting project teams, faculty coordinators, and corporate guests at VIT Vellore.",
+    category: "2024",
+  },
+];
 
 export default function TechNextPage() {
   const categories = [
@@ -199,24 +450,21 @@ export default function TechNextPage() {
         </div>
       </section>
 
-      {/* ── PHOTO ARCHIVE (LIGHT THEME, UNDERLINED TITLE, ZERO CAPTIONS) ── */}
-      <section id="gallery" className="py-16 sm:py-20 bg-[#FAFBFD] border-b border-slate-200">
-        <div className="container-x">
-          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold mb-2 uppercase tracking-wider bg-[#004B87]/10 border border-[#004B87]/20 text-[#004B87]">
-              <Camera className="w-3.5 h-3.5" />
-              <span>Official Photo Archive</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#002147] mb-3">
+      {/* ── PHOTO GALLERY SLIDESHOW ── */}
+      <section id="gallery" className="py-16 sm:py-24 px-4 sm:px-8 lg:px-12 bg-[#F7F9FC] border-b border-slate-200">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10 px-6">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#004B87] bg-[#EBF3F8] px-3 py-1.5 rounded-full border border-[#004B87]/20 inline-block mb-4">
+              Official Photo Archive
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black text-[#002147] mb-2">
               TechNext &apos;24 Highlights
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base">
+            <p className="text-slate-500 text-base max-w-xl mx-auto">
               Moments from the 2024 industrial expo and project showcase at VIT Vellore.
             </p>
           </div>
-          <div className="max-w-6xl mx-auto">
-            <MarqueeGallery photos={technext24Photos} speed={70} />
-          </div>
+          <GallerySlideshow items={technextGalleryItems} showCategoryFilter={false} />
         </div>
       </section>
 

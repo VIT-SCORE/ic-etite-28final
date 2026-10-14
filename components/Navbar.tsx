@@ -73,6 +73,7 @@ export default function Navbar() {
       dropdownItems: [
         { label: "Call for Papers (Guidelines)", href: "/call-for-papers" },
         { label: "Research Tracks", href: "/tracks" },
+        { label: "Keynote Speakers", href: "/keynote-speakers" },
         { label: "Submit Paper", href: "/call-for-papers#submit" },
         { label: "Important Dates", href: "/important-dates" },
         { label: "Registration", href: "/registration" },
@@ -88,20 +89,7 @@ export default function Navbar() {
       href: "/visa",
       hasDropdown: false,
     },
-    {
-      label: "Events",
-      href: "/events",
-      hasDropdown: true,
-      alignRight: true,
-      dropdownItems: [
-        { label: "All Co-located Events", href: "/events" },
-        { label: "ic-ETITE'28 Conference", href: "/" },
-        { label: "BOLT 3.0 Hackathon", href: "/hackathon" },
-        { label: "TechNext '28 Expo", href: "/technext" },
-        { label: "Keynote Speakers", href: "/keynote-speakers" },
-        { label: "Paper Presentation Tracks", href: "/tracks" },
-      ],
-    },
+
     {
       label: "Previous ic-ETITE",
       href: "/ic-ETITE24",

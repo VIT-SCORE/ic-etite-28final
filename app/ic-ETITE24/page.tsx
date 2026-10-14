@@ -106,7 +106,6 @@ import {
   CheckCircle2,
   BookOpen,
   Award,
-  Building2,
   Cpu,
 } from "lucide-react";
 
@@ -411,29 +410,6 @@ export default function Icetite24Page() {
         </div>
       </section>
 
-      {/* ── ABOUT VIT & SCORE ── */}
-      <section className="py-16 sm:py-20 px-6 sm:px-12 lg:px-20 bg-[#001a3d] text-white">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Building2 className="w-5 h-5 text-[#CCFF00]" />
-              <h3 className="text-xl font-bold text-[#CCFF00]">About VIT</h3>
-            </div>
-            <p className="text-white/70 text-sm leading-relaxed">
-              Vellore Institute of Technology was established in 1984 as Vellore Engineering College and granted University status in 2001. Ranked among the top 601–700 Universities worldwide (Shanghai ARWU 2022), the 8th best University in India (NIRF 2023), and holds NAAC A++ accreditation (3.66/4).
-            </p>
-          </div>
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Cpu className="w-5 h-5 text-[#CCFF00]" />
-              <h3 className="text-xl font-bold text-[#CCFF00]">About SCORE (Formerly SITE)</h3>
-            </div>
-            <p className="text-white/70 text-sm leading-relaxed">
-              The School of Computer Science Engineering and Information Systems (SCORE) offers B.Tech, M.Tech, MCA, BCA and Ph.D programs. With 5,900+ students and 188 faculty members, it has state-of-the-art infrastructure, industry-supported labs and a strong track record of international conferences.
-            </p>
-          </div>
-        </div>
-      </section>
 
     </div>
   );

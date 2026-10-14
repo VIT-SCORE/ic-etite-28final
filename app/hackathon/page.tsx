@@ -69,7 +69,7 @@ export default function HackathonPage() {
             <div className="flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm font-semibold text-white/95 mb-8">
               <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 border border-white/15">
                 <Trophy className="w-4 h-4 text-[#FFB81C]" />
-                <span>₹1,00,000+ Prize Pool</span>
+                <span>Prize Pool: ₹_ ,_ _, _ _ _</span>
               </span>
               <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 border border-white/15">
                 <Clock className="w-4 h-4 text-[#CCFF00]" />
@@ -266,7 +266,7 @@ export default function HackathonPage() {
               </span>
 
               <h2 className="text-2xl sm:text-3xl font-bold text-[#002147] tracking-tight underline decoration-[#004B87] underline-offset-8">
-                ₹1,00,000+ Prize Bounty
+                Prize Pool: ₹_ ,_ _, _ _ _
               </h2>
 
               <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
@@ -277,17 +277,17 @@ export default function HackathonPage() {
                 <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs text-center">
                   <p className="text-xs text-[#004B87] font-bold uppercase tracking-wider">1st Prize</p>
                   <p className="text-xs text-slate-600 mt-1">Cash + Trophy</p>
-                  <p className="text-2xl font-black text-[#002147] tracking-tight mt-1">₹50,000</p>
+                  <p className="text-2xl font-black text-[#002147] tracking-tight mt-1">₹_ _,_ _ _</p>
                 </div>
                 <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs text-center">
                   <p className="text-xs text-[#004B87] font-bold uppercase tracking-wider">2nd Prize</p>
                   <p className="text-xs text-slate-600 mt-1">Cash + Trophy</p>
-                  <p className="text-2xl font-black text-[#002147] tracking-tight mt-1">₹30,000</p>
+                  <p className="text-2xl font-black text-[#002147] tracking-tight mt-1">₹_ _,_ _ _</p>
                 </div>
                 <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs text-center">
                   <p className="text-xs text-[#004B87] font-bold uppercase tracking-wider">3rd Prize</p>
                   <p className="text-xs text-slate-600 mt-1">Cash + Trophy</p>
-                  <p className="text-2xl font-black text-[#002147] tracking-tight mt-1">₹20,000</p>
+                  <p className="text-2xl font-black text-[#002147] tracking-tight mt-1">₹_ _,_ _ _</p>
                 </div>
               </div>
             </div>
@@ -318,10 +318,6 @@ export default function HackathonPage() {
                     <div className="flex items-center gap-2">
                       <span className="text-[#15803d]">✓</span>
                       <span>Teams of 2 to 4 members</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-[#15803d]">✓</span>
-                      <span>₹1,00,000+ total prize pool</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="text-[#15803d]">✓</span>
