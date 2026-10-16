@@ -121,7 +121,7 @@ export const hotelsData: Hotel[] = [
     reviewCount: 380,
     phone: "+91 93228 00100",
     bookingUrl: "https://www.treebo.com/hotels-in-vellore/treebo-sv-residency-vellore-katpadi-4220/",
-    bookingType: "Official Treebo booking",
+    bookingType: "Official booking",
     verifiedByVit: true,
     priceRange: "₹₹",
     estPrice: "₹1,700 - ₹2,600",
