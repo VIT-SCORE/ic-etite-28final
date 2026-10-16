@@ -5,6 +5,16 @@ import GallerySlideshow, { GalleryItem } from "@/components/GallerySlideshow";
 
 const icetite24GalleryItems: GalleryItem[] = [
   {
+    id: "stage-main-2024",
+    image: "/images/gallery/icetite24_stage_main.webp",
+    title: "ic-ETITE'24 Main Dais & Dignitaries Inaugural Assembly",
+    edition: "ic-ETITE'24 Second Edition",
+    location: "Anna Auditorium Main Stage, VIT Vellore",
+    caption:
+      "Hon'ble Chancellor Dr. G. Viswanathan, Chief Guest Dr. Zvi Galil, leadership, and international dignitaries on the Anna Auditorium dais.",
+    category: "2024",
+  },
+  {
     id: "conclave-wide-2024",
     image: "/images/gallery/icetite24_conclave_wide.jpg",
     title: "ic-ETITE'24 Leadership & International Dignitaries Conclave",
@@ -26,22 +36,12 @@ const icetite24GalleryItems: GalleryItem[] = [
   },
   {
     id: "dignitaries-2024",
-    image: "/images/gallery/icetite24_dignitaries.webp",
+    image: "/images/004A3218.webp",
     title: "Dignitaries on Stage & Proceedings Release",
     edition: "ic-ETITE'24 Second Edition",
     location: "Anna Auditorium Main Stage, VIT Vellore",
     caption:
       "Formal unveiling of the ic-ETITE'24 IEEE Xplore proceedings volume and conference schedule.",
-    category: "2024",
-  },
-  {
-    id: "proceedings-release-2024",
-    image: "/images/004A3218.webp",
-    title: "Anna Auditorium Main Plenary Session",
-    edition: "ic-ETITE'24 Second Edition",
-    location: "Anna Auditorium, VIT Vellore",
-    caption:
-      "Distinguished scholars and attendees gathered during the opening plenary track.",
     category: "2024",
   },
   {
@@ -74,16 +74,7 @@ const icetite24GalleryItems: GalleryItem[] = [
       "Engaging discussions during the technical session at VIT Vellore campus.",
     category: "2024",
   },
-  {
-    id: "its-workshop-2024",
-    image: "/images/ieee-its-workshop.webp",
-    title: "IEEE ITS Chapter Workshop & Colloquium",
-    edition: "ic-ETITE'24 Second Edition",
-    location: "SCORE, VIT Vellore",
-    caption:
-      "Hands-on symposium track organized with IEEE Information Theory Society Student Chapter.",
-    category: "2024",
-  },
+
   {
     id: "banner-stage-2024",
     image: "/images/ic-etite24-preview.webp",
@@ -193,12 +184,12 @@ export default function Icetite24Page() {
         {/* Background Image with Dark Navy Gradient Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/gallery/icetite24_conclave_wide.jpg"
-            alt="ic-ETITE'24 Inaugural Conclave with Hon'ble Chancellor Dr. G. Viswanathan and International Guests"
+            src="/images/gallery/icetite24_stage_main.webp"
+            alt="ic-ETITE'24 Inaugural Stage & Dignitaries Dais at Anna Auditorium, VIT Vellore"
             fill
             sizes="100vw"
             priority
-            className="object-cover object-center opacity-75"
+            className="object-cover object-center opacity-80"
           />
           {/* Directional gradient: darker on left to protect text, clear on right to showcase photo */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#00142E]/90 via-[#00142E]/45 to-transparent" />

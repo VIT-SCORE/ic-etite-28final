@@ -169,13 +169,7 @@ export const icetite24Photos: PhotoItem[] = [
     category: "Academic Conclave",
     description: "Engaging discussions during the technical session at VIT Vellore campus.",
   },
-  {
-    id: "icetite24-06",
-    src: "/images/ieee-its-workshop.webp",
-    title: "IEEE ITS Chapter Workshop & Colloquium",
-    category: "Student Chapter",
-    description: "Hands-on symposium track organized with IEEE Information Theory Society Student Chapter.",
-  },
+
   {
     id: "icetite24-07",
     src: "/images/ic-etite24.webp",

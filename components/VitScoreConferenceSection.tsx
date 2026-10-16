@@ -246,11 +246,11 @@ export default function VitScoreConferenceSection() {
               </div>
             </div>
 
-            {/* 4. IEEE ITS Workshop & Symposium */}
+            {/* 4. Technical Presentations & Colloquium */}
             <div className="relative rounded-xl overflow-hidden border border-[#E2E8F0] shadow-sm group">
               <Image
-                src="/images/ieee-its-workshop.webp"
-                alt="IEEE Information Theory Society Technical Session"
+                src="/images/004A3344.webp"
+                alt="Technical Presentation and Academic Colloquium"
                 width={500}
                 height={320}
                 className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"
@@ -259,8 +259,8 @@ export default function VitScoreConferenceSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#002147]/90 via-[#002147]/20 to-transparent" />
               <div className="absolute bottom-3 left-3 right-3 text-white">
-                <p className="text-xs font-bold">IEEE Workshop Symposium</p>
-                <p className="text-[11px] text-white/80">Information Theory &amp; Hands-on Labs</p>
+                <p className="text-xs font-bold">Technical Presentations</p>
+                <p className="text-[11px] text-white/80">Paper Sessions &amp; Research Exchange</p>
               </div>
             </div>
           </div>

@@ -46,7 +46,7 @@ export default function CFPSection() {
             </span>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#002147] tracking-tight leading-[1.15]">
-              Call for Papers &amp; Manuscript Guidelines
+              Manuscript Guidelines
             </h2>
 
             <p className="text-base sm:text-lg text-slate-800 leading-relaxed font-medium">

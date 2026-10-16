@@ -15,14 +15,14 @@ export default function Footer() {
               href="https://vit.ac.in"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative h-11 w-40 sm:h-13 sm:w-48 transition-transform duration-300 hover:scale-105"
+              className="relative h-12 w-44 sm:h-14 sm:w-52 transition-transform duration-300 hover:scale-105"
               title="Vellore Institute of Technology Official Portal"
             >
               <Image
-                src="/logos/vit-white-logo.png"
+                src="/logos/vit-official-white.png"
                 alt="VIT Vellore Official Logo"
                 fill
-                sizes="(max-width: 640px) 160px, 192px"
+                sizes="(max-width: 640px) 176px, 208px"
                 loading="lazy"
                 className="object-contain object-left"
               />

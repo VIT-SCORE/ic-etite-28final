@@ -16,7 +16,7 @@ export default function CallForPapersPage() {
   return (
     <div className="bg-white min-h-screen text-[#002147]">
       <PageHeader
-        badge="Original Scientific Contributions · IEEE Xplore®"
+        badge="Original Scientific Contributions"
         title="Call for Papers & Submission Guidelines"
         subtitle="Authors are invited to submit original, unpublished research papers. All presented papers will be submitted to IEEE for inclusion in IEEE Xplore® Digital Library."
         breadcrumb="Call for Papers"

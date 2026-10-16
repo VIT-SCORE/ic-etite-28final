@@ -71,7 +71,7 @@ export default function Navbar() {
       hasDropdown: true,
       alignRight: false,
       dropdownItems: [
-        { label: "Call for Papers (Guidelines)", href: "/call-for-papers" },
+        { label: "Call for Papers", href: "/call-for-papers" },
         { label: "Research Tracks", href: "/tracks" },
         { label: "Keynote Speakers", href: "/keynote-speakers" },
         { label: "Submit Paper", href: "/call-for-papers#submit" },

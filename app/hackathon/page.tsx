@@ -77,7 +77,7 @@ export default function HackathonPage() {
               </span>
               <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 border border-white/15">
                 <Calendar className="w-4 h-4 text-[#FFB81C]" />
-                <span>February 09–10, 2028</span>
+                <span>February 10–11, 2028</span>
               </span>
               <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 border border-white/15">
                 <MapPin className="w-4 h-4 text-[#CCFF00]" />
@@ -330,10 +330,10 @@ export default function HackathonPage() {
                   <p className="text-xs text-slate-600">
                     Have questions before registration opens? Reach out to the secretariat at{" "}
                     <a
-                      href="mailto:johnsingh.k@vit.ac.in"
+                      href="mailto:icetiteconference@vit.ac.in"
                       className="text-[#004B87] font-semibold underline hover:text-[#002147]"
                     >
-                      johnsingh.k@vit.ac.in
+                      icetiteconference@vit.ac.in
                     </a>
                   </p>
                 </div>

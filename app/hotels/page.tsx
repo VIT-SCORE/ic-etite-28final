@@ -15,10 +15,12 @@ import {
   Info,
 } from "lucide-react";
 
+import HotelBookingDirectory from "@/components/HotelBookingDirectory";
+
 export const metadata: Metadata = {
   title: "Hotels & Accommodation | ic-ETITE'28",
   description:
-    "Accommodation guidance, university guest house policies, and local transit information for ic-ETITE'28 conference delegates visiting VIT Vellore.",
+    "Accommodation guidance, verified hotel directory with direct booking links, university guest house policies, and local transit information for ic-ETITE'28 conference delegates visiting VIT Vellore.",
 };
 
 export default function HotelsPage() {
@@ -28,7 +30,7 @@ export default function HotelsPage() {
       <PageHeader
         badge="Conference Hospitality & Accommodation Guide"
         title="Hotels & Accommodation"
-        subtitle="Accommodation guidance, university guest house policies, and local transit tips for ic-ETITE'28 delegates and invited guests in Vellore."
+        subtitle="Accommodation directory with verified addresses, direct booking links, published contacts, and local transit tips for ic-ETITE'28 delegates in Vellore."
         breadcrumb="Hotels & Accommodation"
         bgImage="/images/frame_.webp"
       />
@@ -95,6 +97,9 @@ export default function HotelsPage() {
           </div>
         </div>
 
+        {/* ── INTERACTIVE HOTEL BOOKING DIRECTORY (OYO / BOOKING.COM STYLE) ── */}
+        <HotelBookingDirectory />
+
         {/* VIT University Campus Guest House Special Notice */}
         <div className="bg-white rounded-3xl p-6 sm:p-8 md:p-10 border-2 border-[#002147]/10 shadow-sm relative">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b border-slate-100 pb-6 mb-6">
@@ -143,33 +148,6 @@ export default function HotelsPage() {
               </h4>
               <p className="text-xs text-slate-600 leading-relaxed">
                 Conference registration packages include luncheon, refreshments, and high tea within the university food court on conference presentation days.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Hotel Sponsorship Notice */}
-        <div className="bg-[#F7F9FC] rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
-          <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl bg-blue-100 text-[#004B87] flex items-center justify-center shrink-0 mt-0.5">
-              <Info className="w-5 h-5" />
-            </div>
-            <div className="space-y-2">
-              <h3 className="text-lg sm:text-xl font-serif font-bold text-[#002147]">
-                Hotel Partner Listings — Coming Soon
-              </h3>
-              <p className="text-sm text-slate-600 leading-relaxed max-w-3xl">
-                Official hotel partner listings with negotiated conference tariffs will be published here once hospitality sponsorship arrangements are finalized. 
-                In the meantime, delegates may independently explore hotels in Vellore city (within 5–10 km of VIT campus) via popular booking platforms.
-              </p>
-              <p className="text-xs text-slate-500 pt-1">
-                Hotels interested in partnering with ic-ETITE&apos;28 as an accommodation sponsor may contact the organizing committee at{" "}
-                <a
-                  href="mailto:icetiteconference@vit.ac.in?subject=Hotel%20Sponsorship%20Inquiry%20-%20ic-ETITE'28"
-                  className="text-[#004B87] font-semibold hover:underline"
-                >
-                  icetiteconference@vit.ac.in
-                </a>.
               </p>
             </div>
           </div>
