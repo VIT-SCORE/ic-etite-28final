@@ -110,7 +110,7 @@ export default function HotelBookingDirectory() {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-xs flex items-center gap-3.5">
           <div className="w-11 h-11 rounded-xl bg-red-50 text-[#EE2A24] flex items-center justify-center shrink-0 font-black text-lg">
-            26
+            {hotelsData.length}
           </div>
           <div>
             <p className="text-xs font-bold uppercase tracking-wider text-slate-500">Verified Stays</p>
