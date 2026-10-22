@@ -442,6 +442,8 @@ export default function CommitteesPage() {
                   <div key={m.name} className="text-[14.5px] sm:text-[15px] leading-relaxed text-[#222]">
                     <span className="font-bold text-black">{m.name}</span>
                     {m.institution ? `, ${m.institution}` : ""}
+                    {m.location ? `, ${m.location}` : ""}
+                    {m.country ? `, ${m.country}` : ""}
                   </div>
                 ))}
               </div>
@@ -450,6 +452,8 @@ export default function CommitteesPage() {
                   <div key={m.name} className="text-[14.5px] sm:text-[15px] leading-relaxed text-[#222]">
                     <span className="font-bold text-black">{m.name}</span>
                     {m.institution ? `, ${m.institution}` : ""}
+                    {m.location ? `, ${m.location}` : ""}
+                    {m.country ? `, ${m.country}` : ""}
                   </div>
                 ))}
               </div>
