@@ -75,7 +75,7 @@ const sponsors = [
   {
     label: "TECHNICAL CO-SPONSOR",
     name: "IEEE Madras Section",
-    logo: "/logos/ieee-madras-section.svg",
+    logo: "/logos/IEEE Madras section.png",
     alt: "IEEE Madras Section",
   },
   {
