@@ -231,7 +231,7 @@ export default function Icetite20Page() {
             <h1 className="sr-only">ic-ETITE&apos;20</h1>
           </div>
           <p className="text-lg sm:text-xl text-white/70 max-w-2xl leading-relaxed mb-8">
-            The First International Conference on Emerging Trends in Information Technology and Engineering — organized at VIT Vellore, technically co-sponsored by IEEE, 24–25 February 2020.
+            The First International Conference on Emerging Trends in Information Technology and Engineering
           </p>
 
           <a

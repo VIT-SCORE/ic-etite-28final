@@ -159,7 +159,7 @@ export default function Icetite24Page() {
             <h1 className="sr-only">ic-ETITE&apos;24</h1>
           </div>
           <p className="text-lg sm:text-xl text-white/70 max-w-2xl leading-relaxed mb-8">
-            Second International Conference on Emerging Trends in Information Technology and Engineering — organized by SCORE, VIT Vellore, technically co-sponsored by IEEE.
+            Second International Conference on Emerging Trends in Information Technology and Engineering
           </p>
 
           <a
