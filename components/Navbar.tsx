@@ -77,6 +77,7 @@ export default function Navbar() {
         { label: "Submit Paper", href: "/call-for-papers#submit" },
         { label: "Important Dates", href: "/important-dates" },
         { label: "Registration", href: "/registration" },
+        { label: "Sponsorship", href: "/sponsorship" },
       ],
     },
     {

@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import PhotoGridModal from "@/components/PhotoGridModal";
+import BoltPhotoMoments from "@/components/BoltPhotoMoments";
 import BoltFloatingReturn from "@/components/BoltFloatingReturn";
-import { bolt20Photos } from "@/data/photos";
 import {
   Zap,
   Award,
@@ -62,7 +61,7 @@ export default function HackathonPage() {
             </h1>
             <p className="text-base sm:text-lg text-white/85 max-w-2xl mx-auto leading-relaxed mb-6 font-normal">
               Organized by the <strong>IEEE Information Theory Society (ITS) Student Chapter</strong> and the{" "}
-              <strong>School of Computer Science Engineering &amp; Information Systems (SCORE)</strong> at VIT Vellore.
+              <strong>School of Computer Science Engineering &amp; Information Systems (SCORE)</strong> at Anna Auditorium, VIT Vellore.
             </p>
 
             {/* Quick Meta Pills - Location: VIT Vellore */}
@@ -81,7 +80,7 @@ export default function HackathonPage() {
               </span>
               <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 border border-white/15">
                 <MapPin className="w-4 h-4 text-[#CCFF00]" />
-                <span>VIT Vellore</span>
+                <span>Anna Auditorium, VIT Vellore</span>
               </span>
             </div>
 
@@ -114,7 +113,7 @@ export default function HackathonPage() {
               </h2>
 
               <p className="text-base text-slate-700 leading-relaxed font-normal">
-                BOLT (Breakthrough On Locked Technology) is the premier national 24-hour hackathon hosted at VIT Vellore. In 2024, BOLT 2.0 witnessed an extraordinary response with over <strong>683 participant registrations</strong> across 45+ premier institutions in India.
+                BOLT (Breakthrough On Locked Technology) is the premier national 24-hour hackathon hosted at Anna Auditorium, VIT Vellore. In 2024, BOLT 2.0 witnessed an extraordinary response with over <strong>683 participant registrations</strong> across 45+ premier institutions in India.
               </p>
 
               <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 shadow-2xs">
@@ -176,16 +175,9 @@ export default function HackathonPage() {
         </div>
       </section>
 
-      {/* ── PHOTO ARCHIVE (LIGHT THEME, UNDERLINED TITLE, ZERO CAPTIONS) ── */}
-      <section id="gallery" className="py-16 sm:py-20 bg-[#FAFBFD] border-b border-slate-200">
-        <div className="container-x">
-          <PhotoGridModal
-            photos={bolt20Photos}
-            title="BOLT 2.0 Highlights"
-            subtitle="Key moments and team presentations from BOLT 2.0 at VIT Vellore."
-            theme="light"
-          />
-        </div>
+      {/* ── PHOTO ARCHIVE (CONTINUOUS AUTO-SCROLLING FRAMES REEL WITH HOVER) ── */}
+      <section id="gallery">
+        <BoltPhotoMoments />
       </section>
 
       {/* ── DOMAINS & TRACKS GRID ── */}
@@ -311,7 +303,7 @@ export default function HackathonPage() {
 
                 <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
                   <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
-                    Official registration dates for BOLT 3.0 at VIT Vellore will be announced shortly along with the release of full problem statements, team guidelines, and judging rubrics.
+                    Official registration dates for BOLT 3.0 at Anna Auditorium, VIT Vellore will be announced shortly along with the release of full problem statements, team guidelines, and judging rubrics.
                   </p>
 
                   <div className="pt-2 border-t border-slate-200 space-y-2 text-xs text-slate-700 font-medium">
@@ -321,7 +313,7 @@ export default function HackathonPage() {
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="text-[#15803d]">✓</span>
-                      <span>Venue: VIT Vellore</span>
+                      <span>Venue: Anna Auditorium, VIT Vellore</span>
                     </div>
                   </div>
                 </div>

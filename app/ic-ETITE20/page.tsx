@@ -219,9 +219,17 @@ export default function Icetite20Page() {
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight mb-4">
-            ic-ETITE<span className="text-[#FFD700]">&apos;20</span>
-          </h1>
+          <div className="mb-5 pt-1">
+            <Image
+              src="/logos/ic-etite20-logo-white.png"
+              alt="ic-ETITE'20 Official Logo"
+              width={364}
+              height={66}
+              priority
+              className="h-8 sm:h-10 md:h-12 w-auto object-contain drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
+            />
+            <h1 className="sr-only">ic-ETITE&apos;20</h1>
+          </div>
           <p className="text-lg sm:text-xl text-white/70 max-w-2xl leading-relaxed mb-8">
             The First International Conference on Emerging Trends in Information Technology and Engineering — organized at VIT Vellore, technically co-sponsored by IEEE, 24–25 February 2020.
           </p>

@@ -132,7 +132,7 @@ export default function StartupAnimation() {
                   <span className="sa-apostrophe">&apos;</span>
                   <span className="sa-year">28</span>
                 </div>
-                <div className="sa-subtitle">IEEE ITS VIT VELLORE</div>
+                <div className="sa-subtitle">SCORE VIT VELLORE</div>
               </div>
             </div>
           </div>
@@ -197,7 +197,7 @@ export default function StartupAnimation() {
               fontFamily: "Arial, Helvetica, sans-serif",
             }}
           >
-            IEEE ITS · VIT Vellore
+            SCORE · VIT Vellore
           </p>
         </div>
       )}

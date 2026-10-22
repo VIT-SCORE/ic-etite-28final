@@ -211,15 +211,40 @@ export default function CommitteesPage() {
     { name: "M.J.V.Maheswara Reddy", affiliation: "SCORE, VIT Vellore" },
   ];
 
+  // Helper to deduplicate committee members by normalized name
+  const dedupe = <T extends { name: string }>(list: T[], excludeSet?: Set<string>): T[] => {
+    const seen = new Set<string>();
+    return list.filter((m) => {
+      const norm = m.name.toLowerCase().replace(/^(dr\.|prof\.|mr\.|ms\.|mrs\.)\s*/, "").replace(/[^a-z]/g, "").trim();
+      if (seen.has(norm) || (excludeSet && excludeSet.has(norm))) return false;
+      seen.add(norm);
+      return true;
+    });
+  };
+
+  const cleanIntl = dedupe(internationalAdvisoryData);
+  const intlNameSet = new Set(cleanIntl.map((m) => m.name.toLowerCase().replace(/^(dr\.|prof\.|mr\.|ms\.|mrs\.)\s*/, "").replace(/[^a-z]/g, "").trim()));
+  const cleanNat = dedupe(nationalAdvisoryData, intlNameSet);
+  const natNameSet = new Set(cleanNat.map((m) => m.name.toLowerCase().replace(/^(dr\.|prof\.|mr\.|ms\.|mrs\.)\s*/, "").replace(/[^a-z]/g, "").trim()));
+  const combinedSet = new Set<string>();
+  intlNameSet.forEach((n) => combinedSet.add(n));
+  natNameSet.forEach((n) => combinedSet.add(n));
+  const cleanTech = dedupe(technicalCommitteeData, combinedSet);
+
   // Split international advisory array into two balanced columns
-  const intlHalf = Math.ceil(internationalAdvisoryData.length / 2);
-  const intlCol1 = internationalAdvisoryData.slice(0, intlHalf);
-  const intlCol2 = internationalAdvisoryData.slice(intlHalf);
+  const intlHalf = Math.ceil(cleanIntl.length / 2);
+  const intlCol1 = cleanIntl.slice(0, intlHalf);
+  const intlCol2 = cleanIntl.slice(intlHalf);
 
   // Split national advisory array into two balanced columns
-  const natHalf = Math.ceil(nationalAdvisoryData.length / 2);
-  const natCol1 = nationalAdvisoryData.slice(0, natHalf);
-  const natCol2 = nationalAdvisoryData.slice(natHalf);
+  const natHalf = Math.ceil(cleanNat.length / 2);
+  const natCol1 = cleanNat.slice(0, natHalf);
+  const natCol2 = cleanNat.slice(natHalf);
+
+  // Split technical committee array into two balanced columns
+  const techHalf = Math.ceil(cleanTech.length / 2);
+  const techCol1 = cleanTech.slice(0, techHalf);
+  const techCol2 = cleanTech.slice(techHalf);
 
   // Tab configurations
   const tabs = [
@@ -360,7 +385,7 @@ export default function CommitteesPage() {
                 {intlCol1.map((m) => (
                   <div key={m.name} className="text-[14.5px] sm:text-[15px] leading-relaxed text-[#222]">
                     <span className="font-bold text-black">{m.name}</span>
-                    {m.role && m.institution ? `, ${m.role}, ${m.institution}` : m.institution ? `, ${m.institution}` : ""}
+                    {m.institution ? `, ${m.institution}` : ""}
                     {m.country ? `, ${m.country}` : ""}
                   </div>
                 ))}
@@ -369,7 +394,7 @@ export default function CommitteesPage() {
                 {intlCol2.map((m) => (
                   <div key={m.name} className="text-[14.5px] sm:text-[15px] leading-relaxed text-[#222]">
                     <span className="font-bold text-black">{m.name}</span>
-                    {m.role && m.institution ? `, ${m.role}, ${m.institution}` : m.institution ? `, ${m.institution}` : ""}
+                    {m.institution ? `, ${m.institution}` : ""}
                     {m.country ? `, ${m.country}` : ""}
                   </div>
                 ))}
@@ -389,7 +414,6 @@ export default function CommitteesPage() {
                 {natCol1.map((m) => (
                   <div key={`${m.name}-${m.institution}`} className="text-[14.5px] sm:text-[15px] leading-relaxed text-[#222]">
                     <span className="font-bold text-black">{m.name}</span>
-                    {m.role ? `, ${m.role}` : ""}
                     {m.institution ? `, ${m.institution}` : ""}
                   </div>
                 ))}
@@ -398,7 +422,6 @@ export default function CommitteesPage() {
                 {natCol2.map((m) => (
                   <div key={`${m.name}-${m.institution}`} className="text-[14.5px] sm:text-[15px] leading-relaxed text-[#222]">
                     <span className="font-bold text-black">{m.name}</span>
-                    {m.role ? `, ${m.role}` : ""}
                     {m.institution ? `, ${m.institution}` : ""}
                   </div>
                 ))}
@@ -415,19 +438,17 @@ export default function CommitteesPage() {
             </h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-4">
               <div className="space-y-3">
-                {technicalCommitteeData.slice(0, Math.ceil(technicalCommitteeData.length / 2)).map((m) => (
+                {techCol1.map((m) => (
                   <div key={m.name} className="text-[14.5px] sm:text-[15px] leading-relaxed text-[#222]">
                     <span className="font-bold text-black">{m.name}</span>
-                    {m.role ? `, ${m.role}` : ""}
                     {m.institution ? `, ${m.institution}` : ""}
                   </div>
                 ))}
               </div>
               <div className="space-y-3">
-                {technicalCommitteeData.slice(Math.ceil(technicalCommitteeData.length / 2)).map((m) => (
+                {techCol2.map((m) => (
                   <div key={m.name} className="text-[14.5px] sm:text-[15px] leading-relaxed text-[#222]">
                     <span className="font-bold text-black">{m.name}</span>
-                    {m.role ? `, ${m.role}` : ""}
                     {m.institution ? `, ${m.institution}` : ""}
                   </div>
                 ))}

@@ -19,36 +19,38 @@ export default function TeamPage() {
           IEEE Information Theory Society (ITS) Student Chapter · School of Computer Science Engineering &amp; Information Systems (SCORE), VIT Vellore
         </p>
 
-        {/* 2-Column Responsive Layout matching committee page */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-10">
+        {/* Responsive Layout matching committee page */}
+        <div className={`grid grid-cols-1 ${facultyMembers.length > 0 ? "md:grid-cols-2" : "max-w-2xl"} gap-x-12 lg:gap-x-20 gap-y-10`}>
           
           {/* Left Column: Faculty Sponsor */}
-          <div className="space-y-8 sm:space-y-10">
-            <section className="space-y-2">
-              <h2 className="text-xl sm:text-2xl font-bold text-[#004B87] tracking-tight">
-                Faculty Advisors
-              </h2>
-              <div className="space-y-2 pt-1">
-                {facultyMembers.map((member) => (
-                  <div
-                    key={member.name}
-                    className="text-[15px] sm:text-[15.5px] leading-relaxed text-[#222]"
-                  >
-                    <span className="font-bold text-black">{member.name}</span>
-                    {member.role ? `, ${member.role}` : ""}
-                    {member.title ? `, ${member.title}` : ""}
-                    {member.affiliation ? `, ${member.affiliation}` : ""}
-                  </div>
-                ))}
-              </div>
-            </section>
-          </div>
+          {facultyMembers.length > 0 && (
+            <div className="space-y-8 sm:space-y-10">
+              <section className="space-y-2">
+                <h2 className="text-xl sm:text-2xl font-bold text-[#004B87] tracking-tight">
+                  Faculty Advisors
+                </h2>
+                <div className="space-y-2 pt-1">
+                  {facultyMembers.map((member) => (
+                    <div
+                      key={member.name}
+                      className="text-[15px] sm:text-[15.5px] leading-relaxed text-[#222]"
+                    >
+                      <span className="font-bold text-black">{member.name}</span>
+                      {member.role ? `, ${member.role}` : ""}
+                      {member.title ? `, ${member.title}` : ""}
+                      {member.affiliation ? `, ${member.affiliation}` : ""}
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </div>
+          )}
 
-          {/* Right Column: Student Development Leads */}
+          {/* Student Development Leads */}
           <div className="space-y-8 sm:space-y-10">
             <section className="space-y-2">
               <h2 className="text-xl sm:text-2xl font-bold text-[#004B87] tracking-tight">
-                Web Development Leads &amp; Engineers
+                Web Development Leads
               </h2>
               <div className="space-y-2.5 pt-1">
                 {studentMembers.map((member) => (

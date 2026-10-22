@@ -8,8 +8,8 @@ import BackToTop from "@/components/BackToTop";
 export const metadata: Metadata = {
   metadataBase: new URL("https://icetite28.vit.ac.in"),
   title: {
-    default: "ic-ETITE'28 | IEEE International Conference on Emerging Trends in Information Technology and Engineering",
-    template: "%s | ic-ETITE'28 - IEEE International Conference",
+    default: "Third International Conference on Emerging Trends in Information Technology and Engineering",
+    template: "%s | Third International Conference on Emerging Trends in Information Technology and Engineering",
   },
   description:
     "Official website of ic-ETITE'28, the Third International Conference on Emerging Trends in Information Technology and Engineering, organized by Vellore Institute of Technology, Vellore. Technically co-sponsored by IEEE. 10–11 February 2028.",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "ic-ETITE'28 | IEEE International Conference on Emerging Trends in Information Technology and Engineering",
+    title: "Third International Conference on Emerging Trends in Information Technology and Engineering",
     description:
       "Official website of ic-ETITE'28, organized by Vellore Institute of Technology, Vellore. Technically co-sponsored by IEEE. 10–11 February 2028.",
     url: "https://icetite28.vit.ac.in",

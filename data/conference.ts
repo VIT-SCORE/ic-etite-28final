@@ -134,9 +134,9 @@ export interface ConferenceInfo {
 }
 
 export const conferenceData: ConferenceInfo = {
-  name: "IEEE International Conference on Emerging Trends in Information Technology and Engineering",
+  name: "Third International Conference on Emerging Trends in Information Technology and Engineering",
   shortName: "ic-ETITE’28",
-  edition: "The Third International Conference on Emerging Trends in Information Technology and Engineering",
+  edition: "Third International Conference on Emerging Trends in Information Technology and Engineering",
   editionNumber: 3,
   year: 2028,
   dates: "10–11 February 2028",

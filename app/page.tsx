@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import AboutAndThemesSection from "@/components/AboutAndThemesSection";
 import HomePastEditions from "@/components/HomePastEditions";
+import HomePhotoMoments from "@/components/HomePhotoMoments";
 import TechnicalSponsorsSection from "@/components/TechnicalSponsorsSection";
 import HomeCallForPapers from "@/components/HomeCallForPapers";
 import HomeImportantDates from "@/components/HomeImportantDates";
@@ -18,17 +19,21 @@ export default function HomePage() {
       {/* 3. Previous Editions: ic-ETITE'20 & ic-ETITE'24 Details & Heritage (Redirecting to About) */}
       <HomePastEditions />
 
-      {/* 4. Technical Sponsorship (IEEE) & Organizing Chapter (IEEE ITS) */}
+      {/* 4. ic-ETITE'24 Curated Moments & Highlights Showcase */}
+      <HomePhotoMoments />
+
+      {/* 5. Technical Sponsorship (IEEE) & Organizing Chapter (IEEE ITS) */}
       <TechnicalSponsorsSection />
 
-      {/* 5. Call for Papers & Guidelines */}
+      {/* 6. Call for Papers & Guidelines */}
       <HomeCallForPapers />
 
-      {/* 6. Important Dates Milestone Timeline */}
+      {/* 7. Important Dates Milestone Timeline */}
       <HomeImportantDates />
 
-      {/* 7. Keynote Speakers with Guest Pictures */}
+      {/* 8. Keynote Speakers with Guest Pictures */}
       <HomeKeynoteSpeakers />
     </div>
   );
 }
+

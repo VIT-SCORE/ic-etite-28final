@@ -88,8 +88,18 @@ scratch/
 *.tmp
 *.temp
 
+# Python Artifacts & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+venv/
+env/
+
 # Root Media Duplicates (Assets are cleanly tracked in public/)
 /videoplayback-2abc.mp4
 /logo-round iee its .png
 /logo-text.png
 /logo.jpeg
+

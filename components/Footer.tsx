@@ -137,6 +137,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link className="hover:text-white transition-colors block" href="/sponsorship">
+                  Sponsorship Packages
+                </Link>
+              </li>
+              <li>
                 <Link className="hover:text-white transition-colors block" href="/contact">
                   Contact &amp; Help Desk
                 </Link>
