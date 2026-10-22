@@ -197,10 +197,10 @@ export default function Icetite24Page() {
             <h2 className="text-3xl sm:text-4xl font-black text-[#002147] mb-5 leading-tight">
               About ic-ETITE&apos;24
             </h2>
-            <p className="text-slate-600 text-base leading-relaxed mb-4">
+            <p className="text-justify text-base leading-relaxed mb-4">
               The Second IEEE International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE&apos;24) was organized on 22nd &amp; 23rd February 2024 at VIT Vellore, India. The conference was technically co-sponsored by IEEE Madras Section.
             </p>
-            <p className="text-slate-600 text-base leading-relaxed">
+            <p className="text-justify text-base leading-relaxed">
               The purpose of this conference is to enhance the research in Information Technology, Computer Engineering, Communication Engineering, Electronics Engineering and to afford an international platform for researchers, academicians, engineers, industrialists and students around the world to share their research findings with the global experts in the field of Science and Technology.
             </p>
           </div>
@@ -211,7 +211,7 @@ export default function Icetite24Page() {
             <h2 className="text-3xl sm:text-4xl font-black text-[#002147] mb-5 leading-tight">
               Conference Theme
             </h2>
-            <p className="text-slate-600 text-base leading-relaxed">
+            <p className="text-justify text-base leading-relaxed">
               ic-ETITE&apos;24 expresses the importance of upgrading the research in Information Technology and Engineering. It motivates to provide a worldwide platform to researchers far and widespread by exploring their innovations in the field of science and technology. The mission is to promote and improve the research and development related to Information Technology and Engineering. The essential objective of the conference is to assist the researchers in discovering the global linkage for future joint efforts in their academic outlook.
             </p>
           </div>

@@ -297,21 +297,29 @@ export const internationalAdvisoryData: AdvisoryMember[] = [
     country: "Iraq",
     portfolioUrl: "https://cihanuniversity.edu.iq/",
   },
+  {
+    name: "Dr. Vaishali R. Thakare",
+    role: "Cloud Security Architect",
+    institution: "MetLife, North Carolina",
+    location: "North Carolina",
+    country: "USA",
+    portfolioUrl: "https://www.linkedin.com/in/vaishali-thakare/",
+  },
 ];
 
 export const nationalAdvisoryData: AdvisoryMember[] = [
   {
     name: "Dr. P. Sakthivel",
-    role: "Professor",
-    institution: "Anna University",
+    role: "Chairman",
+    institution: "Chairman, IEEE Madras Section",
     location: "Chennai",
     country: "India",
     portfolioUrl: "https://annauniv.edu/",
   },
   {
     name: "Dr. S. Radha",
-    role: "Vice Principal",
-    institution: "SSN College of Engineering",
+    role: "Secretary",
+    institution: "Secretary, IEEE Madras Section",
     location: "Chennai",
     country: "India",
     portfolioUrl: "https://www.ssn.edu.in/",
@@ -319,7 +327,7 @@ export const nationalAdvisoryData: AdvisoryMember[] = [
   {
     name: "Dr. Brindha Saminathan",
     role: "Senior Member",
-    institution: "IEEE",
+    institution: "Treasurer, IEEE Madras Section",
     location: "Chennai",
     country: "India",
     portfolioUrl: "https://ieee.org/",
@@ -327,7 +335,7 @@ export const nationalAdvisoryData: AdvisoryMember[] = [
   {
     name: "Mr. P. Subramanian",
     role: "Senior Member",
-    institution: "IEEE Communication Society",
+    institution: "Chairman, IEEE Communication Society, Madras Section",
     location: "Chennai",
     country: "India",
     portfolioUrl: "https://comsoc.org/",
@@ -678,7 +686,7 @@ export const technicalCommitteeData: AdvisoryMember[] = [
     portfolioUrl: "https://www.ee.iitb.ac.in/~sak/",
   },
   {
-    name: "Prof. M. Arun",
+    name: "Dr. M. Arun",
     role: "Professor",
     institution: "Panimalar Engineering College",
     location: "Chennai",
@@ -792,8 +800,8 @@ export const technicalCommitteeData: AdvisoryMember[] = [
   {
     name: "Dr. Asha Joseph",
     role: "Professor",
-    institution: "Amal Jyothi College of Engineering",
-    location: "Kerala",
+    institution: "New Horizon College of Engineering",
+    location: "Bengalore",
     country: "India",
     portfolioUrl: "https://www.ajce.in/",
   },
@@ -805,14 +813,7 @@ export const technicalCommitteeData: AdvisoryMember[] = [
     country: "India",
     portfolioUrl: "https://www.srmup.in/",
   },
-  {
-    name: "Dr. Vaishali R. Thakare",
-    role: "Cloud Security Architect",
-    institution: "Microsoft BU, Tech Mahindra",
-    location: "Bangalore",
-    country: "India",
-    portfolioUrl: "https://www.linkedin.com/in/vaishali-thakare/",
-  },
+  
   {
     name: "Dr. R. Jayanthi",
     role: "Faculty",
@@ -822,9 +823,9 @@ export const technicalCommitteeData: AdvisoryMember[] = [
     portfolioUrl: "https://chennai.vit.ac.in/member/dr-jayanthi-r/",
   },
   {
-    name: "Dr. Suchitra",
+    name: "Dr. Ignisha Rajathi G",
     role: "Professor",
-    institution: "Dept. of Computer Science & Engineering, JAIN University",
+    institution: "Manipal Institute of Technology",
     location: "Bangalore",
     country: "India",
     portfolioUrl: "https://www.jainuniversity.ac.in/",

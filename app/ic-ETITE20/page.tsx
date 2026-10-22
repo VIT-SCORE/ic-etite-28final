@@ -268,10 +268,10 @@ export default function Icetite20Page() {
           <h2 className="text-3xl sm:text-4xl font-black text-[#002147] mb-5 leading-tight">
             The First Edition
           </h2>
-          <p className="text-slate-600 text-base leading-relaxed mb-4">
+          <p className="text-justify text-base leading-relaxed mb-4">
             This event took place in Vellore Institute of Technology, Vellore, India on 24th &amp; 25th February 2020. The purpose of this conference was to enhance the research in Information Technology, Computer Engineering, Communication Engineering, Electronics Engineering and to afford an international platform for researchers, academicians, engineers, industrialists and students around the world to share their research findings with the global experts in the field of Science and Technology.
           </p>
-          <p className="text-slate-600 text-base leading-relaxed mb-6">
+          <p className="text-justify text-base leading-relaxed mb-6">
             ic-ETITE 2020 expressed its concern towards the upgradation of researchers in Information Technology and Engineering. It motivates to provide a worldwide platform to researchers far and widespread by exploring their innovations in the fields of science and technology. The mission is to promote and improve the research and development related to the topics of the conference.
           </p>
           <a

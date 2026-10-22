@@ -8,7 +8,7 @@ import BackToTop from "@/components/BackToTop";
 export const metadata: Metadata = {
   metadataBase: new URL("https://icetite28.vit.ac.in"),
   title: {
-    default: "Third International Conference on Emerging Trends in Information Technology and Engineering",
+    default: "ic-ETITE'28 || Third International Conference on Emerging Trends in Information Technology and Engineering",
     template: "%s | Third International Conference on Emerging Trends in Information Technology and Engineering",
   },
   description:
