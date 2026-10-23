@@ -144,8 +144,10 @@ export default function HomePhotoMoments() {
                         alt={photo.title}
                         fill
                         sizes="(max-width: 640px) 290px, (max-width: 1024px) 360px, 420px"
+                        quality={60}
+                        loading={index < 2 ? "eager" : "lazy"}
+                        priority={index < 2}
                         className="object-cover object-center group-hover/frame:scale-110 transition-transform duration-700 ease-out"
-                        priority={index < 4}
                       />
 
                       <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/15 to-transparent opacity-0 group-hover/frame:opacity-100 transition-opacity duration-500 pointer-events-none" />

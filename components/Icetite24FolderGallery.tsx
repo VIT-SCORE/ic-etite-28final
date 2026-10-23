@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import {
   FOLDER_GALLERY_CATEGORIES,
   FOLDER_GALLERY_PHOTOS,
@@ -12,6 +13,7 @@ export default function Icetite24FolderGallery() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [search, setSearch] = useState("");
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [visiblePhotoCount, setVisiblePhotoCount] = useState(12);
 
   const filteredPhotos = useMemo(() => {
     const term = search.trim().toLowerCase();
@@ -31,6 +33,7 @@ export default function Icetite24FolderGallery() {
 
   const selectedPhoto: FolderGalleryPhoto | null =
     selectedIndex !== null ? filteredPhotos[selectedIndex] ?? null : null;
+  const visiblePhotos = filteredPhotos.slice(0, visiblePhotoCount);
 
   function closeLightbox() {
     setSelectedIndex(null);
@@ -70,6 +73,7 @@ export default function Icetite24FolderGallery() {
 
   useEffect(() => {
     setSelectedIndex(null);
+    setVisiblePhotoCount(12);
   }, [activeCategory, search]);
 
   return (
@@ -141,14 +145,16 @@ export default function Icetite24FolderGallery() {
 
       <div className="mb-4 flex items-center justify-between gap-3">
         <p className="text-sm text-gray-600">
-          Showing <strong>{filteredPhotos.length}</strong>{" "}
+          Showing{" "}
+          <strong>{Math.min(visiblePhotoCount, filteredPhotos.length)}</strong>{" "}
+          of <strong>{filteredPhotos.length}</strong>{" "}
           {filteredPhotos.length === 1 ? "photo" : "photos"}
         </p>
       </div>
 
       {filteredPhotos.length > 0 ? (
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {filteredPhotos.map((photo, index) => (
+          {visiblePhotos.map((photo, index) => (
             <button
               type="button"
               key={photo.src}
@@ -157,12 +163,14 @@ export default function Icetite24FolderGallery() {
               aria-label={`View photo: ${getIcetite24PhotoTitle(photo.src, photo.title)}`}
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={photo.src}
                   alt={getIcetite24PhotoTitle(photo.src, photo.title)}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                  quality={60}
                   loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                  className="object-cover transition-transform duration-300 ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-100" />
                 <span className="absolute bottom-3 left-3 rounded-full border border-white/20 bg-slate-950/65 px-3 py-1.5 text-xs font-semibold tracking-wide text-white shadow-lg backdrop-blur-md">
@@ -204,6 +212,20 @@ export default function Icetite24FolderGallery() {
         </div>
       )}
 
+      {visiblePhotoCount < filteredPhotos.length && (
+        <div className="mt-8 flex justify-center">
+          <button
+            type="button"
+            onClick={() =>
+              setVisiblePhotoCount((count) => count + 12)
+            }
+            className="rounded-full bg-blue-700 px-6 py-3 text-sm font-semibold text-white shadow transition hover:bg-blue-800"
+          >
+            Load more photos
+          </button>
+        </div>
+      )}
+
       {selectedPhoto && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 sm:p-8"
@@ -237,13 +259,16 @@ export default function Icetite24FolderGallery() {
             className="flex max-h-full w-full max-w-6xl flex-col items-center"
             onClick={(event) => event.stopPropagation()}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={selectedPhoto.src}
               alt={getIcetite24PhotoTitle(
                 selectedPhoto.src,
                 selectedPhoto.title,
               )}
+              width={1600}
+              height={1200}
+              sizes="(max-width: 768px) 100vw, 90vw"
+              quality={85}
               className="max-h-[78vh] max-w-full rounded-lg object-contain"
             />
             <h3 className="mt-4 text-center text-lg font-semibold text-white">

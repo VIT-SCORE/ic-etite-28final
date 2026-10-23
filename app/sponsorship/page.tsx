@@ -378,9 +378,7 @@ export default function SponsorshipPage() {
 
               <a
                 href="/Formatted_ic-ETITE_Conference_Brochure.pdf"
-                download="ic-ETITE_Conference_Brochure.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+                download="ic-ETITE'28.pdf"
                 className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm transition-all border border-white/25 hover:scale-[1.02]"
               >
                 <FileText className="w-4 h-4 text-[#FFB81C]" />

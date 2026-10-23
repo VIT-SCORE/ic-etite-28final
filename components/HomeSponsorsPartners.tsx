@@ -131,9 +131,7 @@ export default function HomeSponsorsPartners() {
             </a>
             <a
               href="/Formatted_ic-ETITE_Conference_Brochure.pdf"
-              download="ic-ETITE_Conference_Brochure.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+              download="ic-ETITE'28.pdf"
               className="btn-outline text-xs inline-flex items-center gap-1.5"
             >
               <Download className="w-3.5 h-3.5 text-[#FFB81C]" />
