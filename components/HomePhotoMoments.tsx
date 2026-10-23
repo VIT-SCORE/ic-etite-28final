@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import {
   X,
@@ -26,8 +26,22 @@ const TILT_ANGLES = [
 
 export default function HomePhotoMoments() {
   const [activePhoto, setActivePhoto] = useState<Icetite24Photo | null>(null);
-  const [marqueeDirection, setMarqueeDirection] =
-    useState<"normal" | "reverse">("normal");
+  const marqueeRef = useRef<HTMLDivElement>(null);
+
+  const moveMarquee = (direction: "left" | "right") => {
+    const animation = marqueeRef.current?.getAnimations()[0];
+    if (!animation) return;
+
+    const duration =
+      Number(animation.effect?.getComputedTiming().duration) || 55000;
+
+    const currentTime = Number(animation.currentTime) || 0;
+    const step = 1800;
+    const delta = direction === "left" ? step : -step;
+
+    animation.currentTime =
+      ((currentTime + delta) % duration + duration) % duration;
+  };
 
   const duplicatedPhotos = [...ICETITE24_PHOTOS, ...ICETITE24_PHOTOS];
 
@@ -65,7 +79,7 @@ export default function HomePhotoMoments() {
           <button
             type="button"
             aria-label="Move photos left"
-            onClick={() => setMarqueeDirection("normal")}
+            onClick={() => moveMarquee("left")}
             className="absolute left-3 top-1/2 z-50 -translate-y-1/2 rounded-full bg-black/80 p-3 text-white shadow-lg transition hover:bg-cyan-500"
           >
             <ChevronLeft size={26} />
@@ -75,7 +89,7 @@ export default function HomePhotoMoments() {
           <button
             type="button"
             aria-label="Move photos right"
-            onClick={() => setMarqueeDirection("reverse")}
+            onClick={() => moveMarquee("right")}
             className="absolute right-3 top-1/2 z-50 -translate-y-1/2 rounded-full bg-black/80 p-3 text-white shadow-lg transition hover:bg-cyan-500"
           >
             <ChevronRight size={26} />
@@ -83,8 +97,8 @@ export default function HomePhotoMoments() {
 
           {/* Continuous marquee */}
           <div
+            ref={marqueeRef}
             className="flex gap-6 sm:gap-8 w-max animate-frame-scroll group-hover/track:[animation-play-state:paused] px-4"
-            style={{ animationDirection: marqueeDirection }}
           >
             {duplicatedPhotos.map((photo, index) => {
               const tilt = TILT_ANGLES[index % TILT_ANGLES.length];

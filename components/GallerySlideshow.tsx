@@ -128,11 +128,11 @@ export const galleryItems: GalleryItem[] = [
   {
     id: "inauguration-2024",
     image: "/images/icetite24/icetite24_16_inaugural_ceremony_dais.webp",
-    title: "Inaugural Dais & Proceedings Review",
+    title: "Valedictory Ceremony & Proceedings",
     edition: "ic-ETITE'24 Second Edition",
-    location: "Anna Auditorium Main Stage, VIT Vellore",
+    location: "VIT Vellore",
     caption:
-      "Chief Guest Shri S. Krishnan, IAS, Secretary MeitY, and university leadership presiding over the inauguration and reviewing 'Times of ic-ETITE'.",
+      "Valedictory ceremony of ic-ETITE'24, marking the conclusion of the conference and celebrating the contributions of distinguished guests, researchers, and participants.",
     category: "2024",
   },
   {
