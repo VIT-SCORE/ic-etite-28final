@@ -1,4 +1,4 @@
-export interface Icetite24Photo {
+﻿export interface Icetite24Photo {
   id: string;
   image: string;
   title: string;
@@ -15,14 +15,14 @@ export const ICETITE24_PHOTOS: Icetite24Photo[] = [
   {
     id: "dais-inaugural-2024",
     image: "/images/icetite24/icetite24_16_inaugural_ceremony_dais.webp",
-    title: "Inaugural Dais & Proceedings Review",
+    title: "Valedictory Ceremony & Proceedings",
     category: "dais",
     categoryLabel: "Inaugural & Dais",
     edition: "ic-ETITE'24 Second Edition",
     location: "Anna Auditorium Main Stage, VIT Vellore",
     caption:
-      "Chief Guest Shri S. Krishnan, IAS, Secretary MeitY, and university leadership presiding over the inauguration and reviewing 'Times of ic-ETITE'.",
-    badge: "Official Inauguration",
+      "Valedictory ceremony of ic-ETITE'24, marking the conclusion of the conference and celebrating the contributions of distinguished guests, researchers, and participants.",
+    badge: "Official Valedictory Ceremony",
     featuredOnHome: true,
   },
   {
@@ -260,3 +260,5 @@ export const ICETITE24_PHOTOS: Icetite24Photo[] = [
     featuredOnHome: false,
   },
 ];
+
+

@@ -28,11 +28,11 @@ export const galleryItems: GalleryItem[] = [
   {
     id: "stage-2020",
     image: "/images/gallery/icetite20_stage_inaugural.webp",
-    title: "Main Dais & Inaugural Ceremony",
+    title: "Valedictory Ceremony & Proceedings",
     edition: "ic-ETITE'20 Inaugural Edition",
     location: "Anna Auditorium Main Stage, VIT Vellore",
     caption:
-      "Hon'ble Chancellor Dr. G. Viswanathan, Chief Guest, Guests of Honour, and university leadership presiding over the solemn inauguration of ic-ETITE'20 on the Anna Auditorium dais.",
+      "Valedictory ceremony of ic-ETITE'24, marking the conclusion of the conference and celebrating the contributions of distinguished guests, researchers, and participants.",
     category: "2020",
   },
   {
