@@ -7,6 +7,32 @@ import {
   type FolderGalleryPhoto,
 } from "@/data/icetite24FolderGalleryData";
 
+function getDisplayTitle(photo: FolderGalleryPhoto): string {
+  const filename = photo.title
+    .replace(/\.[^.]+$/, "")
+    .replace(/^\d+[\s._-]*/, "")
+    .replace(/^[A-Z]{1,3}\d+$/i, "")
+    .replace(/[_-]+/g, " ")
+    .trim();
+
+  if (filename && !/^\d+$/.test(filename)) {
+    return filename.replace(/\b\w/g, (char) => char.toUpperCase());
+  }
+
+  const categoryTitles: Record<string, string> = {
+    inaugural: "Inaugural Ceremony",
+    "bolt-hackathon": "Bolt Hackathon",
+    conference: "Conference Moments",
+    "conference-keynote": "Keynote Session",
+    "evening-dinner-greenos": "Conference Dinner",
+    valedictory: "Valedictory Ceremony",
+    "panel-discussion": "Panel Discussion",
+    technext24: "TechNext’24",
+  };
+
+  return categoryTitles[photo.category] ?? "IC-ETITE’24 Memories";
+}
+
 export default function Icetite24FolderGallery() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [search, setSearch] = useState("");
@@ -72,42 +98,51 @@ export default function Icetite24FolderGallery() {
   }, [activeCategory, search]);
 
   return (
-    <section className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <div className="mb-8 text-center">
-        <p className="mb-2 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">
-          IC-ETITE’24 Memories
-        </p>
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-          Conference Photo Gallery
-        </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-gray-600">
-          Explore moments from the inaugural ceremony, technical sessions,
-          keynote talks, hackathon, panel discussions, dinner and valedictory.
-        </p>
-      </div>
+    <section className="relative isolate overflow-hidden bg-gradient-to-b from-slate-50 via-white to-blue-50/40 px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <div className="pointer-events-none absolute -left-24 top-24 -z-10 h-72 w-72 rounded-full bg-sky-200/30 blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 top-64 -z-10 h-72 w-72 rounded-full bg-amber-100/40 blur-3xl" />
 
-      <div className="mb-6">
-        <label htmlFor="gallery-search" className="sr-only">
-          Search photos
-        </label>
-        <input
-          id="gallery-search"
-          type="search"
-          value={search}
-          onChange={(event) => setSearch(event.target.value)}
-          placeholder="Search photos..."
-          className="mx-auto block w-full max-w-lg rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
-        />
-      </div>
+      <div className="mx-auto w-full max-w-7xl">
+        <div className="mb-8 text-center">
+          <p className="mb-2 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">
+            IC-ETITE’24 Memories
+          </p>
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Conference Photo Gallery
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-gray-600">
+            Explore moments from the inaugural ceremony, technical sessions,
+            keynote talks, hackathon, panel discussions, dinner and valedictory.
+          </p>
+        </div>
 
-      <div className="mb-8 flex flex-wrap justify-center gap-2">
+        <div className="mb-5 mt-4 flex justify-center sm:justify-end">
+          <div className="relative w-full max-w-xs">
+            <label htmlFor="gallery-search" className="sr-only">
+              Search photos
+            </label>
+            <input
+              id="gallery-search"
+              type="search"
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
+              placeholder="Search moments..."
+              className="w-full rounded-full border border-slate-200 bg-white/90 py-2.5 pl-4 pr-10 text-sm text-slate-800 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+            />
+            <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-slate-400">
+              ⌕
+            </span>
+          </div>
+        </div>
+
+        <div className="mb-8 flex flex-wrap justify-center gap-2 lg:flex-nowrap">
         <button
           type="button"
           onClick={() => setActiveCategory("all")}
           className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
             activeCategory === "all"
               ? "bg-blue-700 text-white shadow"
-              : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              : "border border-slate-200 bg-white/80 text-slate-700 shadow-sm hover:border-blue-200 hover:bg-blue-50 hover:text-blue-800"
           }`}
         >
           All Photos
@@ -121,7 +156,7 @@ export default function Icetite24FolderGallery() {
             className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
               activeCategory === category.slug
                 ? "bg-blue-700 text-white shadow"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                : "border border-slate-200 bg-white/80 text-slate-700 shadow-sm hover:border-blue-200 hover:bg-blue-50 hover:text-blue-800"
             }`}
           >
             {category.label}
@@ -143,16 +178,16 @@ export default function Icetite24FolderGallery() {
               type="button"
               key={photo.src}
               onClick={() => setSelectedIndex(index)}
-              className="group overflow-hidden rounded-2xl bg-white text-left shadow-sm ring-1 ring-gray-200 transition duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
-              aria-label={`View photo: ${photo.title}`}
+              className="group overflow-hidden rounded-2xl bg-white text-left shadow-[0_5px_20px_rgba(15,23,42,0.06)] ring-1 ring-slate-200/80 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(15,23,42,0.15)] hover:ring-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              aria-label={`View photo: ${getDisplayTitle(photo)}`}
             >
-              <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
+              <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={photo.src}
-                  alt={photo.title}
+                  alt={getDisplayTitle(photo)}
                   loading="lazy"
-                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-70" />
                 <span className="absolute bottom-3 left-3 rounded-full bg-black/60 px-3 py-1 text-xs font-medium text-white backdrop-blur">
@@ -162,8 +197,8 @@ export default function Icetite24FolderGallery() {
                 </span>
               </div>
               <div className="p-4">
-                <h3 className="line-clamp-2 font-semibold text-gray-900">
-                  {photo.title}
+                <h3 className="line-clamp-2 font-semibold text-slate-900">
+                  {getDisplayTitle(photo)}
                 </h3>
                 <p className="mt-1 text-sm text-gray-500">
                   View photo <span aria-hidden="true">↗</span>
@@ -227,11 +262,11 @@ export default function Icetite24FolderGallery() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={selectedPhoto.src}
-              alt={selectedPhoto.title}
+              alt={getDisplayTitle(selectedPhoto)}
               className="max-h-[78vh] max-w-full rounded-lg object-contain"
             />
             <h3 className="mt-4 text-center text-lg font-semibold text-white">
-              {selectedPhoto.title}
+              {getDisplayTitle(selectedPhoto)}
             </h3>
             <p className="mt-1 text-sm text-gray-300">
               {(selectedIndex ?? 0) + 1} of {filteredPhotos.length}
@@ -251,6 +286,7 @@ export default function Icetite24FolderGallery() {
           </button>
         </div>
       )}
+      </div>
     </section>
   );
 }
