@@ -8,7 +8,33 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import { ICETITE24_PHOTOS, Icetite24Photo } from "@/data/icetite24GalleryData";
+import {
+  ICETITE24_PHOTOS,
+  type Icetite24Photo,
+} from "@/data/icetite24GalleryData";
+import { ICETITE24_MAIN_PHOTOS } from "@/data/icetite24MainPhotos";
+
+type HomeMomentPhoto = Pick<
+  Icetite24Photo,
+  "id" | "image" | "title" | "badge" | "caption"
+>;
+
+const HOME_MOMENT_PHOTOS: HomeMomentPhoto[] = [
+  ...ICETITE24_PHOTOS.map((photo) => ({
+    id: photo.id,
+    image: photo.image,
+    title: photo.title,
+    badge: photo.badge ?? photo.categoryLabel,
+    caption: photo.caption,
+  })),
+  ...ICETITE24_MAIN_PHOTOS.map((photo) => ({
+    id: `main-${photo.id}`,
+    image: photo.src,
+    title: photo.title,
+    badge: "Main Gallery",
+    caption: "From the main ic-ETITE'24 photo collection.",
+  })),
+];
 
 // Subtle alternating tilt angles for natural art gallery frame look
 const TILT_ANGLES = [
@@ -25,7 +51,7 @@ const TILT_ANGLES = [
 ];
 
 export default function HomePhotoMoments() {
-  const [activePhoto, setActivePhoto] = useState<Icetite24Photo | null>(null);
+  const [activePhoto, setActivePhoto] = useState<HomeMomentPhoto | null>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
 
   const moveMarquee = (direction: "left" | "right") => {
@@ -43,9 +69,9 @@ export default function HomePhotoMoments() {
       ((currentTime + delta) % duration + duration) % duration;
   };
 
-  const duplicatedPhotos = [...ICETITE24_PHOTOS, ...ICETITE24_PHOTOS];
+  const duplicatedPhotos = [...HOME_MOMENT_PHOTOS, ...HOME_MOMENT_PHOTOS];
 
-  const openLightbox = (photo: Icetite24Photo) => {
+  const openLightbox = (photo: HomeMomentPhoto) => {
     setActivePhoto(photo);
   };
 
@@ -115,7 +141,7 @@ export default function HomePhotoMoments() {
                     <div className="relative aspect-[3/2] w-full rounded-xl sm:rounded-2xl overflow-hidden bg-slate-100 shadow-inner">
                       <Image
                         src={photo.image}
-                        alt="ic-ETITE'24 photo moment"
+                        alt={photo.title}
                         fill
                         sizes="(max-width: 640px) 290px, (max-width: 1024px) 360px, 420px"
                         className="object-cover object-center group-hover/frame:scale-110 transition-transform duration-700 ease-out"

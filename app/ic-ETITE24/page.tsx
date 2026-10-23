@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import GallerySlideshow, { GalleryItem } from "@/components/GallerySlideshow";
-import Icetite24FullGallery from "@/components/Icetite24FullGallery";
+import Icetite24FolderGallery from "@/components/Icetite24FolderGallery";
 import { ICETITE24_PHOTOS } from "@/data/icetite24GalleryData";
 
 const icetite24GalleryItems: GalleryItem[] = ICETITE24_PHOTOS.map((p) => ({
@@ -283,7 +283,7 @@ export default function Icetite24Page() {
                 Filter by event category or search specific topics. Click any photograph to open full-resolution inspection.
               </p>
             </div>
-            <Icetite24FullGallery />
+            <Icetite24FolderGallery />
           </div>
         </div>
       </section>
