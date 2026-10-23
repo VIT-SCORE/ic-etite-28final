@@ -6,32 +6,7 @@ import {
   FOLDER_GALLERY_PHOTOS,
   type FolderGalleryPhoto,
 } from "@/data/icetite24FolderGalleryData";
-
-function getDisplayTitle(photo: FolderGalleryPhoto): string {
-  const filename = photo.title
-    .replace(/\.[^.]+$/, "")
-    .replace(/^\d+[\s._-]*/, "")
-    .replace(/^[A-Z]{1,3}\d+$/i, "")
-    .replace(/[_-]+/g, " ")
-    .trim();
-
-  if (filename && !/^\d+$/.test(filename)) {
-    return filename.replace(/\b\w/g, (char) => char.toUpperCase());
-  }
-
-  const categoryTitles: Record<string, string> = {
-    inaugural: "Inaugural Ceremony",
-    "bolt-hackathon": "Bolt Hackathon",
-    conference: "Conference Moments",
-    "conference-keynote": "Keynote Session",
-    "evening-dinner-greenos": "Conference Dinner",
-    valedictory: "Valedictory Ceremony",
-    "panel-discussion": "Panel Discussion",
-    technext24: "TechNext’24",
-  };
-
-  return categoryTitles[photo.category] ?? "IC-ETITE’24 Memories";
-}
+import { getIcetite24PhotoTitle } from "@/data/icetite24PhotoTitles";
 
 export default function Icetite24FolderGallery() {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -178,29 +153,32 @@ export default function Icetite24FolderGallery() {
               type="button"
               key={photo.src}
               onClick={() => setSelectedIndex(index)}
-              className="group overflow-hidden rounded-2xl bg-white text-left shadow-[0_5px_20px_rgba(15,23,42,0.06)] ring-1 ring-slate-200/80 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(15,23,42,0.15)] hover:ring-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              aria-label={`View photo: ${getDisplayTitle(photo)}`}
+              className="group overflow-hidden rounded-3xl bg-white text-left shadow-[0_8px_30px_rgba(15,23,42,0.07)] ring-1 ring-slate-200/70 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_24px_55px_rgba(15,23,42,0.16)] hover:ring-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              aria-label={`View photo: ${getIcetite24PhotoTitle(photo.src, photo.title)}`}
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={photo.src}
-                  alt={getDisplayTitle(photo)}
+                  alt={getIcetite24PhotoTitle(photo.src, photo.title)}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-70" />
-                <span className="absolute bottom-3 left-3 rounded-full bg-black/60 px-3 py-1 text-xs font-medium text-white backdrop-blur">
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-100" />
+                <span className="absolute bottom-3 left-3 rounded-full border border-white/20 bg-slate-950/65 px-3 py-1.5 text-xs font-semibold tracking-wide text-white shadow-lg backdrop-blur-md">
                   {FOLDER_GALLERY_CATEGORIES.find(
                     (category) => category.slug === photo.category,
                   )?.label ?? photo.category}
                 </span>
+                <span className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/25 bg-white/20 text-white opacity-0 shadow-lg backdrop-blur-md transition-all duration-300 group-hover:opacity-100">
+                  ↗
+                </span>
               </div>
-              <div className="p-4">
-                <h3 className="line-clamp-2 font-semibold text-slate-900">
-                  {getDisplayTitle(photo)}
+              <div className="min-h-[100px] p-5">
+                <h3 className="line-clamp-2 text-base font-semibold leading-snug tracking-tight text-slate-900 transition-colors group-hover:text-blue-800">
+                  {getIcetite24PhotoTitle(photo.src, photo.title)}
                 </h3>
-                <p className="mt-1 text-sm text-gray-500">
+                <p className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-slate-500 transition-colors group-hover:text-blue-700">
                   View photo <span aria-hidden="true">↗</span>
                 </p>
               </div>
@@ -262,11 +240,17 @@ export default function Icetite24FolderGallery() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={selectedPhoto.src}
-              alt={getDisplayTitle(selectedPhoto)}
+              alt={getIcetite24PhotoTitle(
+                selectedPhoto.src,
+                selectedPhoto.title,
+              )}
               className="max-h-[78vh] max-w-full rounded-lg object-contain"
             />
             <h3 className="mt-4 text-center text-lg font-semibold text-white">
-              {getDisplayTitle(selectedPhoto)}
+              {getIcetite24PhotoTitle(
+                selectedPhoto.src,
+                selectedPhoto.title,
+              )}
             </h3>
             <p className="mt-1 text-sm text-gray-300">
               {(selectedIndex ?? 0) + 1} of {filteredPhotos.length}
