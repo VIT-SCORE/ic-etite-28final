@@ -130,7 +130,7 @@ export default function HomeSponsorsPartners() {
               <span>Inquire for Sponsorship</span>
             </a>
             <a
-              href="/Formatted_ic-ETITE_Conference_Brochure.pdf"
+              href="/ic-ETITE'28.pdf"
               download="ic-ETITE'28.pdf"
               className="btn-outline text-xs inline-flex items-center gap-1.5"
             >
