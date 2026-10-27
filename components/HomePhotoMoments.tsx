@@ -17,19 +17,30 @@ import { ICETITE24_MAIN_PHOTOS } from "@/data/icetite24MainPhotos";
 type HomeMomentPhoto = Pick<
   Icetite24Photo,
   "id" | "image" | "title" | "badge" | "caption"
->;
+> & {
+  thumbnail: string;
+};
+
+function getOptimizedImagePath(imagePath: string) {
+  const relativePath = imagePath.replace(/^\/+/, "");
+  const webpPath = relativePath.replace(/\.[^.]+$/, ".webp");
+
+  return `/optimized/${webpPath}`;
+}
 
 const HOME_MOMENT_PHOTOS: HomeMomentPhoto[] = [
-  ...ICETITE24_PHOTOS.map((photo) => ({
+  ...ICETITE24_PHOTOS.slice(0, 8).map((photo) => ({
     id: photo.id,
     image: photo.image,
+    thumbnail: getOptimizedImagePath(photo.image),
     title: photo.title,
     badge: photo.badge ?? photo.categoryLabel,
     caption: photo.caption,
   })),
-  ...ICETITE24_MAIN_PHOTOS.map((photo) => ({
+  ...ICETITE24_MAIN_PHOTOS.slice(0, 8).map((photo) => ({
     id: `main-${photo.id}`,
     image: photo.src,
+    thumbnail: getOptimizedImagePath(photo.src),
     title: photo.title,
     badge: "Main Gallery",
     caption: "From the main ic-ETITE'24 photo collection.",
@@ -133,21 +144,21 @@ export default function HomePhotoMoments() {
                 <div
                   key={`${photo.id}-${index}`}
                   onClick={() => openLightbox(photo)}
-                  className="shrink-0 w-[290px] sm:w-[360px] md:w-[420px] transition-all duration-500 ease-out cursor-pointer group/frame"
+                  className="shrink-0 w-[290px] sm:w-[360px] md:w-[420px] transition-transform duration-300 ease-out cursor-pointer group/frame"
                 >
                   <div
-                    className={`bg-white p-3 sm:p-4 rounded-2xl sm:rounded-3xl border-2 border-slate-200/90 shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-500 ease-out group-hover/frame:rotate-0 group-hover/frame:-translate-y-4 group-hover/frame:scale-[1.04] group-hover/frame:border-[#002147] group-hover/frame:shadow-[0_25px_50px_rgba(0,33,71,0.24)] group-hover/frame:z-30 relative ${tilt}`}
+                    className={`bg-white p-3 sm:p-4 rounded-2xl sm:rounded-3xl border-2 border-slate-200/90 shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-transform duration-300 ease-out group-hover/frame:rotate-0 group-hover/frame:-translate-y-2 group-hover/frame:scale-[1.02] group-hover/frame:z-30 relative ${tilt}`}
                   >
                     <div className="relative aspect-[3/2] w-full rounded-xl sm:rounded-2xl overflow-hidden bg-slate-100 shadow-inner">
                       <Image
-                        src={photo.image}
+                        src={photo.thumbnail}
                         alt={photo.title}
                         fill
                         sizes="(max-width: 640px) 290px, (max-width: 1024px) 360px, 420px"
                         quality={60}
                         loading={index < 2 ? "eager" : "lazy"}
                         priority={index < 2}
-                        className="object-cover object-center group-hover/frame:scale-110 transition-transform duration-700 ease-out"
+                        className="object-cover object-center group-hover/frame:scale-105 transition-transform duration-300 ease-out"
                       />
 
                       <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/15 to-transparent opacity-0 group-hover/frame:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -226,7 +237,7 @@ export default function HomePhotoMoments() {
         }
 
         .animate-frame-scroll {
-          animation: frameMarquee 55s linear infinite;
+          animation: frameMarquee 35s linear infinite;
         }
       `}</style>
 
