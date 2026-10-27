@@ -43,6 +43,7 @@ const HOME_MOMENT_PHOTOS: HomeMomentPhoto[] = [
         "WhatsApp-Image-2026-09-22-at-10-43-53-PM-2",
         "WhatsApp-Image-2026-09-22-at-10-43-54-PM-1",
         "WhatsApp-Image-2026-09-22-at-10-43-55-PM-1",
+        "WhatsApp-Image-2026-09-22-at-10-43-55-PM-2",
       ].includes(photo.id),
   )
     .slice(0, 8)
