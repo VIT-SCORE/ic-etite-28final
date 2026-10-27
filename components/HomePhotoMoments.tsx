@@ -37,14 +37,23 @@ const HOME_MOMENT_PHOTOS: HomeMomentPhoto[] = [
     badge: photo.badge ?? photo.categoryLabel,
     caption: photo.caption,
   })),
-  ...ICETITE24_MAIN_PHOTOS.slice(0, 8).map((photo) => ({
-    id: `main-${photo.id}`,
-    image: photo.src,
-    thumbnail: getOptimizedImagePath(photo.src),
-    title: photo.title,
-    badge: "Main Gallery",
-    caption: "From the main ic-ETITE'24 photo collection.",
-  })),
+  ...ICETITE24_MAIN_PHOTOS.filter(
+    (photo) =>
+      ![
+        "WhatsApp-Image-2026-09-22-at-10-43-53-PM-2",
+        "WhatsApp-Image-2026-09-22-at-10-43-54-PM-1",
+        "WhatsApp-Image-2026-09-22-at-10-43-55-PM-1",
+      ].includes(photo.id),
+  )
+    .slice(0, 8)
+    .map((photo) => ({
+      id: `main-${photo.id}`,
+      image: photo.src,
+      thumbnail: getOptimizedImagePath(photo.src),
+      title: photo.title,
+      badge: "Main Gallery",
+      caption: "From the main ic-ETITE'24 photo collection.",
+    })),
 ];
 
 // Subtle alternating tilt angles for natural art gallery frame look
