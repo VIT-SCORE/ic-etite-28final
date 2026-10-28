@@ -88,6 +88,13 @@ export const internationalAdvisoryData: AdvisoryMember[] = [
     portfolioUrl: "https://cs.uic.edu/profiles/sistla-a-prasad/",
   },
   {
+    name: "Dr. Sudesh Sivarasu",
+    role: "Professor",
+    institution: "University in Cape Town",
+    country: "South Africa",
+    portfolioUrl: "https://cs.uic.edu/profiles/sistla-a-prasad/",
+  },
+  {
     name: "Dr. Shamkant Navathe",
     role: "Professor Emeritus",
     institution: "College of Computing, Georgia Institute of Technology",
