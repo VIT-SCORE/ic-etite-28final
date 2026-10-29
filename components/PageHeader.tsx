@@ -27,7 +27,6 @@ export default function PageHeader({
           fill
           sizes="100vw"
           className="object-cover object-center opacity-20 filter saturate-150"
-          priority
         />
         <div
           className="absolute inset-0"

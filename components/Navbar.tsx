@@ -296,7 +296,6 @@ export default function Navbar() {
                 fill
                 sizes="(max-width: 640px) 80px, 128px"
                 className="object-contain object-right"
-                priority
               />
             </div>
           </Link>
@@ -429,7 +428,7 @@ export default function Navbar() {
                                 onClick={() => setMobileOpen(false)}
                                 className="block py-2 px-3 rounded-lg text-sm font-medium text-white/80 hover:text-[#FFB81C] hover:bg-white/10"
                               >
-                                • {sub.label}
+                                {sub.label}
                               </Link>
                             )}
                           </div>

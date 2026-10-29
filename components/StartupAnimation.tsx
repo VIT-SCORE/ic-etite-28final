@@ -1,160 +1,148 @@
+
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 
-/**
- * StartupAnimation
- *
- * First-ever visit  → Logo animation  +  "Welcome to ic-ETITE'28" screen
- * Session refresh   → Logo animation  only  (no welcome screen)
- * Subsequent tabs   → Logo animation  only  (session was already marked visited)
- */
+type Phase = "checking" | "logo" | "welcome" | "hidden";
+
 export default function StartupAnimation() {
-  // 'logo'    = show only the logo animation
-  // 'welcome' = show logo → then welcome screen
-  // 'hidden'  = nothing to show
-  const [phase, setPhase] = useState<"logo" | "welcome" | "hidden">("logo");
-  const [showWelcome, setShowWelcome] = useState(false);
+  const [phase, setPhase] = useState<Phase>("checking");
+  const [firstVisit, setFirstVisit] = useState(false);
   const [welcomeVisible, setWelcomeVisible] = useState(false);
   const [renderKey, setRenderKey] = useState(0);
+  const initialized = useRef(false);
 
-  const triggerExit = useCallback(() => {
-    setPhase("hidden");
-  }, []);
+  // Detect the first-ever visit.
+ // First visit: welcome only. Returning visits: logo only.
+useEffect(() => {
+  if (initialized.current) return;
+  initialized.current = true;
 
-  useEffect(() => {
-    // ── Determine if first-ever visit ──────────────────────────────────────
-    // We use localStorage (persists across tabs/sessions) to detect the very
-    // first visit, and sessionStorage (per-tab, reset on refresh) to detect
-    // within-tab refreshes.
-    const everVisited = localStorage.getItem("icetite28_visited");
-    const sessionVisited = sessionStorage.getItem("icetite28_session");
+  try {
+    const isFirstVisit = !localStorage.getItem("icetite28_visited");
 
-    const isFirstEver = !everVisited;
-
-    // Mark both flags
     localStorage.setItem("icetite28_visited", "1");
     sessionStorage.setItem("icetite28_session", "1");
 
-    if (isFirstEver) {
-      // First ever load: logo → welcome screen
-      setPhase("welcome");
-    } else {
-      // Refresh or revisit within/across sessions: logo only
-      setPhase("logo");
-    }
-  }, []);
+    setFirstVisit(isFirstVisit);
+    setPhase(isFirstVisit ? "welcome" : "logo");
+  } catch {
+    setFirstVisit(false);
+    setPhase("logo");
+  }
+}, []);
 
+  // Transition between the logo, welcome message and website.
   useEffect(() => {
-    if (phase === "hidden") return;
+    if (phase === "checking" || phase === "hidden") return;
 
-    // Expose global replay for navbar logo click
-    (window as unknown as { restartIntro: () => void }).restartIntro = replay;
+    const replay = () => {
+      setFirstVisit(false);
+      setWelcomeVisible(false);
+      setPhase("logo");
+      setRenderKey((prev) => prev + 1);
+    };
+
+    (
+      window as unknown as { restartIntro: () => void }
+    ).restartIntro = replay;
+
     window.addEventListener("replay-startup-animation", replay);
 
+    let timers: ReturnType<typeof setTimeout>[] = [];
+
     if (phase === "logo") {
-      // Show logo, then hide after 3.75s
-      const timer = setTimeout(() => setPhase("hidden"), 3800);
-      return () => {
-        window.removeEventListener("replay-startup-animation", replay);
-        clearTimeout(timer);
-      };
+      timers.push(
+        setTimeout(() => {
+          setPhase(firstVisit ? "welcome" : "hidden");
+        }, 3800)
+      );
     }
 
     if (phase === "welcome") {
-      // Logo exits at ~3.75s, then show welcome screen briefly
-      const logoTimer = setTimeout(() => {
-        setPhase("hidden");
-        // Show welcome overlay
-        setShowWelcome(true);
-        // Fade in
-        setTimeout(() => setWelcomeVisible(true), 50);
-        // Fade out + remove after 2.5s on screen
-        setTimeout(() => setWelcomeVisible(false), 2600);
-        setTimeout(() => setShowWelcome(false), 3300);
-      }, 3800);
+      setWelcomeVisible(false);
 
-      return () => {
-        window.removeEventListener("replay-startup-animation", replay);
-        clearTimeout(logoTimer);
-      };
+      timers.push(
+        setTimeout(() => setWelcomeVisible(true), 50),
+        setTimeout(() => setWelcomeVisible(false), 2600),
+        setTimeout(() => setPhase("hidden"), 3300)
+      );
     }
 
     return () => {
       window.removeEventListener("replay-startup-animation", replay);
+      timers.forEach(clearTimeout);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [phase, renderKey]);
+  }, [phase, firstVisit, renderKey]);
 
-  const replay = useCallback(() => {
-    setPhase("logo");
-    setShowWelcome(false);
-    setWelcomeVisible(false);
-    setRenderKey((prev) => prev + 1);
-  }, []);
+  if (phase === "checking" || phase === "hidden") {
+    return null;
+  }
 
   return (
-    <>
-      {/* ── Logo Animation Overlay ── */}
-      {phase !== "hidden" && (
-        <div
-          id="intro-overlay"
-          className="active"
-          key={renderKey}
-          style={{
-            position: "fixed",
-            inset: 0,
-            zIndex: 99999,
-            backgroundColor: "#f7f7f7",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            overflow: "hidden",
-            animation:
-              "introExit 0.9s cubic-bezier(0.77, 0, 0.18, 1) 2.85s forwards",
-          }}
-          aria-label="ic-ETITE'28 Startup Animation"
-        >
-          <div className="sa-stage-wrapper">
-            <div className="sa-stage">
-              <div className="sa-frame" />
-              <div className="sa-dot sa-one" />
-              <div className="sa-dot sa-two" />
-              <div className="sa-logo-wrap">
-                <div className="sa-logo" aria-label="ic-ETITE 28">
-                  <span className="sa-ic">ic</span>
-                  <span className="sa-dash">-</span>
-                  <span className="sa-e">E</span>
-                  <span className="sa-t">T</span>
-                  <span className="sa-i">I</span>
-                  <span className="sa-t">T</span>
-                  <span className="sa-e">E</span>
-                  <span className="sa-apostrophe">&apos;</span>
-                  <span className="sa-year">28</span>
-                </div>
-                <div className="sa-subtitle">SCORE VIT VELLORE</div>
+    <div
+      id="intro-overlay"
+      className="active"
+      key={renderKey}
+      style={{
+        position: "fixed",
+        inset: 0,
+        zIndex: 99999,
+        background:
+          phase === "welcome"
+            ? "radial-gradient(circle at 50% 45%, rgba(255,0,80,0.06), transparent 35%), #f7f7f7"
+            : "#f7f7f7",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        overflow: "hidden",
+        animation:
+          phase === "logo" && !firstVisit
+            ? "introExit 0.9s cubic-bezier(0.77, 0, 0.18, 1) 2.85s forwards"
+            : "none",
+        transition: "background 0.4s ease",
+      }}
+      aria-label="ic-ETITE'28 Startup Animation"
+    >
+      {phase === "logo" && (
+        <div className="sa-stage-wrapper">
+          <div className="sa-stage">
+            <div className="sa-frame" />
+            <div className="sa-dot sa-one" />
+            <div className="sa-dot sa-two" />
+
+            <div className="sa-logo-wrap">
+              <div className="sa-logo" aria-label="ic-ETITE 28">
+                <span className="sa-ic">ic</span>
+                <span className="sa-dash">-</span>
+                <span className="sa-e">E</span>
+                <span className="sa-t">T</span>
+                <span className="sa-i">I</span>
+                <span className="sa-t">T</span>
+                <span className="sa-e">E</span>
+                <span className="sa-apostrophe">&apos;</span>
+                <span className="sa-year">28</span>
               </div>
+
+              <div className="sa-subtitle">SCORE VIT VELLORE</div>
             </div>
           </div>
         </div>
       )}
 
-      {/* ── Welcome Screen (first-ever visit only) ── */}
-      {showWelcome && (
+      {phase === "welcome" && (
         <div
           style={{
-            position: "fixed",
-            inset: 0,
-            zIndex: 99998,
-            background:
-              "radial-gradient(circle at 50% 45%, rgba(255,0,80,0.06), transparent 35%), #f7f7f7",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
             gap: "0.5rem",
             opacity: welcomeVisible ? 1 : 0,
-            transition: "opacity 0.6s cubic-bezier(0.16,1,0.3,1)",
+            transform: welcomeVisible ? "translateY(0)" : "translateY(8px)",
+            transition:
+              "opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1)",
             pointerEvents: "none",
           }}
           aria-hidden="true"
@@ -172,6 +160,7 @@ export default function StartupAnimation() {
           >
             Welcome to
           </p>
+
           <h1
             style={{
               margin: 0,
@@ -183,9 +172,15 @@ export default function StartupAnimation() {
               lineHeight: 1,
             }}
           >
-            ic-<span style={{ color: "#ff0050", fontWeight: 700 }}>ETITE</span>
-            <span style={{ color: "#181818", fontWeight: 400 }}>&apos;28</span>
+            ic-
+            <span style={{ color: "#ff0050", fontWeight: 700 }}>
+              ETITE
+            </span>
+            <span style={{ color: "#181818", fontWeight: 400 }}>
+              &apos;28
+            </span>
           </h1>
+
           <p
             style={{
               margin: "8px 0 0",
@@ -201,6 +196,6 @@ export default function StartupAnimation() {
           </p>
         </div>
       )}
-    </>
+    </div>
   );
 }
