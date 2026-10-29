@@ -83,7 +83,7 @@ export default function Hero() {
                   alt="Vellore Institute of Technology Logo"
                   fill
                   className="object-contain object-left drop-shadow"
-                  priority
+		  sizes="(max-width: 768px) 100vw, 750px"
                 />
               </div>
 
