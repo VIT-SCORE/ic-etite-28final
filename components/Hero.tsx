@@ -33,7 +33,7 @@ export default function Hero() {
       {/* HERO SECTION WITH FULL-WIDTH VIDEO & EXACT LEFT-ALIGNED TEXT */}
       <section
         id="hero"
-        className="relative min-h-[640px] md:min-h-[740px] lg:min-h-[820px] flex items-center overflow-hidden bg-[#002147] text-white select-none"
+        className="relative h-[55vh] min-h-[320px] max-h-[480px] md:h-auto md:min-h-[740px] lg:min-h-[820px] flex items-center overflow-hidden bg-[#002147] text-white select-none"
         aria-label="Conference Introduction"
       >
         {/* Background Video Player */}
@@ -73,7 +73,7 @@ export default function Hero() {
         </div>
 
         {/* Hero Content Container - Strictly Left-Aligned as requested */}
-        <div className="container-x relative z-10 w-full py-16 md:py-24 lg:py-28">
+        <div className="hidden md:block container-x relative z-10 w-full py-16 md:py-24 lg:py-28">
           <div className="max-w-2xl text-left">
             {/* Header logo at left top of the video matching user instruction */}
             <div className="mb-6 flex items-center gap-4">
