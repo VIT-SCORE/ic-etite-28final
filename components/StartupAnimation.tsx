@@ -49,7 +49,7 @@ useEffect(() => {
 
     window.addEventListener("replay-startup-animation", replay);
 
-    let timers: ReturnType<typeof setTimeout>[] = [];
+    const timers: ReturnType<typeof setTimeout>[] = [];
 
     if (phase === "logo") {
       timers.push(
