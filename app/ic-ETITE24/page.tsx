@@ -99,7 +99,7 @@ export default function Icetite24Page() {
     <div className="bg-white min-h-screen text-[#002147]">
 
       {/* ── HERO ── */}
-      <section className="relative min-h-[70vh] flex items-end overflow-hidden">
+      <section className="relative min-h-[520px] sm:min-h-[560px] lg:min-h-[600px] flex items-end overflow-hidden">
         {/* Background Image with Dark Navy Gradient Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -179,21 +179,18 @@ export default function Icetite24Page() {
 
       {/* ── ABOUT ── */}
       <section className="py-16 sm:py-20 px-6 sm:px-12 lg:px-20 bg-[#F7F9FC] border-b border-slate-200">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-          <div>
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-8">
             <span className="text-xs font-bold uppercase tracking-widest text-[#004B87] bg-[#EBF3F8] px-3 py-1.5 rounded-full border border-[#004B87]/20 inline-block mb-4">
               About the Conference
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-[#002147] mb-5 leading-tight">
               About ic-ETITE&apos;24
             </h2>
-            <p className="text-justify text-base leading-relaxed mb-4">
-              The Second IEEE International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE&apos;24) was organized on 22nd &amp; 23rd February 2024 at VIT Vellore, India. The conference was technically co-sponsored by IEEE Madras Section.
-            </p>
-            <p className="text-justify text-base leading-relaxed">
-              The purpose of this conference is to enhance the research in Information Technology, Computer Engineering, Communication Engineering, Electronics Engineering and to afford an international platform for researchers, academicians, engineers, industrialists and students around the world to share their research findings with the global experts in the field of Science and Technology.
-            </p>
           </div>
+          <p className="text-justify text-base leading-relaxed">
+            The Second IEEE International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE&apos;24) was organized on 22nd &amp; 23rd February 2024 at VIT Vellore, India. The conference was technically co-sponsored by IEEE Madras Section. The purpose of this conference is to enhance the research in Information Technology, Computer Engineering, Communication Engineering, Electronics Engineering and to afford an international platform for researchers, academicians, engineers, industrialists and students around the world to share their research findings with the global experts in the field of Science and Technology.
+          </p>
         </div>
       </section>
 
