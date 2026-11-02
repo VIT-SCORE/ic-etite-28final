@@ -194,17 +194,6 @@ export default function Icetite24Page() {
               The purpose of this conference is to enhance the research in Information Technology, Computer Engineering, Communication Engineering, Electronics Engineering and to afford an international platform for researchers, academicians, engineers, industrialists and students around the world to share their research findings with the global experts in the field of Science and Technology.
             </p>
           </div>
-          <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-[#004B87] bg-[#EBF3F8] px-3 py-1.5 rounded-full border border-[#004B87]/20 inline-block mb-4">
-              Theme of the Conference
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-[#002147] mb-5 leading-tight">
-              Conference Theme
-            </h2>
-            <p className="text-justify text-base leading-relaxed">
-              ic-ETITE&apos;24 expresses the importance of upgrading the research in Information Technology and Engineering. It motivates to provide a worldwide platform to researchers far and widespread by exploring their innovations in the field of science and technology. The mission is to promote and improve the research and development related to Information Technology and Engineering. The essential objective of the conference is to assist the researchers in discovering the global linkage for future joint efforts in their academic outlook.
-            </p>
-          </div>
         </div>
       </section>
 
