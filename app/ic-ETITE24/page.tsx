@@ -99,7 +99,7 @@ export default function Icetite24Page() {
     <div className="bg-white min-h-screen text-[#002147]">
 
       {/* ── HERO ── */}
-      <section className="relative min-h-[520px] sm:min-h-[560px] lg:min-h-[600px] flex items-end overflow-hidden">
+      <section className="relative min-h-[440px] sm:min-h-[480px] lg:min-h-[520px] flex items-end overflow-hidden">
         {/* Background Image with Dark Navy Gradient Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -119,7 +119,7 @@ export default function Icetite24Page() {
         <div className="absolute inset-0 opacity-5 z-[1] pointer-events-none"
           style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
 
-        <div className="relative z-10 w-full px-6 sm:px-12 lg:px-20 pb-16 pt-28">
+        <div className="relative z-10 w-full px-6 sm:px-12 lg:px-20 pb-10 pt-20">
           <Link href="/about" className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm font-medium mb-6 transition-colors">
             <ArrowLeft className="w-4 h-4" />
             Back to About
