@@ -52,19 +52,6 @@ export const ICETITE24_PHOTOS: Icetite24Photo[] = [
     featuredOnHome: false,
   },
   {
-    id: "cisco-expo-booth-2024",
-    image: "/images/icetite24/icetite24_04_cisco_expo.webp",
-    title: "Interactive Tech Challenges at Cisco Booth",
-    category: "expo",
-    categoryLabel: "TechNext & Industry Expo",
-    edition: "Industry Collaboration",
-    location: "TechNext Industrial Expo Arena, VIT Vellore",
-    caption:
-      "Students participating in interactive coding challenges and technology demos at the Title Sponsor Cisco 'Code with Cisco' pavilion.",
-    badge: "Title Sponsor Cisco",
-    featuredOnHome: true,
-  },
-  {
     id: "drone-prototype-expo-2024",
     image: "/images/icetite24/icetite24_11_drone_prototype_expo.webp",
     title: "SkyWatch Autonomous AI Drone Demonstration",
@@ -140,19 +127,6 @@ export const ICETITE24_PHOTOS: Icetite24Photo[] = [
     caption:
       "International jury members and delegates evaluating student robotic vehicle and hardware prototype at TechNext'24 project stalls.",
     badge: "Robotics Evaluation",
-    featuredOnHome: false,
-  },
-  {
-    id: "smart-world-iot-demo-2024",
-    image: "/images/icetite24/icetite24_05_technext_smart_world.webp",
-    title: "Indian Classical Dance Recital",
-    category: "networking",
-    categoryLabel: "Networking & Cultural",
-    edition: "Cultural Evening",
-    location: "Outdoor Amphitheatre Stage, VIT Vellore",
-    caption:
-      "Student artists performing graceful Indian classical dance (Bharatanatyam recital) during the ic-ETITE'24 cultural evening reception.",
-    badge: "Classical Dance",
     featuredOnHome: false,
   },
   {
@@ -260,5 +234,4 @@ export const ICETITE24_PHOTOS: Icetite24Photo[] = [
     featuredOnHome: false,
   },
 ];
-
 

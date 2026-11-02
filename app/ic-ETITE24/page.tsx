@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Icetite24FolderGallery from "@/components/Icetite24FolderGallery";
 import HomePhotoMoments from "@/components/HomePhotoMoments";
+import { ICETITE24_PHOTOS } from "@/data/icetite24GalleryData";
 
 import {
   ArrowLeft,
@@ -195,7 +196,7 @@ export default function Icetite24Page() {
           </div>
           <div>
             <span className="text-xs font-bold uppercase tracking-widest text-[#004B87] bg-[#EBF3F8] px-3 py-1.5 rounded-full border border-[#004B87]/20 inline-block mb-4">
-              Conference Theme
+              Theme of the Conference
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-[#002147] mb-5 leading-tight">
               Conference Theme
@@ -232,13 +233,13 @@ export default function Icetite24Page() {
         </div>
       </section>
 
-      {/* ── PHOTO GALLERY & ARCHIVE (ALL 19 PHOTOS) ── */}
+      {/* ── PHOTO GALLERY & ARCHIVE ── */}
       <section className="py-16 sm:py-24 px-4 sm:px-8 lg:px-12 bg-[#F7F9FC] border-b border-slate-200">
         <div className="max-w-6xl mx-auto space-y-16">
           {/* Header */}
           <div className="text-center px-6">
             <span className="text-xs font-bold uppercase tracking-widest text-[#004B87] bg-[#EBF3F8] px-3.5 py-1.5 rounded-full border border-[#004B87]/20 inline-block mb-4">
-              Official Photo Archive · All 19 Photographs
+              Official Photo Archive · All {ICETITE24_PHOTOS.length} Photographs
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#002147] mb-3">
               ic-ETITE&apos;24 Highlights &amp; Gallery

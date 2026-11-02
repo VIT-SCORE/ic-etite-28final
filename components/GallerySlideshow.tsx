@@ -17,6 +17,7 @@ import {
 export interface GalleryItem {
   id: string;
   image: string;
+  thumbnail?: string;
   title: string;
   edition: string;
   location: string;
@@ -156,16 +157,6 @@ export const galleryItems: GalleryItem[] = [
     category: "2024",
   },
   {
-    id: "cisco-expo-2024",
-    image: "/images/icetite24/icetite24_04_cisco_expo.webp",
-    title: "Interactive Tech Challenges at Cisco Booth",
-    edition: "Industry Collaboration",
-    location: "TechNext Industrial Expo Arena, VIT Vellore",
-    caption:
-      "Students participating in interactive coding challenges and technology demos at the Title Sponsor Cisco 'Code with Cisco' pavilion.",
-    category: "2024",
-  },
-  {
     id: "drone-demo-2024",
     image: "/images/icetite24/icetite24_11_drone_prototype_expo.webp",
     title: "SkyWatch Autonomous AI Drone Demonstration",
@@ -223,16 +214,6 @@ export const galleryItems: GalleryItem[] = [
     location: "TechNext Exhibition Stalls, VIT Vellore",
     caption:
       "International jury members and delegates evaluating student robotic vehicle and hardware prototype at TechNext'24 project stalls.",
-    category: "2024",
-  },
-  {
-    id: "smart-world-2024",
-    image: "/images/icetite24/icetite24_05_technext_smart_world.webp",
-    title: "Indian Classical Dance Recital",
-    edition: "Cultural Evening",
-    location: "Outdoor Amphitheatre Stage, VIT Vellore",
-    caption:
-      "Student artists performing graceful Indian classical dance (Bharatanatyam recital) during the ic-ETITE'24 cultural evening reception.",
     category: "2024",
   },
   {
@@ -393,7 +374,7 @@ export default function GallerySlideshow({
                 : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
             }`}
           >
-            ic-ETITE&apos;20 Inaugural (10)
+            ic-ETITE&apos;20 Inaugural ({galleryItems.filter((item) => item.category === "2020").length})
           </button>
           <button
             onClick={() => setActiveCategory("2024")}
@@ -403,7 +384,7 @@ export default function GallerySlideshow({
                 : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
             }`}
           >
-            ic-ETITE&apos;24 Conclave (3)
+            ic-ETITE&apos;24 Conclave ({galleryItems.filter((item) => item.category === "2024").length})
           </button>
         </div>
       )}
@@ -421,7 +402,7 @@ export default function GallerySlideshow({
             src={activeItem.image}
             alt={activeItem.title}
             fill
-            loading="lazy"
+            priority={currentIndex === 0}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
             className="object-cover transition-all duration-700 brightness-95"
           />
@@ -512,7 +493,7 @@ export default function GallerySlideshow({
             title={item.title}
           >
             <Image
-              src={item.image}
+              src={item.thumbnail ?? item.image}
               alt={item.title}
               fill
               loading="lazy"
