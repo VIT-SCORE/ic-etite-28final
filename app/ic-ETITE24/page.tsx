@@ -195,7 +195,7 @@ export default function Icetite24Page() {
           </div>
           <div>
             <span className="text-xs font-bold uppercase tracking-widest text-[#004B87] bg-[#EBF3F8] px-3 py-1.5 rounded-full border border-[#004B87]/20 inline-block mb-4">
-              Theme of the Conference
+              Conference Theme
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-[#002147] mb-5 leading-tight">
               Conference Theme

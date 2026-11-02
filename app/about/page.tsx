@@ -634,7 +634,7 @@ export default function AboutPage() {
             <div className="p-2.5 bg-white border-2 border-slate-200 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
               <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
                 <Image
-                  src="/images/ieee-its-group.webp"
+                  src="/images/Vit%20ITS.jpg"
                   alt="IEEE Information Theory Society Team at VIT"
                   fill
                   loading="lazy"
