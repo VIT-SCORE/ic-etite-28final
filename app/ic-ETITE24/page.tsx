@@ -1,19 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import GallerySlideshow, { GalleryItem } from "@/components/GallerySlideshow";
 import Icetite24FolderGallery from "@/components/Icetite24FolderGallery";
-import { ICETITE24_PHOTOS } from "@/data/icetite24GalleryData";
-
-const icetite24GalleryItems: GalleryItem[] = ICETITE24_PHOTOS.map((p) => ({
-  id: p.id,
-  image: p.image,
-  title: p.title,
-  edition: p.edition,
-  location: p.location,
-  caption: p.caption,
-  category: "2024" as const,
-}));
+import HomePhotoMoments from "@/components/HomePhotoMoments";
 
 import {
   ArrowLeft,
@@ -259,19 +248,8 @@ export default function Icetite24Page() {
             </p>
           </div>
 
-          {/* Featured Slideshow */}
-          <div className="bg-white p-4 sm:p-8 rounded-3xl border border-slate-200 shadow-sm">
-            <div className="mb-6 flex items-center justify-between border-b border-slate-100 pb-4">
-              <div>
-                <h3 className="font-bold text-lg text-[#002147]">Interactive Slideshow</h3>
-                <p className="text-xs text-slate-500">Auto-playing cinematic archive showcase with full details</p>
-              </div>
-              <span className="text-xs font-bold text-[#004B87] bg-[#EBF3F8] px-3 py-1 rounded-full">
-                19 Archival Moments
-              </span>
-            </div>
-            <GallerySlideshow items={icetite24GalleryItems} showCategoryFilter={false} />
-          </div>
+          {/* Continuous Scrolling Photo Moments */}
+          <HomePhotoMoments showHeading={false} />
 
           {/* Full Grid Gallery with Category Filters, Search & Lightbox */}
           <div>

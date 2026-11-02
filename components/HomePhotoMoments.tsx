@@ -71,7 +71,11 @@ const TILT_ANGLES = [
   "rotate-1.5",
 ];
 
-export default function HomePhotoMoments() {
+export default function HomePhotoMoments({
+  showHeading = true,
+}: {
+  showHeading?: boolean;
+}) {
   const [activePhoto, setActivePhoto] = useState<HomeMomentPhoto | null>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
 
@@ -108,12 +112,14 @@ export default function HomePhotoMoments() {
 
       <div className="w-full relative z-10">
         
-        {/* Section Header: Just the heading as requested, centered, no arrows */}
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 px-4">
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#002147]">
-            Moments from ic-ETITE&apos;24
-          </h2>
-        </div>
+        {/* Optional Section Heading */}
+        {showHeading && (
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 px-4">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#002147]">
+              Moments from ic-ETITE&apos;24
+            </h2>
+          </div>
+        )}
 
         {/* Continuous Scrolling Frames Track (Auto-scrolls & pauses on hover) */}
         <div className="relative w-full overflow-hidden py-6 group/track">
