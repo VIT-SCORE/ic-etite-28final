@@ -5,6 +5,7 @@ import Image from "next/image";
 import {
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
   Play,
   Pause,
   MapPin,
@@ -312,6 +313,7 @@ export default function GallerySlideshow({
   const [isPlaying, setIsPlaying] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [detailsExpanded, setDetailsExpanded] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const filteredItems = items
@@ -324,6 +326,10 @@ export default function GallerySlideshow({
   useEffect(() => {
     setCurrentIndex(0);
   }, [activeCategory, items]);
+
+  useEffect(() => {
+    setDetailsExpanded(false);
+  }, [currentIndex]);
 
   const nextSlide = useCallback(() => {
     if (!filteredItems.length) return;
@@ -402,7 +408,7 @@ export default function GallerySlideshow({
             src={activeItem.image}
             alt={activeItem.title}
             fill
-            priority={currentIndex === 0}
+            loading="lazy"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
             className="object-cover transition-all duration-700 brightness-95"
           />
@@ -455,18 +461,34 @@ export default function GallerySlideshow({
             <ChevronRight className="w-6 h-6" />
           </button>
 
-          {/* Bottom Title & Truthful Caption Overlay */}
-          <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-7 text-white z-20 max-w-4xl">
-            <div className="flex items-center gap-1.5 text-xs text-amber-300 mb-1 font-medium">
-              <MapPin className="w-3.5 h-3.5 shrink-0" />
-              <span>{activeItem.location}</span>
+          {/* Responsive Caption Overlay */}
+          <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-7 text-white z-20 max-w-4xl">
+            <button
+              type="button"
+              onClick={() => setDetailsExpanded((prev) => !prev)}
+              aria-expanded={detailsExpanded}
+              className="sm:hidden inline-flex items-center gap-2 rounded-full bg-black/70 border border-white/30 px-4 py-2 text-xs font-semibold text-white backdrop-blur-sm"
+            >
+              {detailsExpanded ? "Hide Details" : "View Details"}
+              <ChevronDown
+                className={`w-4 h-4 transition-transform ${
+                  detailsExpanded ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+
+            <div className={`${detailsExpanded ? "block" : "hidden"} sm:block mt-3`}>
+              <div className="flex items-center gap-1.5 text-xs text-amber-300 mb-1 font-medium">
+                <MapPin className="w-3.5 h-3.5 shrink-0" />
+                <span>{activeItem.location}</span>
+              </div>
+              <h3 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight drop-shadow-md">
+                {activeItem.title}
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-200 mt-1.5 max-w-3xl leading-relaxed drop-shadow-sm">
+                {activeItem.caption}
+              </p>
             </div>
-            <h3 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight drop-shadow-md">
-              {activeItem.title}
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-200 mt-1.5 max-w-3xl leading-relaxed drop-shadow-sm">
-              {activeItem.caption}
-            </p>
           </div>
         </div>
 

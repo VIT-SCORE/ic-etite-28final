@@ -176,7 +176,7 @@ export default function Navbar() {
         </div>
 
         {/* DESKTOP NAVIGATION ITEMS */}
-        <div className="hidden xl:flex items-center justify-center flex-1 min-w-0 mx-2 xl:mx-3 2xl:mx-4">
+        <div className="hidden lg:flex items-center justify-center flex-1 min-w-0 mx-1 xl:mx-2 2xl:mx-4">
           <ul className="flex items-center gap-0.5 xl:gap-1 2xl:gap-2 text-[13.5px] xl:text-[14px] 2xl:text-[15px] font-semibold text-white flex-nowrap whitespace-nowrap">
             {navItems.map((item) => {
               const active = isActive(item);
@@ -257,7 +257,7 @@ export default function Navbar() {
           {/* TechNext '28 Tag (Desktop) */}
           <Link
             href="/technext"
-            className="hidden xl:flex items-center justify-center h-8 2xl:h-9 w-24 2xl:w-28 rounded-full bg-white/10 hover:bg-white/20 border border-[#84E320]/80 shadow-[0_0_12px_rgba(132,227,32,0.28)] transition-all hover:scale-105 shrink-0"
+            className="hidden lg:flex items-center justify-center h-8 2xl:h-9 w-24 2xl:w-28 rounded-full bg-white/10 hover:bg-white/20 border border-[#84E320]/80 shadow-[0_0_12px_rgba(132,227,32,0.28)] transition-all hover:scale-105 shrink-0"
             title="TechNext '28 National Industrial Expo"
           >
             <div className="relative h-3.5 2xl:h-4 w-16 2xl:w-20">
@@ -274,7 +274,7 @@ export default function Navbar() {
           {/* BOLT 3.0 Hackathon Tag (Desktop) */}
           <Link
             href="/hackathon"
-            className="hidden xl:flex items-center justify-center gap-1.5 h-8 2xl:h-9 px-3 xl:px-3.5 2xl:px-4 rounded-full bg-[#00142E] hover:bg-[#00244D] border border-[#CCFF00] shadow-[0_0_12px_rgba(204,255,0,0.28)] transition-all hover:scale-105 shrink-0"
+            className="hidden lg:flex items-center justify-center gap-1.5 h-8 2xl:h-9 px-3 xl:px-3.5 2xl:px-4 rounded-full bg-[#00142E] hover:bg-[#00244D] border border-[#CCFF00] shadow-[0_0_12px_rgba(204,255,0,0.28)] transition-all hover:scale-105 shrink-0"
             title="Register for BOLT 3.0 National Flagship Hackathon"
           >
             <Zap className="w-3.5 h-3.5 2xl:w-4 2xl:h-4 text-[#CCFF00] fill-[#CCFF00] animate-pulse shrink-0" />
@@ -300,11 +300,11 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* MOBILE / TABLET MENU TRIGGER BUTTON (< xl) */}
+          {/* MOBILE / TABLET MENU TRIGGER BUTTON (< lg) */}
           <button
             id="menu-btn"
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="xl:hidden p-1.5 sm:p-2 rounded-xl bg-white/10 border border-white/20 text-white hover:bg-white/20 active:scale-95 flex items-center justify-center ml-1"
+            className="lg:hidden p-1.5 sm:p-2 rounded-xl bg-white/10 border border-white/20 text-white hover:bg-white/20 active:scale-95 flex items-center justify-center ml-1"
             aria-label="Toggle navigation menu"
             aria-expanded={mobileOpen}
           >
@@ -313,9 +313,9 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* MOBILE & TABLET DRAWER NAVIGATION (< xl) */}
+      {/* MOBILE & TABLET DRAWER NAVIGATION (< lg) */}
       {mobileOpen && (
-        <div className="xl:hidden fixed inset-x-0 top-[52px] sm:top-[57px] bottom-0 bg-[#00142E] border-t border-white/15 text-white shadow-2xl z-40 overflow-y-auto animate-in slide-in-from-top-2 duration-200">
+        <div className="lg:hidden fixed inset-x-0 top-[52px] sm:top-[57px] bottom-0 bg-[#00142E] border-t border-white/15 text-white shadow-2xl z-40 overflow-y-auto animate-in slide-in-from-top-2 duration-200">
           <div className="container-x py-6 space-y-6 pb-20">
             {/* Co-located Events Highlights in Mobile Drawer */}
             <div className="space-y-2.5">

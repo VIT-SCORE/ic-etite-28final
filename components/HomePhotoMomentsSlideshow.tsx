@@ -1,8 +1,19 @@
 import GallerySlideshow, {
   type GalleryItem,
 } from "@/components/GallerySlideshow";
+import { ICETITE24_PHOTOS } from "@/data/icetite24GalleryData";
 
 const base = "/images/icetite24-slideshow";
+
+const existingSlideshowItems: GalleryItem[] = ICETITE24_PHOTOS.map((photo) => ({
+  id: photo.id,
+  image: photo.image,
+  title: photo.title,
+  edition: photo.edition,
+  location: photo.location,
+  caption: photo.caption,
+  category: "2024",
+}));
 
 function createGroup(
   folder: string,
@@ -26,7 +37,7 @@ function createGroup(
   });
 }
 
-const slideshowItems: GalleryItem[] = [
+const newSlideshowItems: GalleryItem[] = [
   ...createGroup(
     "inauguration",
     [
@@ -101,6 +112,8 @@ const slideshowItems: GalleryItem[] = [
     "The closing proceedings of ic-ETITE'24, recognising the contributions and achievements of speakers, researchers and participants."
   ),
 ];
+
+const slideshowItems = [...existingSlideshowItems, ...newSlideshowItems];
 
 export default function HomePhotoMomentsSlideshow() {
   return (

@@ -18,15 +18,31 @@ import {
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [brochureModalOpen, setBrochureModalOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
+  const [playMobileVideo, setPlayMobileVideo] = useState(false);
 
   useEffect(() => {
-    // Attempt autoplay
-    if (videoRef.current) {
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+
+    const updateScreen = () => {
+      setIsMobile(mediaQuery.matches);
+    };
+
+    updateScreen();
+    mediaQuery.addEventListener("change", updateScreen);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateScreen);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile && videoRef.current) {
       videoRef.current.play().catch(() => {
-        // Autoplay handled
+        // Autoplay can be blocked by the browser.
       });
     }
-  }, []);
+  }, [isMobile]);
 
   return (
     <>
@@ -36,20 +52,55 @@ export default function Hero() {
         className="relative min-h-[640px] md:min-h-[740px] lg:min-h-[820px] flex items-center overflow-hidden bg-[#002147] text-white select-none"
         aria-label="Conference Introduction"
       >
-        {/* Background Video Player */}
+        {/* Optimized Hero Background */}
         <div className="absolute inset-0 w-full h-full overflow-hidden">
-          <video
-            ref={videoRef}
-            src="/videoplayback-2abc.mp4"
-            poster="/images/frame_15.webp"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover object-center scale-[1.02] transform transition-opacity duration-1000"
+          <Image
+            src="/images/frame_15.webp"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className={`object-cover object-center ${
+              !isMobile || playMobileVideo ? "hidden" : "block"
+            }`}
           />
 
-          {/* Fallback pattern overlay */}
+          {!isMobile && (
+            <video
+              ref={videoRef}
+              src="/videoplayback-2abc.mp4"
+              poster="/images/frame_15.webp"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="none"
+              className="absolute inset-0 w-full h-full object-cover object-center"
+            />
+          )}
+
+          {isMobile && playMobileVideo && (
+            <video
+              src="/videoplayback-2abc.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              controls
+              className="absolute inset-0 w-full h-full object-cover object-center"
+            />
+          )}
+
+          {isMobile && !playMobileVideo && (
+            <button
+              type="button"
+              onClick={() => setPlayMobileVideo(true)}
+              className="absolute bottom-6 right-5 z-20 rounded-full bg-black/60 border border-white/40 px-4 py-2 text-xs text-white backdrop-blur-sm"
+            >
+              Play Background Video
+            </button>
+          )}
+
           <div
             className="absolute inset-0 opacity-[0.03] pointer-events-none"
             style={{
