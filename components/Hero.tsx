@@ -30,22 +30,14 @@ export default function Hero() {
       }
     };
 
-    // Attach the background video only after the page has loaded so its ~2.5 MB download
-    // doesn't compete with the LCP image; the still image underneath shows until then.
-    // Phones, Save-Data and reduced-motion users keep the still image only.
+    // The background video (~2.5 MB) is attached from JS rather than in the markup so it never
+    // delays the hero image. Phones, Save-Data and reduced-motion users keep the still image only.
     const skipVideo =
       (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData ||
       window.matchMedia("(max-width: 767px), (prefers-reduced-motion: reduce)").matches;
-    const attachVideo = () => {
-      const video = videoRef.current;
-      if (!video || skipVideo || video.getAttribute("src")) return;
-      video.src = HERO_VIDEO_SRC;
+    if (videoRef.current && !skipVideo) {
+      videoRef.current.src = HERO_VIDEO_SRC;
       playVideo();
-    };
-    if (document.readyState === "complete") {
-      attachVideo();
-    } else {
-      window.addEventListener("load", attachVideo, { once: true });
     }
 
     // Ensure background video keeps playing on tab focus / visibility return
@@ -61,7 +53,6 @@ export default function Hero() {
     window.addEventListener("click", playVideo, { once: true });
 
     return () => {
-      window.removeEventListener("load", attachVideo);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
       window.removeEventListener("focus", playVideo);
     };
