@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { Award, Globe, Building2, Cpu, Users } from "lucide-react";
 import {
   chiefPatron,
@@ -271,7 +272,7 @@ export default function CommitteesPage() {
   ];
 
   return (
-    <main className="bg-white min-h-screen text-[#1A1A1A] py-8 sm:py-12">
+    <div className="bg-white min-h-screen text-[#1A1A1A] py-8 sm:py-12">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* FLOATING LIQUID GLASS COMMITTEE NAVIGATION */}
@@ -413,9 +414,21 @@ export default function CommitteesPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-10">
                 {functionalCommittees.map((group) => (
                   <section key={group.title} className="space-y-2">
-                    <h3 className="text-xl sm:text-2xl font-bold text-[#004B87] tracking-tight">
-                      {group.title}
-                    </h3>
+                    <div className="flex flex-wrap items-center gap-3">
+                      <h3 className="text-xl sm:text-2xl font-bold text-[#004B87] tracking-tight">
+                        {group.title}
+                      </h3>
+                      {group.title.includes("BOLT") && (
+                        <div className="relative h-6 w-20 shrink-0">
+                          <Image src="/logos/bolt-logo.png" alt="BOLT 3.0" fill sizes="80px" className="object-contain object-left" />
+                        </div>
+                      )}
+                      {group.title.toLowerCase().includes("technext") && (
+                        <div className="relative h-6 w-24 shrink-0">
+                          <Image src="/logos/technext-logo.png" alt="TechNext '28" fill sizes="100px" className="object-contain object-left" />
+                        </div>
+                      )}
+                    </div>
                     <div className="space-y-1.5 pt-1">
                       {group.members.map((member) => (
                         <div
@@ -542,6 +555,6 @@ export default function CommitteesPage() {
         )}
 
       </div>
-    </main>
+    </div>
   );
 }

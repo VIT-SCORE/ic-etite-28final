@@ -370,7 +370,7 @@ export default function GallerySlideshow({
                 : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
             }`}
           >
-            All Moments ({galleryItems.length})
+            All Moments
           </button>
           <button
             onClick={() => setActiveCategory("2020")}
@@ -380,7 +380,7 @@ export default function GallerySlideshow({
                 : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
             }`}
           >
-            ic-ETITE&apos;20 Inaugural ({galleryItems.filter((item) => item.category === "2020").length})
+            ic-ETITE&apos;20 Inaugural
           </button>
           <button
             onClick={() => setActiveCategory("2024")}
@@ -390,7 +390,7 @@ export default function GallerySlideshow({
                 : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
             }`}
           >
-            ic-ETITE&apos;24 Conclave ({galleryItems.filter((item) => item.category === "2024").length})
+            ic-ETITE&apos;24 Conclave
           </button>
         </div>
       )}
@@ -427,21 +427,18 @@ export default function GallerySlideshow({
             <div className="flex items-center gap-2 pointer-events-auto">
               <button
                 onClick={() => setIsPlaying(!isPlaying)}
-                className="w-8 h-8 rounded-full bg-black/60 hover:bg-black/90 backdrop-blur-md text-white flex items-center justify-center border border-white/20 transition-all text-xs"
+                className="w-8 h-8 rounded-full bg-black/60 hover:bg-black/90 backdrop-blur-md text-white flex items-center justify-center border border-white/20 transition-all text-xs cursor-pointer"
                 title={isPlaying ? "Pause auto-scroll" : "Play auto-scroll"}
               >
                 {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5 ml-0.5" />}
               </button>
               <button
                 onClick={() => setLightboxOpen(true)}
-                className="w-8 h-8 rounded-full bg-black/60 hover:bg-black/90 backdrop-blur-md text-white flex items-center justify-center border border-white/20 transition-all text-xs"
+                className="w-8 h-8 rounded-full bg-black/60 hover:bg-black/90 backdrop-blur-md text-white flex items-center justify-center border border-white/20 transition-all text-xs cursor-pointer"
                 title="View full image"
               >
                 <Maximize2 className="w-3.5 h-3.5" />
               </button>
-              <span className="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-white/90 text-xs font-mono border border-white/20">
-                {String(currentIndex + 1).padStart(2, "0")} / {String(filteredItems.length).padStart(2, "0")}
-              </span>
             </div>
           </div>
 

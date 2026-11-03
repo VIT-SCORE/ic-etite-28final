@@ -106,3 +106,7 @@ env/
 ic-etite28-deployment-source.zip
 npm-audit-report.json
 ic-etite28-deployment-source.zip
+
+# Raw source photos (input for scripts/optimize-slideshow-images.cjs, not served)
+/Website Converted/
+.claude/

@@ -18,31 +18,35 @@ import {
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [brochureModalOpen, setBrochureModalOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(true);
-  const [playMobileVideo, setPlayMobileVideo] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 767px)");
-
-    const updateScreen = () => {
-      setIsMobile(mediaQuery.matches);
+    const playVideo = () => {
+      if (videoRef.current) {
+        videoRef.current.play().catch(() => {
+          // Autoplay handled safely
+        });
+      }
     };
 
-    updateScreen();
-    mediaQuery.addEventListener("change", updateScreen);
+    playVideo();
+
+    // Ensure background video keeps playing on tab focus / visibility return
+    const handleVisibilityChange = () => {
+      if (!document.hidden) {
+        playVideo();
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    window.addEventListener("focus", playVideo);
+    window.addEventListener("touchstart", playVideo, { once: true });
+    window.addEventListener("click", playVideo, { once: true });
 
     return () => {
-      mediaQuery.removeEventListener("change", updateScreen);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.removeEventListener("focus", playVideo);
     };
   }, []);
-
-  useEffect(() => {
-    if (!isMobile && videoRef.current) {
-      videoRef.current.play().catch(() => {
-        // Autoplay can be blocked by the browser.
-      });
-    }
-  }, [isMobile]);
 
   return (
     <>
@@ -52,54 +56,28 @@ export default function Hero() {
         className="relative min-h-[640px] md:min-h-[740px] lg:min-h-[820px] flex items-center overflow-hidden bg-[#002147] text-white select-none"
         aria-label="Conference Introduction"
       >
-        {/* Optimized Hero Background */}
+        {/* Optimized Hero Background with Continuous Video Playback */}
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <Image
             src="/images/frame_15.webp"
-            alt=""
+            alt="VIT Campus Aerial View"
             fill
             priority
             sizes="100vw"
-            className={`object-cover object-center ${
-              !isMobile || playMobileVideo ? "hidden" : "block"
-            }`}
+            className="object-cover object-center pointer-events-none -z-10"
           />
 
-          {!isMobile && (
-            <video
-              ref={videoRef}
-              src="/videoplayback-2abc.mp4"
-              poster="/images/frame_15.webp"
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="none"
-              className="absolute inset-0 w-full h-full object-cover object-center"
-            />
-          )}
-
-          {isMobile && playMobileVideo && (
-            <video
-              src="/videoplayback-2abc.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              controls
-              className="absolute inset-0 w-full h-full object-cover object-center"
-            />
-          )}
-
-          {isMobile && !playMobileVideo && (
-            <button
-              type="button"
-              onClick={() => setPlayMobileVideo(true)}
-              className="absolute bottom-6 right-5 z-20 rounded-full bg-black/60 border border-white/40 px-4 py-2 text-xs text-white backdrop-blur-sm"
-            >
-              Play Background Video
-            </button>
-          )}
+          <video
+            ref={videoRef}
+            src="/videoplayback-2abc.mp4"
+            poster="/images/frame_15.webp"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+          />
 
           <div
             className="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -224,41 +202,73 @@ export default function Hero() {
       </div>
 
       {/* VIT INSTITUTIONAL CREDENTIAL STRIP ALIGNED WITH VIT.AC.IN */}
-      <section className="border-b border-[#E2E8F0] bg-white relative z-20 shadow-sm">
-        <div className="container-x py-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 text-left">
-            <div className="border-l-2 border-[#F5A623] pl-3.5">
-              <p className="text-[14px] font-bold text-[#002147]">10–11 Feb 2028</p>
-              <p className="text-[11.5px] text-[#4A5568] mt-0.5">Conference Dates</p>
-            </div>
-            <div className="border-l-2 border-[#002147] pl-3.5">
-              <p className="text-[14px] font-bold text-[#002147]">VIT Vellore, India</p>
-              <p className="text-[11.5px] text-[#4A5568] mt-0.5">Host Campus &amp; Venue</p>
+      <section className="border-b border-[#E2E8F0] bg-white relative z-20 shadow-xs">
+        <div className="container-x py-6 sm:py-7">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 text-left">
+            <div className="border-l-4 border-[#F5A623] pl-4 sm:pl-5 py-0.5">
+              <p className="text-base sm:text-lg lg:text-xl font-extrabold text-[#002147] tracking-tight leading-tight">
+                10–11 Feb 2028
+              </p>
+              <p className="text-xs sm:text-[13px] text-slate-600 font-semibold uppercase tracking-wider mt-1">
+                Conference Dates
+              </p>
             </div>
 
-            <div className="border-l-2 border-[#F5A623] pl-3.5">
-              <p className="text-[14px] font-bold text-[#002147]">Double-Blind</p>
-              <p className="text-[11.5px] text-[#4A5568] mt-0.5">Peer-Reviewed Tracks</p>
+            <div className="border-l-4 border-[#002147] pl-4 sm:pl-5 py-0.5">
+              <p className="text-base sm:text-lg lg:text-xl font-extrabold text-[#002147] tracking-tight leading-tight">
+                VIT Vellore, India
+              </p>
+              <p className="text-xs sm:text-[13px] text-slate-600 font-semibold uppercase tracking-wider mt-1">
+                Host Campus &amp; Venue
+              </p>
             </div>
-            <div className="border-l-2 border-[#002147] pl-3.5 col-span-2 md:col-span-1">
-              <p className="text-[14px] font-bold text-[#002147]">NIRF #10 / NAAC A++</p>
-              <p className="text-[11.5px] text-[#4A5568] mt-0.5">Top Indian Institution</p>
+
+            <div className="border-l-4 border-[#F5A623] pl-4 sm:pl-5 py-0.5">
+              <p className="text-base sm:text-lg lg:text-xl font-extrabold text-[#002147] tracking-tight leading-tight">
+                Double-Blind
+              </p>
+              <p className="text-xs sm:text-[13px] text-slate-600 font-semibold uppercase tracking-wider mt-1">
+                Peer-Reviewed Tracks
+              </p>
+            </div>
+
+            <div className="border-l-4 border-[#002147] pl-4 sm:pl-5 py-0.5 col-span-2 sm:col-span-1">
+              <p className="text-base sm:text-lg lg:text-xl font-extrabold text-[#002147] tracking-tight leading-tight">
+                NIRF #10 / NAAC A++
+              </p>
+              <p className="text-xs sm:text-[13px] text-slate-600 font-semibold uppercase tracking-wider mt-1">
+                Top Indian Institution
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* VIT.AC.IN ACCREDITATION & INSTITUTIONAL STRIP */}
+      {/* VIT.AC.IN ACCREDITATION & INSTITUTIONAL STRIP (3-PART BALANCED LAYOUT) */}
       <section className="bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="container-x py-4">
-          <div className="flex flex-wrap items-center justify-between gap-4 text-xs">
-            <div className="flex items-center gap-2 text-[#002147] font-semibold">
-              <Award className="w-4 h-4 text-[#F5A623]" />
-              <span>Vellore Institute of Technology (Deemed to be University under section 3 of UGC Act 1956)</span>
+        <div className="container-x py-3.5 sm:py-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 items-center gap-2.5 sm:gap-4 lg:gap-6 text-xs sm:text-[13px]">
+            {/* LEFT SIDE: Organizing School */}
+            <div className="text-center lg:text-left text-slate-700">
+              <span className="font-bold text-[#002147]">SCORE</span>{" "}
+              <span className="text-slate-600 font-medium">
+                (School of Computer Science Engineering and Information Systems)
+              </span>
             </div>
-            <div className="flex items-center gap-4 text-[#4A5568] font-medium">
-              <span>SCORE (School of Computer Science Engineering and Information Systems)</span>
-              <span>·</span>
+
+            {/* CENTER: Host University with Medal Icon */}
+            <div className="flex items-center justify-center gap-2 text-center text-[#002147] font-bold">
+              <Award className="w-4 h-4 text-[#F5A623] shrink-0" />
+              <span>
+                Vellore Institute of Technology
+                <span className="text-slate-500 font-normal block sm:inline sm:ml-1 text-[11px] sm:text-xs">
+                  (Deemed to be University under section 3 of UGC Act 1956)
+                </span>
+              </span>
+            </div>
+
+            {/* RIGHT SIDE: Technical Student Chapter */}
+            <div className="text-center lg:text-right font-bold text-[#004B87]">
               <span>IEEE Information Theory Society, VIT</span>
             </div>
           </div>

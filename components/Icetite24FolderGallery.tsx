@@ -143,15 +143,6 @@ export default function Icetite24FolderGallery() {
         ))}
       </div>
 
-      <div className="mb-4 flex items-center justify-between gap-3">
-        <p className="text-sm text-gray-600">
-          Showing{" "}
-          <strong>{Math.min(visiblePhotoCount, filteredPhotos.length)}</strong>{" "}
-          of <strong>{filteredPhotos.length}</strong>{" "}
-          {filteredPhotos.length === 1 ? "photo" : "photos"}
-        </p>
-      </div>
-
       {filteredPhotos.length > 0 ? (
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {visiblePhotos.map((photo, index) => (
@@ -277,9 +268,6 @@ export default function Icetite24FolderGallery() {
                 selectedPhoto.title,
               )}
             </h3>
-            <p className="mt-1 text-sm text-gray-300">
-              {(selectedIndex ?? 0) + 1} of {filteredPhotos.length}
-            </p>
           </div>
 
           <button

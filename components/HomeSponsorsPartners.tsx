@@ -63,7 +63,7 @@ export default function HomeSponsorsPartners() {
             <div className="w-16 h-16 rounded-full border border-[#E4E7EC] bg-[#F7F8FA] grid place-items-center mb-4 font-serif font-bold text-xl text-[#0B6B4A]">
               ITS
             </div>
-            <h3 className="font-serif text-xl font-bold text-[#101B2E]">IEEE ITS VIT Student Chapter</h3>
+            <h3 className="font-serif text-xl font-bold text-[#101B2E]">IEEE ITS VIT Chapter</h3>
             <p className="text-[13px] text-[#4A5568] mt-2 max-w-sm leading-relaxed">
               Advancing student leadership, hackathons, doctoral consortiums, and technical paper dissemination across computing
               and engineering disciplines.
