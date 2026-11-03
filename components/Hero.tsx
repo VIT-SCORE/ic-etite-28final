@@ -30,13 +30,17 @@ export default function Hero() {
       }
     };
 
-    // The background video (~2.5 MB) is attached from JS rather than in the markup so it never
-    // delays the hero image. Phones, Save-Data and reduced-motion users keep the still image only.
+    // The video's <source> only matches desktop widths, so phones never download it (~2.5 MB)
+    // and keep the still image. Save-Data and reduced-motion users get the still image too.
     const skipVideo =
       (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData ||
-      window.matchMedia("(max-width: 767px), (prefers-reduced-motion: reduce)").matches;
-    if (videoRef.current && !skipVideo) {
-      videoRef.current.src = HERO_VIDEO_SRC;
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (skipVideo && videoRef.current) {
+      const video = videoRef.current;
+      video.pause();
+      video.querySelector("source")?.remove();
+      video.load();
+    } else {
       playVideo();
     }
 
@@ -84,10 +88,12 @@ export default function Hero() {
             loop
             muted
             playsInline
-            preload="none"
+            preload="auto"
             aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
-          />
+          >
+            <source src={HERO_VIDEO_SRC} type="video/mp4" media="(min-width: 768px)" />
+          </video>
 
           <div
             className="absolute inset-0 opacity-[0.03] pointer-events-none"
