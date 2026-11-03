@@ -15,6 +15,8 @@ import {
   ArrowRight,
 } from "lucide-react";
 
+const HERO_VIDEO_SRC = "/videoplayback-2abc.mp4";
+
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [brochureModalOpen, setBrochureModalOpen] = useState(false);
@@ -28,7 +30,23 @@ export default function Hero() {
       }
     };
 
-    playVideo();
+    // Attach the background video only after the page has loaded so its ~2.5 MB download
+    // doesn't compete with the LCP image; the still image underneath shows until then.
+    // Phones, Save-Data and reduced-motion users keep the still image only.
+    const skipVideo =
+      (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData ||
+      window.matchMedia("(max-width: 767px), (prefers-reduced-motion: reduce)").matches;
+    const attachVideo = () => {
+      const video = videoRef.current;
+      if (!video || skipVideo || video.getAttribute("src")) return;
+      video.src = HERO_VIDEO_SRC;
+      playVideo();
+    };
+    if (document.readyState === "complete") {
+      attachVideo();
+    } else {
+      window.addEventListener("load", attachVideo, { once: true });
+    }
 
     // Ensure background video keeps playing on tab focus / visibility return
     const handleVisibilityChange = () => {
@@ -43,6 +61,7 @@ export default function Hero() {
     window.addEventListener("click", playVideo, { once: true });
 
     return () => {
+      window.removeEventListener("load", attachVideo);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
       window.removeEventListener("focus", playVideo);
     };
@@ -63,19 +82,19 @@ export default function Hero() {
             alt="VIT Campus Aerial View"
             fill
             priority
+            fetchPriority="high"
             sizes="100vw"
             className="object-cover object-center pointer-events-none -z-10"
           />
 
           <video
             ref={videoRef}
-            src="/videoplayback-2abc.mp4"
-            poster="/images/frame_15.webp"
             autoPlay
             loop
             muted
             playsInline
-            preload="auto"
+            preload="none"
+            aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
           />
 

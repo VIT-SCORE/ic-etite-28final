@@ -191,13 +191,13 @@ export default function Navbar() {
             aria-label="Conference Identity & University Host"
           >
             {/* LEFT: ic-ETITE '28 Logo & IEEE ITS Emblem */}
-            <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+            <div className="flex items-center gap-2 sm:gap-4 shrink-0">
               <Link
                 href="/"
                 title="ic-ETITE'28 International Conference"
                 className="flex items-center shrink-0 hover:opacity-90 transition-opacity"
               >
-                <div className="relative h-8 sm:h-9 md:h-10 w-32 sm:w-36 md:w-44">
+                <div className="relative h-8 sm:h-9 md:h-10 w-28 sm:w-36 md:w-44">
                   <Image
                     src="/logos/ic-etite28-cropped-transparent.png"
                     alt="ic-ETITE'28 Conference Logo"
@@ -215,7 +215,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="IEEE Information Theory Society"
-                className="flex items-center shrink-0 hover:opacity-90 transition-opacity"
+                className="hidden min-[360px]:flex items-center shrink-0 hover:opacity-90 transition-opacity"
               >
                 <div className="relative h-8 sm:h-9 md:h-10 w-8 sm:w-9 md:w-10 rounded-full overflow-hidden border border-white/20 shadow-xs bg-[#00142E]">
                   <Image
@@ -224,15 +224,14 @@ export default function Navbar() {
                     fill
                     sizes="(max-width: 640px) 32px, 40px"
                     className="object-contain rounded-full"
-                    priority
                   />
                 </div>
               </a>
             </div>
 
-            {/* CENTER: Conference Dates (Mathematically Centered in Navbar, Desktop/Laptop) */}
-            <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 flex-col items-center justify-center text-center pointer-events-none">
-              <span className="text-base sm:text-lg lg:text-xl xl:text-2xl font-black tracking-wide text-[#FFB81C] uppercase whitespace-nowrap drop-shadow-sm font-serif">
+            {/* CENTER: Conference Dates (xl+ only; below that it collides with the event tags) */}
+            <div className="hidden xl:flex absolute left-1/2 -translate-x-1/2 flex-col items-center justify-center text-center pointer-events-none">
+              <span className="text-xl 2xl:text-2xl font-black tracking-wide text-[#FFB81C] uppercase whitespace-nowrap drop-shadow-sm font-serif">
                 10–11 February 2028
               </span>
               <span className="text-[11px] sm:text-xs lg:text-sm text-white/90 font-semibold tracking-wider uppercase whitespace-nowrap">
@@ -240,12 +239,13 @@ export default function Navbar() {
               </span>
             </div>
 
-            {/* RIGHT: TechNext '28, BOLT 3.0 Tags, VIT Official Logo, Mobile Menu Button */}
+            {/* RIGHT: TechNext '28, BOLT 3.0 Tags, VIT Official Logo, Mobile Menu Button
+                (tags hidden below lg, where they would push the menu button off-screen; the drawer lists both) */}
             <div className="flex items-center gap-2 sm:gap-3 xl:gap-4 shrink-0">
               {/* TechNext '28 Tag */}
               <Link
                 href="/technext"
-                className="flex items-center justify-center h-8 sm:h-9 px-2.5 sm:px-3 rounded-full bg-white/10 hover:bg-white/20 border border-[#F37021]/80 shadow-[0_0_12px_rgba(243,112,33,0.28)] transition-all hover:scale-105 shrink-0"
+                className="hidden lg:flex items-center justify-center h-8 sm:h-9 px-2.5 sm:px-3 rounded-full bg-white/10 hover:bg-white/20 border border-[#F37021]/80 shadow-[0_0_12px_rgba(243,112,33,0.28)] transition-all hover:scale-105 shrink-0"
                 title="TechNext '28 National Industrial Expo"
               >
                 <div className="relative h-4 sm:h-5 w-16 sm:w-24">
@@ -255,7 +255,6 @@ export default function Navbar() {
                     fill
                     sizes="100px"
                     className="object-contain"
-                    priority
                   />
                 </div>
               </Link>
@@ -263,7 +262,7 @@ export default function Navbar() {
               {/* BOLT 3.0 Hackathon Tag */}
               <Link
                 href="/hackathon"
-                className="flex items-center justify-center h-8 sm:h-9 px-2.5 sm:px-3 rounded-full bg-[#00142E] hover:bg-[#00244D] border border-[#CCFF00] shadow-[0_0_12px_rgba(204,255,0,0.28)] transition-all hover:scale-105 shrink-0"
+                className="hidden lg:flex items-center justify-center h-8 sm:h-9 px-2.5 sm:px-3 rounded-full bg-[#00142E] hover:bg-[#00244D] border border-[#CCFF00] shadow-[0_0_12px_rgba(204,255,0,0.28)] transition-all hover:scale-105 shrink-0"
                 title="Register for BOLT 3.0 National Flagship Hackathon"
               >
                 <div className="relative h-4 sm:h-5 w-14 sm:w-20">
@@ -273,7 +272,6 @@ export default function Navbar() {
                     fill
                     sizes="80px"
                     className="object-contain"
-                    priority
                   />
                 </div>
               </Link>
@@ -284,7 +282,7 @@ export default function Navbar() {
                 title="Vellore Institute of Technology"
                 className="flex items-center shrink-0 hover:opacity-95 transition-opacity"
               >
-                <div className="relative h-8 sm:h-9 md:h-10 w-24 sm:w-28 md:w-32">
+                <div className="relative h-8 sm:h-9 md:h-10 w-20 sm:w-28 md:w-32">
                   <Image
                     src="/logos/vit-header-logo.webp"
                     alt="VIT Vellore Institute of Technology"
