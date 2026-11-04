@@ -343,7 +343,7 @@ export default function Navbar() {
                     >
                       <Link
                         href={item.href}
-                        className={`relative inline-flex items-center gap-1 py-1.5 px-2 lg:px-2.5 xl:px-3.5 rounded-lg text-[12.5px] lg:text-[13px] xl:text-[14px] font-bold tracking-wide transition-all whitespace-nowrap shrink-0 ${
+                        className={`relative inline-flex items-center gap-1 py-1.5 px-3 lg:px-3.5 xl:px-4 rounded-full text-[12.5px] lg:text-[13px] xl:text-[14px] font-bold tracking-wide transition-all whitespace-nowrap shrink-0 ${
                           active
                             ? "bg-[#002D5C] text-[#FFB81C] border border-[#FFB81C]/60 shadow-[0_2px_10px_rgba(0,0,0,0.35)]"
                             : "text-white/95 hover:text-white hover:bg-white/10"
