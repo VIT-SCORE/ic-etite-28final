@@ -76,6 +76,12 @@ export default function CFPSection() {
               </Link>
             </div>
 
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This
+              service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud
+              services as well as for software development and support.
+            </p>
+
             {/* Template downloads */}
             <div className="mt-4 flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs sm:text-sm">
               <span className="font-bold text-[#002147] shrink-0">IEEE Manuscript Templates:</span>

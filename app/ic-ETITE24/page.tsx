@@ -94,12 +94,50 @@ const supportedOrganizations = [
   "Yellow.ai",
 ];
 
+const slideshowPreviewItems = [
+  {
+    title: "Inauguration",
+    folder: "inauguration",
+    image: "inauguration (1).webp",
+  },
+  {
+    title: "Presentation",
+    folder: "presentation",
+    image: "Presentation (1).webp",
+  },
+  {
+    title: "BOLT Hackathon",
+    folder: "bolt-hackathon",
+    image: "Bolt Hackathon (1).webp",
+  },
+  {
+    title: "Evening Dinner Events",
+    folder: "evening-dinner",
+    image: "Evening Dinner Events (1).webp",
+  },
+  {
+    title: "TechNext'24",
+    folder: "technext24",
+    image: "TechNext'24 (1).webp",
+  },
+  {
+    title: "Panel Discussion",
+    folder: "panel-discussion",
+    image: "Panel Discussion (1).webp",
+  },
+  {
+    title: "Valedictory",
+    folder: "valedictory",
+    image: "Valedictory (1).webp",
+  },
+];
+
 export default function Icetite24Page() {
   return (
     <div className="bg-white min-h-screen text-[#002147]">
 
       {/* ── HERO ── */}
-      <section className="relative min-h-[440px] sm:min-h-[480px] lg:min-h-[520px] flex items-end overflow-hidden">
+      <section className="relative min-h-[240px] sm:min-h-[300px] lg:min-h-[360px] flex items-end overflow-hidden">
         {/* Background Image with Dark Navy Gradient Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -119,7 +157,7 @@ export default function Icetite24Page() {
         <div className="absolute inset-0 opacity-5 z-[1] pointer-events-none"
           style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
 
-        <div className="relative z-10 w-full px-6 sm:px-12 lg:px-20 pb-10 pt-20">
+        <div className="relative z-10 w-full px-6 sm:px-12 lg:px-10 pb-10 pt-10">
           <Link href="/about" className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm font-medium mb-6 transition-colors">
             <ArrowLeft className="w-4 h-4" />
             Back to About
@@ -166,7 +204,7 @@ export default function Icetite24Page() {
       </section>
 
       {/* ── STATS ── */}
-      <section className="bg-[#001a3d] py-12 px-6 sm:px-12 lg:px-20">
+      <section className="bg-[#001a3d] py-4 px-2 sm:px-4 lg:px-10">
         <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
           {stats.map(({ label, value, icon: Icon }) => (
             <div key={label} className="text-center">
@@ -178,7 +216,7 @@ export default function Icetite24Page() {
       </section>
 
       {/* ── ABOUT ── */}
-      <section className="py-16 sm:py-20 px-6 sm:px-12 lg:px-20 bg-[#F7F9FC] border-b border-slate-200">
+      <section className="py-4 sm:py-10 px-2 sm:px-4 lg:px-10 bg-[#F7F9FC] border-b border-slate-200">
         <div className="max-w-6xl mx-auto">
           <div className="mb-8">
             <span className="text-xs font-bold uppercase tracking-widest text-[#004B87] bg-[#EBF3F8] px-3 py-1.5 rounded-full border border-[#004B87]/20 inline-block mb-4">
@@ -191,6 +229,30 @@ export default function Icetite24Page() {
           <p className="text-justify text-base leading-relaxed">
             The Second IEEE International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE&apos;24) was organized on 22nd &amp; 23rd February 2024 at VIT Vellore, India. The conference was technically co-sponsored by IEEE Madras Section. The purpose of this conference is to enhance the research in Information Technology, Computer Engineering, Communication Engineering, Electronics Engineering and to afford an international platform for researchers, academicians, engineers, industrialists and students around the world to share their research findings with the global experts in the field of Science and Technology.
           </p>
+        </div>
+      </section>
+
+      {/* ── SLIDESHOW PHOTO PREVIEW ── */}
+      <section className="py-10 px-6 sm:px-12 lg:px-20 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {slideshowPreviewItems.map((item) => (
+              <div key={item.folder}>
+                <div className="relative w-full aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={`/images/icetite24-slideshow/${item.folder}/${encodeURIComponent(item.image)}`}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    quality={60}
+                    loading="lazy"
+                    className="object-cover"
+                  />
+                </div>
+                <p className="text-sm text-[#002147] mt-2">{item.title}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -220,7 +282,7 @@ export default function Icetite24Page() {
       </section>
 
       {/* ── PHOTO GALLERY & ARCHIVE ── */}
-      <section className="py-16 sm:py-24 px-4 sm:px-8 lg:px-12 bg-[#F7F9FC] border-b border-slate-200">
+      <section className="py-4 sm:py-10 px-2 sm:px-4 lg:px-10 bg-[#F7F9FC] border-b border-slate-200">
         <div className="max-w-6xl mx-auto space-y-16">
           {/* Header */}
           <div className="text-center px-6">
