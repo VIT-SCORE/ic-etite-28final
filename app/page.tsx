@@ -1,5 +1,5 @@
 import Hero from "@/components/Hero";
-import AboutAndThemesSection from "@/components/AboutAndThemesSection";
+import AboutSections from "./components/home/AboutSections";
 import HomePastEditions from "@/components/HomePastEditions";
 import HomePhotoMomentsSlideshow from "@/components/HomePhotoMomentsSlideshow";
 import TechnicalSponsorsSection from "@/components/TechnicalSponsorsSection";
@@ -13,8 +13,8 @@ export default function HomePage() {
       {/* 1. Hero with Video Background, Countdown Bar & Credential Strips */}
       <Hero />
 
-      {/* 2. About IC-ETITE, Theme, About VIT, About SCORE, About IEEE ITS (Old-School Photo Frames & Hyperlinks) */}
-      <AboutAndThemesSection />
+      {/* 2. About conference, theme, VIT, SCORE, and IEEE ITS */}
+      <AboutSections />
 
       {/* 3. Previous Editions: ic-ETITE'20 & ic-ETITE'24 Details & Heritage (Redirecting to About) */}
       <HomePastEditions />
