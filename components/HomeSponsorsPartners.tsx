@@ -69,7 +69,7 @@ export default function HomeSponsorsPartners() {
               and engineering disciplines.
             </p>
             <a
-              href="https://ieee-its-1-tzbd.vercel.app/"
+              href="https://ieee-its-vit.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-5 text-[12.5px] font-semibold text-[#0B6B4A] hover:underline inline-flex items-center gap-1"

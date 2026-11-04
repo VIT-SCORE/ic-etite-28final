@@ -270,7 +270,7 @@ export default function AboutAndThemesSection() {
 
             <div className="clear-both pt-4 flex flex-wrap gap-3">
               <a
-                href="https://ieee-its-1-tzbd.vercel.app/"
+                href="https://ieee-its-vit.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary inline-flex items-center gap-2 text-xs py-2.5 px-5"

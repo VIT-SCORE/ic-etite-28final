@@ -228,7 +228,7 @@ export default function Footer() {
               <div className="p-3 rounded-xl bg-white/5 border border-white/10">
                 <p className="text-[11px] text-[#72EFDD] font-bold uppercase tracking-wider mb-0.5">Chapter</p>
                 <a
-                  href="https://ieee-its-1-tzbd.vercel.app/"
+                  href="https://ieee-its-vit.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white font-medium hover:text-[#72EFDD] transition-colors block"

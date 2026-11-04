@@ -211,7 +211,7 @@ export default function Navbar() {
 
               {/* IEEE Information Theory Society Round Emblem */}
               <a
-                href="https://ieee-its-1-tzbd.vercel.app/"
+                href="https://ieee-its-vit.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="IEEE Information Theory Society"
@@ -542,7 +542,7 @@ export default function Navbar() {
               {/* Quick Actions */}
               <div className="pt-4 border-t border-white/10 space-y-3 text-sm">
                 <a
-                  href="https://ieee-its-1-tzbd.vercel.app/"
+                  href="https://ieee-its-vit.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors text-white"
