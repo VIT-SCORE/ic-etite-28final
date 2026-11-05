@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Image from "next/image";
-import Icetite24FullGallery from "@/components/Icetite24FullGallery";
+import Icetite24PhotoGrid from "@/components/Icetite24PhotoGrid";
 
 import {
   ArrowLeft,
@@ -17,11 +18,11 @@ import {
   Cpu,
 } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/ic-ETITE24", {
   title: "ic-ETITE'24 — Second Edition | Highlights & Photo Archive",
   description:
     "Official highlights, stats, and photo archive of the Second IEEE International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE'24), held on 22–23 Feb 2024 at VIT Vellore.",
-};
+});
 
 const stats = [
   { label: "Papers Received", value: "1,688", icon: FileText },
@@ -101,8 +102,8 @@ export default function Icetite24Page() {
         {/* Background Image with Dark Navy Gradient Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/gallery/icetite24_stage_main.webp"
-            alt="ic-ETITE'24 Conference Main Stage and Dignitaries at Anna Auditorium, VIT Vellore"
+            src="/images/gallery/icetite24_shield_unveiling_hero.webp"
+            alt="ic-ETITE'24 Official Unveiling Ceremony with Chief Guest Dr. Zvi Galil, Dignitaries, and IEEE Leadership"
             fill
             sizes="100vw"
             priority
@@ -276,7 +277,7 @@ export default function Icetite24Page() {
           </div>
 
           {/* 4x4 Photo Grid without caption, with Load More option */}
-          <Icetite24FullGallery />
+          <Icetite24PhotoGrid />
         </div>
       </section>
 
@@ -294,7 +295,7 @@ export default function Icetite24Page() {
             {sponsors.map((sponsor) => (
               <div
                 key={sponsor.label}
-                className="bg-[#F7F9FC] border border-slate-200 rounded-2xl p-6 sm:p-7 flex flex-col justify-between items-center text-center shadow-xs hover:border-[#004B87]/40 transition-colors min-h-[220px]"
+                className="bg-[#F7F9FC] border border-slate-200 rounded-2xl p-6 sm:p-7 flex flex-col justify-between items-center text-center shadow-sm hover:border-[#004B87]/40 transition-colors min-h-[220px]"
               >
                 <div className="text-xs font-bold uppercase tracking-wider text-[#004B87] mb-2">
                   {sponsor.label}
@@ -307,7 +308,7 @@ export default function Icetite24Page() {
                       alt={sponsor.alt || sponsor.name}
                       width={200}
                       height={64}
-                      className="h-auto max-h-16 w-auto object-contain"
+                      className="max-h-16 w-auto object-contain"
                     />
                   </div>
                 </div>
@@ -320,7 +321,7 @@ export default function Icetite24Page() {
           </div>
 
           {/* 2. Supported By Section: Dedicated showcase with official logos */}
-          <div className="bg-[#F7F9FC] border border-slate-200 rounded-2xl p-6 sm:p-10 shadow-xs hover:border-[#004B87]/40 transition-colors">
+          <div className="bg-[#F7F9FC] border border-slate-200 rounded-2xl p-6 sm:p-10 shadow-sm hover:border-[#004B87]/40 transition-colors">
             <div className="text-center mb-6">
               <div className="text-xs font-bold uppercase tracking-wider text-[#004B87] mb-1.5">
                 SUPPORTED BY
@@ -330,7 +331,7 @@ export default function Icetite24Page() {
               </h3>
             </div>
 
-            <div className="bg-white rounded-xl border border-slate-200/80 p-6 sm:p-8 flex items-center justify-center shadow-xs">
+            <div className="bg-white rounded-xl border border-slate-200/80 p-6 sm:p-8 flex items-center justify-center shadow-sm">
               <div className="relative w-full max-w-4xl aspect-[1024/397]">
                 <Image
                   src="/logos/icetite24-supported-by-logos.png"
@@ -347,7 +348,7 @@ export default function Icetite24Page() {
               {supportedOrganizations.map((org) => (
                 <span
                   key={org}
-                  className="px-3 py-1 rounded-full bg-white border border-slate-200 text-[#002147] font-semibold text-xs tracking-tight shadow-xs"
+                  className="px-3 py-1 rounded-full bg-white border border-slate-200 text-[#002147] font-semibold text-xs tracking-tight shadow-sm"
                 >
                   {org}
                 </span>
