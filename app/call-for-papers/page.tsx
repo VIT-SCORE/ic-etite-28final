@@ -116,7 +116,7 @@ export default function CallForPapersPage() {
 
           {/* THE external Microsoft CMT button */}
           <a
-            href="https://cmt3.research.microsoft.com/About"
+            href="https://cmt3.research.microsoft.com/ICETITE2028"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-4 inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-[#004B87] hover:bg-[#003366] text-white font-bold text-base sm:text-lg shadow-xl shadow-black/30 transition-all hover:scale-105 active:scale-95 border border-white/20"
