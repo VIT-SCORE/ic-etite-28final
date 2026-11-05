@@ -1,5 +1,5 @@
 import Hero from "@/components/Hero";
-import AboutSections from "./components/home/AboutSections";
+import AboutSections from "@/components/home/AboutSections";
 import HomePastEditions from "@/components/HomePastEditions";
 import HomePhotoMomentsSlideshow from "@/components/HomePhotoMomentsSlideshow";
 import TechnicalSponsorsSection from "@/components/TechnicalSponsorsSection";

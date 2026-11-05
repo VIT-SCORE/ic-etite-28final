@@ -1,6 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const ui = {
+  section: "bg-white border-b border-[#E2E8F0] scroll-mt-20",
+  container: "container-x py-10 md:py-14",
+  rows: "divide-y divide-slate-200/80 space-y-10 md:space-y-14",
+  row: "flow-root pt-10 md:pt-14 first:pt-0",
+  eyebrow:
+    "inline-flex items-center gap-2 px-3 py-1 rounded-full border text-xs font-bold uppercase tracking-wider w-fit",
+  heading:
+    "text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight font-serif",
+  body:
+    "text-[16px] sm:text-[17px] md:text-[18px] leading-[1.85] text-slate-700 font-normal text-justify",
+  caption: "text-xs text-slate-600 font-medium mt-2 px-1 text-center",
+  standardButton:
+    "inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-white text-sm font-semibold transition-colors shadow-sm hover:shadow",
+  compactPrimary: "btn-primary inline-flex items-center gap-2 text-xs py-2.5 px-5",
+  compactSecondary: "btn-outline inline-flex items-center gap-2 text-xs py-2.5 px-5",
+  imageCard:
+    "p-2.5 bg-slate-50/80 border border-slate-200 rounded-2xl shadow-md hover:shadow-xl transition-shadow",
+  image:
+    "relative w-full aspect-[16/10] sm:aspect-[3/2] rounded-xl overflow-hidden border border-slate-200 bg-slate-100",
+};
+
 type Cta = {
   label: string;
   href: string;
@@ -168,14 +190,14 @@ function CtaButton({
 }: Cta) {
   const className =
     size === "standard"
-      ? `inline-flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:shadow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5A623] ${
+      ? `${ui.standardButton} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5A623] ${
           tone === "blue"
             ? "bg-[#004B87] hover:bg-[#003366]"
             : "bg-[#002147] hover:bg-[#003366]"
         }`
       : variant === "primary"
-        ? "btn-primary inline-flex items-center gap-2 text-xs px-5 py-2.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5A623]"
-        : "btn-outline inline-flex items-center gap-2 text-xs px-5 py-2.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5A623]";
+        ? `${ui.compactPrimary} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5A623]`
+        : `${ui.compactSecondary} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5A623]`;
 
   return external ? (
     <a href={href} className={className} target="_blank" rel="noopener noreferrer">
@@ -190,76 +212,66 @@ function CtaButton({
 
 export default function AboutSections() {
   return (
-    <section id="about" className="bg-white border-b border-[#E2E8F0] scroll-mt-20">
-      <div className="container-x py-10 md:py-14">
-        <div className="divide-y divide-slate-200/80 space-y-10 md:space-y-14">
+    <section id="about" className={ui.section}>
+      <div className={ui.container}>
+        <div className={ui.rows}>
           {sections.map((section, index) => {
-            const reverse = index % 2 === 1;
+            const imageOnLeft = index % 2 === 1;
 
             return (
               <article
                 key={section.id}
                 id={section.id}
-                className="flow-root pt-10 md:pt-14 first:pt-0"
+                className={ui.row}
                 aria-labelledby={`${section.id}-title`}
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 md:gap-10">
-                  <div
-                    className={`order-2 space-y-3.5 ${
-                      reverse ? "md:col-start-2 md:row-start-1" : "md:col-start-1 md:row-start-1"
-                    }`}
-                  >
-                    <p
-                      className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-wider ${
-                        eyebrowStyles[index]
-                      }`}
-                    >
-                      {section.eyebrow}
-                    </p>
-                    <h2
-                      id={`${section.id}-title`}
-                      className={`font-serif text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight ${
-                        index < 2 ? "text-[#E05A00]" : "text-[#002147]"
-                      }`}
-                    >
-                      {section.title}
-                    </h2>
-                    {section.paragraphs.map((paragraph) => (
-                      <p
-                        key={paragraph}
-                        className="text-[16px] sm:text-[17px] md:text-[18px] leading-[1.85] text-slate-700 font-normal text-justify"
-                      >
-                        {paragraph}
-                      </p>
-                    ))}
-                    <div className="flex flex-wrap gap-3 pt-1">
-                      {section.ctas.map((cta) => (
-                        <CtaButton key={cta.label} {...cta} />
-                      ))}
+                <div
+                  className={`mb-6 w-full sm:w-[480px] md:mb-5 md:w-[540px] lg:w-[600px] xl:w-[640px] ${
+                    imageOnLeft
+                      ? "md:float-left md:mr-8"
+                      : "md:float-right md:ml-8"
+                  }`}
+                >
+                  <div className={ui.imageCard}>
+                    <div className={ui.image}>
+                      <Image
+                        src={section.image.src}
+                        alt={section.image.alt}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 640px"
+                        className="object-cover object-center hover:scale-105 transition-transform duration-700"
+                        loading="lazy"
+                      />
                     </div>
+                    <p className={ui.caption}>{section.image.caption}</p>
                   </div>
+                </div>
 
-                  <figure
-                    className={`order-1 mb-6 md:mb-0 ${
-                      reverse ? "md:col-start-1 md:row-start-1" : "md:col-start-2 md:row-start-1"
+                <div className="space-y-3.5">
+                  <p
+                    className={`${ui.eyebrow} ${eyebrowStyles[index]}`}
+                  >
+                    {section.eyebrow}
+                  </p>
+                  <h2
+                    id={`${section.id}-title`}
+                    className={`${ui.heading} ${
+                      index < 2 ? "text-[#E05A00]" : "text-[#002147]"
                     }`}
                   >
-                    <div className="p-2.5 bg-slate-50/80 border border-slate-200 rounded-2xl shadow-md hover:shadow-xl transition-shadow">
-                      <div className="relative w-full aspect-[16/10] sm:aspect-[3/2] rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
-                        <Image
-                          src={section.image.src}
-                          alt={section.image.alt}
-                          fill
-                          sizes="(max-width: 1024px) 100vw, 640px"
-                          className="object-cover object-center hover:scale-105 transition-transform duration-700"
-                          loading="lazy"
-                        />
-                      </div>
-                      <figcaption className="text-xs text-slate-600 font-medium mt-2 px-1 text-center">
-                        {section.image.caption}
-                      </figcaption>
-                    </div>
-                  </figure>
+                    {section.title}
+                  </h2>
+                  {section.paragraphs.map((paragraph) => (
+                    <p key={paragraph} className={ui.body}>
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+
+                <div className="clear-both pt-4 flex flex-wrap gap-3">
+                  {section.ctas.map((cta) => (
+                    <CtaButton key={cta.label} {...cta} />
+                  ))}
                 </div>
               </article>
             );

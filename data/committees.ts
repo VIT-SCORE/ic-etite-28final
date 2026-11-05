@@ -114,7 +114,7 @@ export const organizingChairs = {
   publicationChair: {
     name: "Dr. Vijayan. R",
     role: "Publication Chair",
-    affiliation: "Professor, SITE, VIT, Vellore",
+    affiliation: "Professor, SCORE, VIT, Vellore",
     image: "/images/faculty/dr-vijayan-r.webp",
     portfolioUrl: "https://vit.ac.in/information-technolo/dr-vijayan-r",
   },
