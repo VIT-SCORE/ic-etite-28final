@@ -13,7 +13,6 @@ const PHOTO_TITLES: PhotoTitleMap = {
   "inaugural/004A3189.webp": "Inaugural Ceremony Highlights",
   "inaugural/004A3344.webp": "Distinguished Guests at VIT",
   "inaugural/IMG_2981.webp": "IC-ETITE’24 Audience",
-  "inaugural/IMG_3505.webp": "Technical Presentation",
   "inaugural/IMG_4352.webp": "Ceremonial Lamp Lighting",
   "inaugural/IMG_4377.webp": "Felicitation Ceremony",
   "inaugural/IMG_4392.webp": "Keynote Address",
@@ -32,7 +31,6 @@ const PHOTO_TITLES: PhotoTitleMap = {
   // Conference
   "conference/IMG_3505.webp": "Conference Presentation",
   "conference/IMG_4777.webp": "Conference Highlights",
-  "conference/IMG_8949.webp": "Conference Participants",
 
   // Conference keynote
   "conference-keynote/IMG_8900.webp": "Keynote Session",
