@@ -18,9 +18,12 @@ import {
 import HotelBookingDirectory from "@/components/HotelBookingDirectory";
 
 export const metadata: Metadata = {
-  title: "Hotels & Accommodation | ic-ETITE'28",
+  title: "Hotels & Accommodation",
   description:
     "Accommodation guidance, verified hotel directory with direct booking links, university guest house policies, and local transit information for ic-ETITE'28 conference delegates visiting VIT Vellore.",
+  alternates: {
+    canonical: "/hotels",
+  },
 };
 
 export default function HotelsPage() {

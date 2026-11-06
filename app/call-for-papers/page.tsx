@@ -5,9 +5,12 @@ import HomeImportantDates from "@/components/HomeImportantDates";
 import { FileCheck, ShieldCheck, CheckCircle2, ExternalLink } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Call for Papers & Author Guidelines | ic-ETITE'28",
+  title: "Call for Papers & Author Guidelines",
   description:
     "Author instructions, manuscript templates, IEEE publication rules, plagiarism criteria, and Microsoft (CMT) submission link for ic-ETITE'28.",
+  alternates: {
+    canonical: "/call-for-papers",
+  },
 };
 
 import PageHeader from "@/components/PageHeader";

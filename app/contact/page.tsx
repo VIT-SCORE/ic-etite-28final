@@ -5,9 +5,12 @@ import { Mail, MapPin, Building2, Phone, ArrowRight, ExternalLink } from "lucide
 import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
-  title: "Contact Conference Secretariat | ic-ETITE'28",
+  title: "Contact the Conference Secretariat",
   description:
     "Official contact directory for ic-ETITE'28 at Vellore Institute of Technology, School of Computer Science Engineering & Information Systems (SCORE).",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 const leadershipContacts = [

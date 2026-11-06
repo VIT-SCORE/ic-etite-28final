@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import BoltPhotoMoments from "@/components/BoltPhotoMoments";
@@ -15,6 +16,15 @@ import {
   CheckCircle2,
   MapPin,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "BOLT 3.0 Hackathon",
+  description:
+    "Discover BOLT 3.0, the 24-hour national flagship hackathon hosted alongside ic-ETITE'28 at VIT Vellore.",
+  alternates: {
+    canonical: "/hackathon",
+  },
+};
 
 export default function HackathonPage() {
   return (

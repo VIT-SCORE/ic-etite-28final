@@ -12,9 +12,12 @@ import PageHeader from "@/components/PageHeader";
 import GallerySlideshow from "@/components/GallerySlideshow";
 
 export const metadata: Metadata = {
-  title: "About ic-ETITE'28 | Vellore Institute of Technology",
+  title: "About the Conference",
   description:
     "Learn about ic-ETITE'28, organized by SCORE, VIT Vellore. Explore conference legacy, VIT rankings, and IEEE ITS chapter.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 const rankingsList = [

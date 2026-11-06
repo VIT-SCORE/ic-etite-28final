@@ -117,9 +117,12 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "ic-ETITE'20 — Inaugural Edition | Highlights & Photo Archive",
+  title: "ic-ETITE'20 — Inaugural Edition Highlights & Photo Archive",
   description:
     "Official highlights, stats, and photo archive of the First IEEE International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE'20), held on 24–25 Feb 2020 at VIT Vellore.",
+  alternates: {
+    canonical: "/ic-ETITE20",
+  },
 };
 
 const stats = [
