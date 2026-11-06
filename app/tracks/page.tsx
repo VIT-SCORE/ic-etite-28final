@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import TracksSection from "@/components/TracksSection";
 
 export const metadata: Metadata = {
-  title: "Conference Research Tracks & Indicative Topics | ic-ETITE'28",
+  title: "Research Tracks & Topics",
   description:
     "Comprehensive directory of research tracks across Information Technology, Communication Engineering, Computer Engineering, and Electronics Engineering for ic-ETITE'28.",
+  alternates: {
+    canonical: "/tracks",
+  },
 };
 
 import PageHeader from "@/components/PageHeader";

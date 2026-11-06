@@ -16,9 +16,12 @@ import {
 import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
-  title: "Visa Information & Facilitation | ic-ETITE'28",
+  title: "Visa Information & Facilitation",
   description:
     "Official Indian Conference Visa guidelines, Government of India clearances, and invitation letter assistance for international delegates of ic-ETITE'28 at VIT Vellore.",
+  alternates: {
+    canonical: "/visa",
+  },
 };
 
 export default function VisaPage() {

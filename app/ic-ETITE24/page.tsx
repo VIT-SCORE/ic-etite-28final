@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = pageMetadata("/ic-ETITE24", {
-  title: "ic-ETITE'24 — Second Edition | Highlights & Photo Archive",
+  title: "ic-ETITE'24 — Second Edition Highlights & Photo Archive",
   description:
     "Official highlights, stats, and photo archive of the Second IEEE International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE'24), held on 22–23 Feb 2024 at VIT Vellore.",
 });

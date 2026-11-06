@@ -7,49 +7,72 @@ import BackToTop from "@/components/BackToTop";
 export const metadata: Metadata = {
   metadataBase: new URL("https://icetite28.vit.ac.in"),
   title: {
-    default: "ic-ETITE'28 | Third International Conference on Emerging Trends in Information Technology and Engineering",
-    template: "%s | Third International Conference on Emerging Trends in Information Technology and Engineering",
+    default:
+      "ic-ETITE'28 | International Conference on Emerging Trends in Information Technology and Engineering",
+    template: "%s | ic-ETITE'28",
   },
   description:
-    "Official website of ic-ETITE'28, the Third International Conference on Emerging Trends in Information Technology and Engineering, organized by Vellore Institute of Technology, Vellore. Technically co-sponsored by IEEE. 10–11 February 2028.",
+    "Join ic-ETITE'28, the Third International Conference on Emerging Trends in Information Technology and Engineering, organized by VIT Vellore and technically co-sponsored by IEEE, on 10–11 February 2028.",
   keywords: [
-    "ic-ETITE",
     "ic-ETITE 2028",
-    "IEEE Conference",
+    "International Conference",
     "VIT Vellore",
-    "SCORE",
-    "IEEE Information Theory Society",
+    "IEEE Conference",
     "Computer Science Conference",
-    "Information Technology Conference",
-    "Electronics Engineering",
-    "IEEE Xplore",
+    "Information Technology",
+    "Engineering",
+    "Research Conference",
+    "Emerging Technologies",
   ],
-  authors: [{ name: "Vellore Institute of Technology (VIT), Vellore" }],
-  creator: "VIT Vellore, SCORE",
-  publisher: "IEEE & Vellore Institute of Technology",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  openGraph: {
-    title: "Third International Conference on Emerging Trends in Information Technology and Engineering",
-    description:
-      "Official website of ic-ETITE'28, organized by Vellore Institute of Technology, Vellore. Technically co-sponsored by IEEE. 10–11 February 2028.",
-    url: "https://icetite28.vit.ac.in",
-    siteName: "ic-ETITE'28",
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "ic-ETITE'28 | IEEE International Conference",
-    description:
-      "Third International Conference on Emerging Trends in Information Technology and Engineering, VIT Vellore, 10–11 Feb 2028.",
+  authors: [{ name: "Vellore Institute of Technology, Vellore" }],
+  creator: "VIT Vellore - SCORE",
+  publisher: "Vellore Institute of Technology",
+  alternates: {
+    canonical: "/",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://icetite28.vit.ac.in",
+    siteName: "ic-ETITE'28",
+    title:
+      "ic-ETITE'28 | Third International Conference on Emerging Trends in Information Technology and Engineering",
+    description:
+      "VIT Vellore presents the Third International Conference on Emerging Trends in Information Technology and Engineering, 10–11 February 2028.",
+    images: [
+      {
+        url: "/assets/icetite-logo.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "ic-ETITE'28 International Conference",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ic-ETITE'28 | International Conference",
+    description:
+      "Third International Conference on Emerging Trends in Information Technology and Engineering, VIT Vellore, 10–11 February 2028.",
+    images: ["/assets/icetite-logo.jpeg"],
+  },
+  icons: {
+    icon: "/assets/icetite-logo.jpeg",
+  },
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
   },
 };
 
@@ -68,13 +91,15 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "AcademicConference",
-              name: "The Third International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE'28)",
+              "@type": "Event",
+              name: "Third International Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE'28)",
               alternateName: "ic-ETITE'28",
+              description:
+                "International Conference organized by Vellore Institute of Technology, Vellore, technically co-sponsored by IEEE.",
               startDate: "2028-02-10",
               endDate: "2028-02-11",
-              eventAttendanceMode: "https://schema.org/MixedEventAttendanceMode",
               eventStatus: "https://schema.org/EventScheduled",
+              url: "https://icetite28.vit.ac.in",
               location: {
                 "@type": "Place",
                 name: "Vellore Institute of Technology",
@@ -92,13 +117,11 @@ export default function RootLayout({
                 name: "Vellore Institute of Technology, Vellore",
                 url: "https://vit.ac.in",
               },
-              sponsor: [
-                {
-                  "@type": "Organization",
-                  name: "IEEE",
-                  url: "https://www.ieee.org",
-                },
-              ],
+              sponsor: {
+                "@type": "Organization",
+                name: "IEEE",
+                url: "https://www.ieee.org",
+              },
             }),
           }}
         />

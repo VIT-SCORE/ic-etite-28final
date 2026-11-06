@@ -20,9 +20,12 @@ import {
 import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
-  title: "Sponsorship Packages & Corporate Partnerships | ic-ETITE",
+  title: "Sponsorship & Corporate Partnerships",
   description:
     "Official corporate and academic sponsorship tiers for ic-ETITE at VIT Vellore. Explore Platinum, Gold, and Silver sponsorship packages with campus LED branding, keynote slots, exhibition stalls, and student engagement.",
+  alternates: {
+    canonical: "/sponsorship",
+  },
 };
 
 interface SponsorTier {

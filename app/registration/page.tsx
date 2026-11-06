@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import RegistrationTable from "@/components/RegistrationTable";
 
 export const metadata: Metadata = {
-  title: "Registration Guidelines & Tariff Schedule | ic-ETITE'28",
+  title: "Registration Guidelines & Fees",
   description:
     "Official delegate and author registration fee structure, IEEE member discounts, payment options, and presentation guidelines for ic-ETITE'28.",
+  alternates: {
+    canonical: "/registration",
+  },
 };
 
 import PageHeader from "@/components/PageHeader";

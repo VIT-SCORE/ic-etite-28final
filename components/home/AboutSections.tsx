@@ -12,15 +12,14 @@ const ui = {
     "text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight font-serif",
   body:
     "text-[16px] sm:text-[17px] md:text-[18px] leading-[1.85] text-slate-700 font-normal text-justify",
-  caption: "text-xs text-slate-600 font-medium mt-2 px-1 text-center",
-  standardButton:
-    "inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-white text-sm font-semibold transition-colors shadow-sm hover:shadow",
-  compactPrimary: "btn-primary inline-flex items-center gap-2 text-xs py-2.5 px-5",
-  compactSecondary: "btn-outline inline-flex items-center gap-2 text-xs py-2.5 px-5",
   imageCard:
     "p-2.5 bg-slate-50/80 border border-slate-200 rounded-2xl shadow-md hover:shadow-xl transition-shadow",
   image:
     "relative w-full aspect-[16/10] sm:aspect-[3/2] rounded-xl overflow-hidden border border-slate-200 bg-slate-100",
+  standardButton:
+    "inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-white text-sm font-semibold transition-colors shadow-sm hover:shadow",
+  compactPrimary: "btn-primary inline-flex items-center gap-2 text-xs py-2.5 px-5",
+  compactSecondary: "btn-outline inline-flex items-center gap-2 text-xs py-2.5 px-5",
 };
 
 type Cta = {
@@ -37,7 +36,7 @@ type Section = {
   eyebrow: string;
   title: string;
   paragraphs: string[];
-  image: { src: string; alt: string; caption: string };
+  image: { src: string; alt: string };
   ctas: Cta[];
 };
 
@@ -54,7 +53,6 @@ const sections: Section[] = [
     image: {
       src: "/images/004A3218.webp",
       alt: "Dignitaries releasing conference proceedings on dais at ic-ETITE International Conference",
-      caption: "Dignitaries and guests of honour on the Anna Auditorium dais at ic-ETITE",
     },
     ctas: [
       {
@@ -76,7 +74,6 @@ const sections: Section[] = [
     image: {
       src: "/images/004A3344.webp",
       alt: "Auditorium Gathering with ic-ETITE Conference Banner at VIT Vellore",
-      caption: "Plenary delegates and academic researchers assembled at Anna Auditorium, VIT",
     },
     ctas: [
       {
@@ -99,7 +96,6 @@ const sections: Section[] = [
     image: {
       src: "/images/frame_1.webp",
       alt: "Main entrance to VIT Vellore campus",
-      caption: "Vellore Institute of Technology (VIT), Vellore Main Campus Entrance",
     },
     ctas: [
       {
@@ -129,7 +125,6 @@ const sections: Section[] = [
     image: {
       src: "/images/vit-sjt.webp",
       alt: "Silver Jubilee Tower (SJT) at VIT Vellore",
-      caption: "Silver Jubilee Tower (SJT), home to computing research & labs at VIT Vellore",
     },
     ctas: [
       {
@@ -152,7 +147,6 @@ const sections: Section[] = [
     image: {
       src: "/images/vit-its.jpg",
       alt: "IEEE Information Theory Society Team at VIT Vellore",
-      caption: "IEEE Information Theory Society Student Chapter Executive Team",
     },
     ctas: [
       {
@@ -216,8 +210,6 @@ export default function AboutSections() {
       <div className={ui.container}>
         <div className={ui.rows}>
           {sections.map((section, index) => {
-            const imageOnLeft = index % 2 === 1;
-
             return (
               <article
                 key={section.id}
@@ -227,7 +219,7 @@ export default function AboutSections() {
               >
                 <div
                   className={`mb-6 w-full sm:w-[480px] md:mb-5 md:w-[540px] lg:w-[600px] xl:w-[640px] ${
-                    imageOnLeft
+                    index % 2 === 1
                       ? "md:float-left md:mr-8"
                       : "md:float-right md:ml-8"
                   }`}
@@ -243,7 +235,6 @@ export default function AboutSections() {
                         loading="lazy"
                       />
                     </div>
-                    <p className={ui.caption}>{section.image.caption}</p>
                   </div>
                 </div>
 
@@ -268,7 +259,7 @@ export default function AboutSections() {
                   ))}
                 </div>
 
-                <div className="clear-both pt-4 flex flex-wrap gap-3">
+                <div className="pt-4 flex flex-wrap gap-3">
                   {section.ctas.map((cta) => (
                     <CtaButton key={cta.label} {...cta} />
                   ))}

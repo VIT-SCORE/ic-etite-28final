@@ -19,9 +19,12 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "TechNext '28 | National Industrial Expo & Innovation Showcase",
+  title: "TechNext '28 Industrial Expo",
   description:
     "Official page of TechNext '28, the flagship national industrial exposition and student project innovation showcase at VIT Vellore.",
+  alternates: {
+    canonical: "/technext",
+  },
 };
 
 const technextGalleryItems: GalleryItem[] = [

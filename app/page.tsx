@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import AboutSections from "@/components/home/AboutSections";
 import HomePastEditions from "@/components/HomePastEditions";
@@ -6,6 +7,15 @@ import TechnicalSponsorsSection from "@/components/TechnicalSponsorsSection";
 import HomeCallForPapers from "@/components/HomeCallForPapers";
 import HomeImportantDates from "@/components/HomeImportantDates";
 import HomeKeynoteSpeakers from "@/components/HomeKeynoteSpeakers";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description:
+    "Join ic-ETITE'28, the Third International Conference on Emerging Trends in Information Technology and Engineering at VIT Vellore, on 10–11 February 2028.",
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function HomePage() {
   return (

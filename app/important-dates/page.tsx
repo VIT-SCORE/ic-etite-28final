@@ -3,9 +3,12 @@ import DatesTimeline from "@/components/DatesTimeline";
 import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
-  title: "Important Dates & Milestone Schedule | ic-ETITE'28",
+  title: "Important Dates & Schedule",
   description:
     "Official schedule and milestone dates for ic-ETITE'28 at Vellore Institute of Technology (VIT), Vellore.",
+  alternates: {
+    canonical: "/important-dates",
+  },
 };
 
 export default function ImportantDatesPage() {

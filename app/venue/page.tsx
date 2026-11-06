@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import VenueMap from "@/components/VenueMap";
 
 export const metadata: Metadata = {
-  title: "Conference Venue & Travel Logistics | ic-ETITE'28",
+  title: "Conference Venue & Travel",
   description:
     "Conference venue details at Vellore Institute of Technology (VIT), Vellore, Tamil Nadu, India. Travel routes, Katpadi railway connectivity, and nearest airports.",
+  alternates: {
+    canonical: "/venue",
+  },
 };
 
 import PageHeader from "@/components/PageHeader";

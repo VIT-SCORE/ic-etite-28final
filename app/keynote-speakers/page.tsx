@@ -3,9 +3,12 @@ import { Info } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
-  title: "Keynote Speakers Directory | ic-ETITE'28",
+  title: "Keynote Speakers",
   description:
     "Eminent global researchers, keynote luminaries, and plenary chairs of the IEEE ic-ETITE conference series.",
+  alternates: {
+    canonical: "/keynote-speakers",
+  },
 };
 
 export default function KeynoteSpeakersPage() {
