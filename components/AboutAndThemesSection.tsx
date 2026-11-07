@@ -178,7 +178,7 @@ export default function AboutAndThemesSection() {
             <div className="p-2.5 bg-white border-2 border-slate-200 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
               <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
                 <Image
-                  src="/images/vit-sjt.webp"
+                  src="/images/WhatsApp Image 2026-11-06 at 12.14.01 PM.jpeg"
                   alt="Silver Jubilee Tower (SJT) at VIT Vellore"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"

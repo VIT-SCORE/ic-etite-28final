@@ -21,6 +21,12 @@ export const FOLDER_GALLERY_CATEGORIES: FolderGalleryCategory[] = [
 ];
 
 export const FOLDER_GALLERY_PHOTOS: FolderGalleryPhoto[] = [
+  { src: "/images/icetite24-folder-gallery/technext24/004A3365.webp", title: "Guests Explore a Technology Demonstration", category: "technext24" },
+  { src: "/images/icetite24-folder-gallery/inaugural/IMG_3012.webp", title: "Inaugural Award Presentation", category: "inaugural" },
+  { src: "/images/icetite24-folder-gallery/inaugural/IMG_3014.webp", title: "Award Recipients at the Inaugural Session", category: "inaugural" },
+  { src: "/images/icetite24-folder-gallery/technext24/IMG_3334.webp", title: "Guests at the Technology Showcase", category: "technext24" },
+  { src: "/images/icetite24-folder-gallery/technext24/IMG_4450.webp", title: "Industry Guests Discuss a Demonstration", category: "technext24" },
+  { src: "/images/icetite24-folder-gallery/technext24/IMG_4464.webp", title: "Visitors Discuss a Showcase Project", category: "technext24" },
   { src: "/images/icetite24-folder-gallery/inaugural/004A3120.webp", title: "004A3120", category: "inaugural" },
   { src: "/images/icetite24-folder-gallery/inaugural/004A3136.webp", title: "004A3136", category: "inaugural" },
   { src: "/images/icetite24-folder-gallery/inaugural/004A3145.webp", title: "004A3145", category: "inaugural" },

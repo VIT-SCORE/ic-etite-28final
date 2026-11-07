@@ -3,6 +3,7 @@ import "./globals.css";
 import AppNavbar from "@/components/AppNavbar";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
+import StartupAnimation from "@/components/StartupAnimation";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://icetite28.vit.ac.in"),
@@ -82,11 +83,45 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-<html lang="en" data-scroll-behavior="smooth">
+<html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
         <head>
         <link rel="icon" href="/assets/icetite-logo.jpeg" />
-        {/* JSON-LD Structured Data for Academic Conference Event */}
-        <script
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                try {
+                  const sessionKey = "icetite28_startup_session_v1";
+                  if (!sessionStorage.getItem(sessionKey)) {
+                    sessionStorage.setItem(sessionKey, "1");
+
+                    let stage = null;
+                    if (localStorage.getItem("icetite28_welcome_completed") !== "1") {
+                      stage = "welcome";
+                    } else if (localStorage.getItem("icetite28_logo_completed") !== "1") {
+                      stage = "logo";
+                    }
+
+                    if (stage) {
+                      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                        const completedKey =
+                          stage === "welcome"
+                            ? "icetite28_welcome_completed"
+                            : "icetite28_logo_completed";
+                        localStorage.setItem(completedKey, "1");
+                      } else {
+                        window.__icetiteStartupAnimation = stage;
+                        document.documentElement.classList.add("startup-animation-pending");
+                      }
+                    }
+                  }
+                } catch (error) {
+                  console.warn("Startup animation storage is unavailable; skipping animation.", error);
+                }
+            `,
+          }}
+        />
+          {/* JSON-LD Structured Data for Academic Conference Event */}
+          <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -127,6 +162,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col bg-white text-[#101B2E] antialiased">
+        <StartupAnimation />
         <AppNavbar />
         <main className="flex-1">{children}</main>
         <Footer />

@@ -581,8 +581,8 @@ export default function AboutPage() {
               <div className="p-2.5 bg-white border-2 border-slate-200 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
                 <div className="relative w-full aspect-[3/2] rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
                   <Image
-                    src="/images/004A3344.webp"
-                    alt="ic-ETITE Conference Plenary Gathering at Anna Auditorium, VIT Vellore"
+                    src="/images/WhatsApp Image 2026-11-06 at 12.14.01 PM.jpeg"
+                    alt="Silver Jubilee Tower at VIT Vellore"
                     fill
                     loading="lazy"
                     sizes="(max-width: 768px) 100vw, 40vw"

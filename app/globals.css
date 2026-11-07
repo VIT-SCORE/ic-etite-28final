@@ -34,6 +34,61 @@ h1, h2, h3, h4, h5, h6 {
 #intro-overlay.active {
   display: flex !important;
 }
+html.startup-animation-pending body > :not(#intro-overlay) {
+  visibility: hidden;
+}
+
+.sa-welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  text-align: center;
+}
+.sa-welcome.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.sa-welcome-label,
+.sa-welcome-title,
+.sa-welcome-subtitle {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.sa-welcome-label {
+  margin: 0;
+  color: #888;
+  font-size: clamp(11px, 1.2vw, 15px);
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+.sa-welcome-title {
+  margin: 0;
+  color: #181818;
+  font-size: clamp(36px, 7vw, 96px);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.sa-welcome-title span {
+  color: #ff0050;
+  font-weight: 700;
+}
+.sa-welcome-subtitle {
+  margin: 8px 0 0;
+  color: #555;
+  font-size: clamp(9px, 1vw, 13px);
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
 
 .sa-stage-wrapper {
   position: relative;

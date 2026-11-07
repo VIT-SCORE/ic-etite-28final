@@ -123,7 +123,7 @@ const sections: Section[] = [
       "SCORE fosters a research-driven and innovation-oriented environment through interdisciplinary research, industry collaboration, consultancy, and engagement with leading academic and research organisations. Supported by state-of-the-art infrastructure, industry-supported laboratories, Centres of Excellence, and a strong community of students, faculty members, researchers, visiting professors, and industry professionals, the School promotes excellence in teaching, learning, research, and innovation.",
     ],
     image: {
-      src: "/images/vit-sjt.webp",
+      src: "/images/WhatsApp Image 2026-11-06 at 12.14.01 PM.jpeg",
       alt: "Silver Jubilee Tower (SJT) at VIT Vellore",
     },
     ctas: [
