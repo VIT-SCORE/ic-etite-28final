@@ -91,7 +91,7 @@ export default function VitScoreConferenceSection() {
           <div className="md:col-span-6">
             <div className="relative rounded-2xl overflow-hidden border border-[#E2E8F0] shadow-xl group">
               <Image
-                src="/images/vit-sjt.png"
+                src="/images/vit-sjt.webp"
                 alt="VIT Vellore Silver Jubilee Tower (SJT) Aerial View"
                 width={800}
                 height={450}

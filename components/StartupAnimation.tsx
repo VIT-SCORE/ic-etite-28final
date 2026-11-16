@@ -31,7 +31,6 @@ export default function StartupAnimation() {
     document.documentElement.classList.add("startup-animation-pending");
     document.body.style.overflow = "hidden";
 
-    const timers: ReturnType<typeof setTimeout>[] = [];
     const finishAnimation = () => {
       const completedKey =
         stage === "welcome"
@@ -45,15 +44,14 @@ export default function StartupAnimation() {
       setStage(null);
     };
 
-    if (stage === "welcome") {
-      timers.push(
-        setTimeout(() => setWelcomeVisible(true), 50),
-        setTimeout(() => setWelcomeVisible(false), 2600),
-        setTimeout(finishAnimation, 3300),
-      );
-    } else {
-      timers.push(setTimeout(finishAnimation, 3800));
-    }
+    const timers: ReturnType<typeof setTimeout>[] =
+      stage === "welcome"
+        ? [
+            setTimeout(() => setWelcomeVisible(true), 50),
+            setTimeout(() => setWelcomeVisible(false), 2600),
+            setTimeout(finishAnimation, 3300),
+          ]
+        : [setTimeout(finishAnimation, 3800)];
 
     return () => {
       timers.forEach(clearTimeout);
