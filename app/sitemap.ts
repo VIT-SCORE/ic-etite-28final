@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-const SITE_URL = "https://icetite28.vit.ac.in";
+const SITE_URL = "https://icetite.vit.ac.in";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [

@@ -6,7 +6,7 @@ import BackToTop from "@/components/BackToTop";
 import StartupAnimation from "@/components/StartupAnimation";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://icetite28.vit.ac.in"),
+  metadataBase: new URL("https://icetite.vit.ac.in"),
   title: {
     default:
       "ic-ETITE'28 | International Conference on Emerging Trends in Information Technology and Engineering",
