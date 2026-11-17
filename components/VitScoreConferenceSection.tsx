@@ -87,17 +87,16 @@ export default function VitScoreConferenceSection() {
             </div>
           </div>
 
-          {/* Aerial Drone Video Shot of Silver Jubilee Tower (SJT) */}
+          {/* Silver Jubilee Tower (SJT) */}
           <div className="md:col-span-6">
-            <div className="relative rounded-2xl overflow-hidden border border-[#E2E8F0] shadow-xl group">
+            <div className="relative h-[360px] rounded-2xl overflow-hidden border border-[#E2E8F0] shadow-xl">
               <Image
-                src="/images/vit-sjt.webp"
-                alt="VIT Vellore Silver Jubilee Tower (SJT) Aerial View"
-                width={800}
-                height={450}
-                className="w-full h-[360px] object-cover group-hover:scale-105 transition-transform duration-700"
+                src="/images/VIT-SJT.jpeg"
+                alt="Silver Jubilee Tower (SJT) at VIT Vellore"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover object-center hover:scale-105 transition-transform duration-700"
                 loading="lazy"
-                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#002147]/90 via-transparent to-black/20" />
               <div className="absolute bottom-0 inset-x-0 p-5 text-white">
